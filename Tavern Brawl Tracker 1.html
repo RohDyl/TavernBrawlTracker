@@ -1,0 +1,622 @@
+<html data-type="html" data-identifier="d7e9f2a1-4b3c-4d5e-9f8a-7b6c5d4e3f21" data-title="Tavern Brawl Tracker" data-version="4" width="390" height="840"><head></head><body>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{width:390px;height:840px;overflow:hidden;}
+body{background:#C4820A;font-family:'Nunito',sans-serif;}
+#app{width:390px;height:840px;overflow:hidden;position:relative;}
+
+/* WELCOME */
+.welcome{width:390px;height:840px;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:32px;}
+.welcome-icon{font-size:68px;}
+.welcome-title{font-family:'Bangers',cursive;font-size:72px;color:#FFD700;text-shadow:4px 4px 0 #000,6px 6px 0 #FF4F8B;letter-spacing:.08em;text-align:center;line-height:.9;}
+.welcome-sub{font-family:'Bangers',cursive;font-size:15px;color:#00C8B4;letter-spacing:.2em;}
+
+/* SETUP */
+.setup{width:390px;height:840px;background:#C4820A;display:flex;flex-direction:column;overflow:hidden;}
+.setup-head{background:#111;border-bottom:4px solid #FFD700;padding:9px 16px;text-align:center;flex-shrink:0;}
+.setup-head h1{font-family:'Bangers',cursive;font-size:26px;color:#FFD700;text-shadow:2px 2px 0 #FF4F8B;letter-spacing:.08em;line-height:1;}
+.setup-head .sub{font-family:'Bangers',cursive;font-size:11px;color:#00C8B4;letter-spacing:.2em;}
+.setup-body{flex:1;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:8px;}
+.setup-body::-webkit-scrollbar{width:3px;}
+.setup-body::-webkit-scrollbar-thumb{background:#888;border-radius:3px;}
+.sbox{background:#FFF8E0;border:3px solid #111;border-radius:10px;overflow:hidden;box-shadow:3px 3px 0 #111;}
+.sbox-head{background:#111;padding:5px 10px;font-family:'Bangers',cursive;font-size:13px;letter-spacing:.1em;color:#FFD700;}
+.sbox-body{padding:9px;}
+.name-inp{width:100%;background:#fff;border:2px solid #111;border-radius:8px;padding:7px 10px;font-family:'Nunito',sans-serif;font-size:16px;font-weight:700;color:#111;outline:none;box-shadow:2px 2px 0 #111;}
+.name-inp:focus{border-color:#FF4F8B;}
+.bb-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;max-height:170px;overflow-y:auto;}
+.bb-opt{background:#fff;border:2px solid #111;border-radius:8px;padding:6px 4px;text-align:center;cursor:pointer;box-shadow:2px 2px 0 #111;user-select:none;}
+.bb-opt.sel{box-shadow:2px 2px 0 #111,0 0 0 3px #FF4F8B;}
+.bb-opt-icon{font-size:15px;}
+.bb-opt-name{font-family:'Bangers',cursive;font-size:12px;color:#111;margin:1px 0;line-height:1.1;}
+.bb-opt-arch{font-size:9px;font-weight:700;padding:1px 5px;border-radius:8px;display:inline-block;border:1.5px solid #111;margin-top:1px;}
+.bb-opt-grit{font-size:9px;font-weight:900;color:#FF4F8B;margin-top:1px;}
+.budget-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;}
+.budget-lbl{font-family:'Bangers',cursive;font-size:13px;color:#111;}
+.budget-num{font-size:20px;color:#FF4F8B;}
+.add-row{display:flex;gap:6px;margin-bottom:7px;}
+.add-btn{flex:1;background:#fff;border:2px solid #111;border-radius:8px;padding:6px 4px;font-family:'Bangers',cursive;font-size:12px;letter-spacing:.04em;color:#111;cursor:pointer;text-align:center;box-shadow:2px 2px 0 #111;user-select:none;line-height:1.3;}
+.add-btn.sc{background:#00C8B4;}
+.add-btn.br{background:#FF4F8B;color:#fff;}
+.add-btn:disabled{opacity:.35;cursor:not-allowed;box-shadow:none;}
+.squad-list{display:flex;flex-direction:column;gap:3px;max-height:100px;overflow-y:auto;}
+.squad-item{display:flex;align-items:center;justify-content:space-between;background:#fff;border:2px solid #111;border-radius:6px;padding:4px 8px;}
+.squad-item-txt{font-weight:700;font-size:12px;color:#111;}
+.sq-rm{background:#FF4F8B;color:#fff;border:2px solid #111;border-radius:4px;width:20px;height:20px;font-size:12px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.setup-foot{padding:10px 14px;flex-shrink:0;}
+.pdots{display:flex;justify-content:center;gap:8px;margin-bottom:7px;}
+.pdot{width:9px;height:9px;border-radius:50%;border:2px solid #111;background:#fff;}
+.pdot.act{background:#FF4F8B;}
+.pdot.done{background:#8BC34A;}
+
+/* GAME */
+.game{width:390px;height:840px;display:flex;flex-direction:column;background:#C4820A;}
+.pzone{flex:1;display:flex;flex-direction:column;min-height:0;background:#FFF8E0;overflow:hidden;}
+.pzone.p1{transform:rotate(180deg);transform-origin:center;}
+
+/* Player header */
+.phead{display:flex;align-items:center;justify-content:space-between;padding:5px 10px;border-bottom:3px solid #111;flex-shrink:0;}
+.pname-col{display:flex;flex-direction:column;}
+.pname{font-family:'Bangers',cursive;font-size:17px;letter-spacing:.04em;line-height:1;}
+.parch{font-size:9px;font-weight:700;}
+
+/* Score area — kept but labelled as adjust */
+.score-area{display:flex;align-items:center;gap:3px;}
+.score-adj-lbl{font-family:'Bangers',cursive;font-size:8px;letter-spacing:.08em;color:rgba(0,0,0,.35);text-align:center;margin-bottom:1px;}
+.sbtn{width:24px;height:24px;background:rgba(0,0,0,.2);color:#111;border:1.5px solid rgba(0,0,0,.3);border-radius:4px;font-family:'Bangers',cursive;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:.7;}
+.snum{font-family:'Bangers',cursive;font-size:34px;min-width:38px;text-align:center;line-height:1;}
+.slbl{font-size:8px;font-weight:900;text-align:center;}
+
+/* Legend */
+.tok-legend{display:flex;align-items:center;gap:10px;padding:3px 10px;background:rgba(0,0,0,.06);border-bottom:2px solid #111;flex-shrink:0;}
+.leg-item{display:flex;align-items:center;gap:3px;}
+.leg-dot{width:9px;height:9px;border-radius:50%;border:1.5px solid #111;flex-shrink:0;}
+.leg-dot.gold{background:#FFD700;}
+.leg-dot.purple{background:#9B50E0;}
+.leg-txt{font-family:'Bangers',cursive;font-size:9px;color:#777;letter-spacing:.04em;}
+
+/* Models area */
+.models-wrap{flex:1;overflow-y:auto;padding:5px 7px;display:flex;flex-direction:column;gap:5px;min-height:0;}
+.models-wrap::-webkit-scrollbar{width:3px;}
+.models-wrap::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px;}
+
+/* ── MODEL CARD ── */
+.mcard{background:#fff;border:2px solid #111;border-radius:8px;overflow:hidden;box-shadow:2px 2px 0 #111;flex-shrink:0;position:relative;transition:opacity .2s;}
+.mcard.ko{opacity:.35;background:#e8e8e8;}
+.mcard.activated::after{content:'';position:absolute;inset:0;background:rgba(180,180,180,.3);pointer-events:none;z-index:2;border-radius:6px;}
+
+/* Card header row: tokens + name + badges */
+.mcard-head{display:flex;align-items:center;gap:5px;padding:4px 8px;border-bottom:2px solid #111;min-height:44px;}
+.tok-group{display:flex;gap:3px;flex-shrink:0;}
+
+/* Tokens */
+.mtok{width:32px;height:32px;border-radius:50%;border:2.5px solid #111;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;flex-shrink:0;box-shadow:2px 2px 0 #111;transition:background .15s,opacity .15s,box-shadow .1s,transform .1s;user-select:none;position:relative;}
+.mtok:active{transform:scale(.86);}
+.ord-tok{background:#FFD700;}
+.ord-tok::before{content:'🪙';font-size:15px;}
+.cmd-tok{background:#9B50E0;border-color:#6a2aaa;box-shadow:2px 2px 0 #6a2aaa;}
+.cmd-tok::before{content:'⭐';font-size:13px;}
+.mtok.tok-used{background:#d0d0d0;border-color:#aaa;box-shadow:1px 1px 0 #aaa;opacity:.4;}
+.mtok.tok-used::before{content:'✕';font-size:14px;font-family:'Bangers',cursive;color:#888;}
+.tok-wrap{display:flex;flex-direction:column;align-items:center;gap:1px;}
+.tok-lbl{font-family:'Bangers',cursive;font-size:7px;letter-spacing:.04em;color:#666;text-align:center;line-height:1;}
+.tok-lbl.cmd{color:#9B50E0;}
+
+.mname{font-family:'Bangers',cursive;font-size:13px;letter-spacing:.03em;color:#111;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mbadges{display:flex;gap:2px;align-items:center;flex-shrink:0;}
+.mbadge{font-family:'Bangers',cursive;font-size:8px;padding:1px 4px;border-radius:3px;border:1.5px solid #111;letter-spacing:.04em;white-space:nowrap;}
+.mb-bb{background:#FFD700;color:#111;}
+.mb-sc{background:#00C8B4;color:#111;}
+.mb-br{background:#FF4F8B;color:#fff;}
+.mb-bl{background:#FF4F8B;color:#fff;}
+.mb-ko{background:#111;color:#FFD700;}
+
+/* Blood tracker */
+.mcard-body{display:flex;align-items:center;padding:4px 8px;gap:5px;}
+.bbtn{width:34px;height:34px;border-radius:7px;border:2px solid #111;font-family:'Bangers',cursive;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:2px 2px 0 #111;user-select:none;transition:transform .1s;}
+.bbtn:active{transform:scale(.9);}
+.bbtn.minus{background:#FF4F8B;color:#fff;}
+.bbtn.plus{background:#8BC34A;color:#111;}
+.bbtn:disabled{opacity:.22;cursor:not-allowed;box-shadow:none;}
+.bdisp{flex:1;display:flex;flex-direction:column;align-items:center;}
+.bnum{font-family:'Bangers',cursive;font-size:22px;color:#111;line-height:1;}
+.bnum.bl{color:#FF4F8B;}
+.bnum.ko{color:#aaa;}
+.bnum sub{font-size:10px;color:#bbb;font-family:'Bangers',cursive;}
+.bbar-wrap{width:100%;background:#eee;border:1.5px solid #111;border-radius:3px;height:4px;margin-top:2px;overflow:hidden;}
+.bbar{height:100%;border-radius:2px;transition:width .2s,background .2s;}
+.bbar-lbl{font-size:7px;font-weight:900;color:#ccc;margin-top:1px;}
+
+/* ── STAT ROW ── */
+.stat-row{display:flex;align-items:stretch;border-top:2px dashed #e0d8c0;background:#fdf8ec;flex-shrink:0;}
+.stat-chip{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 2px;border-right:1px dashed #e0d8c0;}
+.stat-chip:last-child{border-right:none;}
+.stat-val{font-family:'Bangers',cursive;font-size:13px;line-height:1;color:#111;}
+.stat-val.rank-val{color:#C4820A;}
+.stat-val.spd-val{color:#00A090;}
+.stat-val.ff-val{color:#FF4F8B;}
+.stat-val.def-val{color:#555;}
+.stat-val.cov-val{color:#9B50E0;}
+.stat-lbl{font-size:7px;font-weight:900;letter-spacing:.06em;color:#bbb;text-transform:uppercase;margin-top:1px;}
+
+/* CENTER STRIP */
+.cstrip{height:52px;background:#111;border-top:3px solid #FFD700;border-bottom:3px solid #FFD700;display:flex;align-items:center;justify-content:space-between;padding:0 10px;flex-shrink:0;z-index:10;}
+.turn-col{display:flex;flex-direction:column;align-items:center;}
+.turn-lbl{font-family:'Bangers',cursive;font-size:10px;color:#888;letter-spacing:.1em;}
+.turn-num{font-family:'Bangers',cursive;font-size:26px;color:#FFD700;text-shadow:1px 1px 0 #FF4F8B;line-height:1;}
+.turn-of{font-family:'Bangers',cursive;font-size:10px;color:#555;}
+.prize-row{display:flex;align-items:center;gap:4px;}
+.ptok{width:30px;height:30px;background:#FFD700;border:2px solid #888;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:opacity .15s;}
+.ptok.claimed{background:#333;opacity:.2;cursor:not-allowed;}
+.etbtn{background:#FF4F8B;border:2px solid #FFD700;border-radius:7px;padding:5px 9px;font-family:'Bangers',cursive;font-size:13px;letter-spacing:.06em;color:#fff;cursor:pointer;box-shadow:2px 2px 0 rgba(255,215,0,.4);transition:transform .1s;}
+.etbtn:active{transform:scale(.95);}
+.etbtn.last{background:#9B50E0;}
+
+/* MODAL */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:200;align-items:center;justify-content:center;}
+.modal-box{background:#FFF8E0;border:3px solid #111;border-radius:12px;padding:18px;margin:20px;box-shadow:6px 6px 0 #111;width:calc(100% - 40px);}
+.modal-title{font-family:'Bangers',cursive;font-size:18px;color:#111;margin-bottom:12px;text-align:center;letter-spacing:.06em;}
+.mbtns{display:flex;flex-direction:column;gap:8px;}
+
+/* END */
+.end{width:390px;height:840px;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:28px;}
+.end-title{font-family:'Bangers',cursive;font-size:46px;color:#FFD700;text-shadow:3px 3px 0 #FF4F8B;letter-spacing:.08em;text-align:center;line-height:1;}
+.end-winner{background:#FF4F8B;border:3px solid #FFD700;border-radius:12px;padding:12px 20px;text-align:center;box-shadow:4px 4px 0 #FFD700;width:100%;}
+.ew-sub{font-family:'Bangers',cursive;font-size:11px;color:#ffb0c8;letter-spacing:.2em;}
+.ew-name{font-family:'Bangers',cursive;font-size:28px;color:#fff;letter-spacing:.05em;}
+.ew-pts{font-family:'Bangers',cursive;font-size:18px;color:#FFD700;}
+.end-scores{display:flex;gap:10px;width:100%;}
+.esc{flex:1;background:#FFF8E0;border:3px solid #FFD700;border-radius:10px;padding:10px;text-align:center;box-shadow:3px 3px 0 #FFD700;}
+.esc-name{font-family:'Bangers',cursive;font-size:13px;color:#111;}
+.esc-pts{font-family:'Bangers',cursive;font-size:36px;color:#FF4F8B;text-shadow:2px 2px 0 #000;line-height:1;}
+
+/* SHARED */
+.btn-main{width:100%;background:#FFD700;border:3px solid #111;border-radius:10px;padding:11px;font-family:'Bangers',cursive;font-size:20px;letter-spacing:.1em;color:#111;cursor:pointer;box-shadow:4px 4px 0 #111;user-select:none;text-align:center;transition:transform .1s;}
+.btn-main:active{transform:scale(.97);}
+.btn-main:disabled{opacity:.35;cursor:not-allowed;}
+.btn-pink{background:#FF4F8B;color:#fff;}
+.btn-grey{background:#e0e0e0;color:#666;}
+
+/* TOAST */
+.toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#111;color:#FFD700;font-family:'Bangers',cursive;font-size:16px;letter-spacing:.08em;padding:10px 20px;border-radius:8px;border:3px solid #FFD700;z-index:1000;animation:tst 1.8s forwards;text-align:center;pointer-events:none;max-width:280px;}
+@keyframes tst{0%{opacity:0;transform:translate(-50%,-50%) scale(.85);}15%{opacity:1;transform:translate(-50%,-50%) scale(1);}70%{opacity:1;}100%{opacity:0;}}
+</style>
+
+<div id="app"></div>
+<div id="toast-c"></div>
+<div class="modal-bg" id="prize-modal">
+  <div class="modal-box">
+    <div class="modal-title">🏆 WHO CLAIMS THE PRIZE?</div>
+    <div class="mbtns" id="prize-modal-btns"></div>
+  </div>
+</div>
+<div class="modal-bg" id="ko-modal">
+  <div class="modal-box">
+    <div class="modal-title" id="ko-modal-title">💀 KO'D!</div>
+    <div style="text-align:center;font-size:13px;font-weight:700;color:#666;margin-bottom:12px;" id="ko-modal-sub"></div>
+    <div class="mbtns"><button class="btn-main" id="ko-ok-btn">OK</button></div>
+  </div>
+</div>
+
+<script>
+// Full BB roster with all stats
+const BB=[
+  {name:'Big Sal',      arch:'Bruiser',  grit:9, bat:4, rank:14, speed:3, ff:2, def:6,  defC:10},
+  {name:'Mad Maggie',   arch:'Bruiser',  grit:7, bat:3, rank:13, speed:3, ff:2, def:6,  defC:10},
+  {name:'Brickhouse Barry', arch:'Bruiser', grit:8, bat:4, rank:13, speed:3, ff:2, def:6, defC:10},
+  {name:'Barmaid Bessie', arch:'Barfly', grit:5, bat:2, rank:12, speed:4, ff:1, def:10, defC:14},
+  {name:'Lucky Lenny',  arch:'Barfly',   grit:4, bat:2, rank:11, speed:4, ff:1, def:10, defC:14},
+  {name:"One-Eyed McGee", arch:'Barfly', grit:5, bat:2, rank:13, speed:4, ff:1, def:10, defC:14},
+  {name:'The Colonel',  arch:'Mob Boss', grit:6, bat:3, rank:11, speed:4, ff:1, def:10, defC:14},
+  {name:'Mother Malone',arch:'Mob Boss', grit:7, bat:3, rank:13, speed:4, ff:1, def:10, defC:14},
+  {name:'Tiny',         arch:'Mob Boss', grit:5, bat:2, rank:10, speed:4, ff:1, def:10, defC:14},
+  {name:'Slick Vince',  arch:'Grifter',  grit:5, bat:2, rank:12, speed:4, ff:1, def:10, defC:14},
+];
+
+// Base stats for troop types
+const TROOP_STATS={
+  scrapper:{rank:10, speed:4, ff:1, def:10, defC:14},
+  brute:   {rank:14, speed:3, ff:2, def:6,  defC:10},
+};
+
+const AICON={Bruiser:'👊',Barfly:'🍺','Mob Boss':'🤜',Grifter:'🃏'};
+const ABG  ={Bruiser:'#FF4F8B',Barfly:'#8BC34A','Mob Boss':'#FFD700',Grifter:'#9B50E0'};
+const ATXT ={Bruiser:'#fff',Barfly:'#111','Mob Boss':'#111',Grifter:'#fff'};
+
+let mid=0; const nm=()=>++mid;
+
+function mkPlayer(n){return{name:n,score:0,cmdUsed:false,bbIdx:null,budget:4,models:[]};}
+
+function mkModel(type,name,arch,max,bat,stats){
+  return{id:nm(),type,name,arch,max,cur:max,bat,ko:false,activated:false,...stats};
+}
+
+let S={
+  screen:'welcome',sp:0,
+  players:[mkPlayer('Player 1'),mkPlayer('Player 2')],
+  turn:1,prizes:[true,true,true],winner:null,pendingPrize:null
+};
+
+// ── ACTIONS ──
+function selBB(pi,bi){
+  const p=S.players[pi];
+  p.models=p.models.filter(m=>m.type!=='bb');
+  p.bbIdx=bi;
+  const b=BB[bi];
+  p.models.unshift(mkModel('bb',b.name,b.arch,b.grit,b.bat,{rank:b.rank,speed:b.speed,ff:b.ff,def:b.def,defC:b.defC}));
+  render();
+}
+function addMdl(pi,type){
+  const p=S.players[pi];
+  const c=type==='scrapper'?1:2;
+  if(p.budget<c)return;
+  p.budget-=c;
+  const s=TROOP_STATS[type];
+  p.models.push(mkModel(type,type==='scrapper'?'Scrapper':'Brute',null,s.rank===14?7:4,type==='scrapper'?2:3,s));
+  render();
+}
+function rmMdl(pi,id){
+  const p=S.players[pi];
+  const m=p.models.find(x=>x.id===id);
+  if(!m)return;
+  if(m.type==='bb')p.bbIdx=null;
+  else p.budget+=m.type==='scrapper'?1:2;
+  p.models=p.models.filter(x=>x.id!==id);
+  render();
+}
+function activateModel(pi,id){
+  const m=S.players[pi].models.find(x=>x.id===id);
+  if(m&&!m.ko){m.activated=!m.activated;render();}
+}
+function toggleCmd(pi){
+  const p=S.players[pi];
+  const bb=p.models.find(m=>m.type==='bb');
+  if(!bb||bb.ko)return;
+  p.cmdUsed=!p.cmdUsed;render();
+}
+function chBlood(pi,id,d){
+  const p=S.players[pi];
+  const m=p.models.find(x=>x.id===id);
+  if(!m||m.ko)return;
+  const nv=Math.max(0,Math.min(m.max,m.cur+d));
+  m.cur=nv;
+  if(nv===0){
+    m.ko=true;
+    const op=pi===0?1:0;
+    const pts=m.type==='bb'?3:m.type==='brute'?2:1;
+    S.players[op].score+=pts;
+    const lbl=m.type==='bb'?m.name:(m.type==='scrapper'?'Scrapper':'Brute');
+    showKoModal(lbl,pts,()=>{
+      if(p.models.every(x=>x.ko)){S.screen='end';setWinner();render();}
+      else render();
+    });
+    return;
+  }
+  render();
+}
+function endTurn(){
+  if(S.turn>=4){S.screen='end';setWinner();render();return;}
+  S.turn++;
+  S.players.forEach(p=>{p.cmdUsed=false;p.models.forEach(m=>{m.activated=false;});});
+  showToast('⚡ TURN '+S.turn+' — ORDERS RESET!');
+  render();
+}
+function setWinner(){
+  const s0=S.players[0].score,s1=S.players[1].score;
+  if(s0>s1){S.winner=0;return;}
+  if(s1>s0){S.winner=1;return;}
+  const b0=S.players[0].models.find(m=>m.type==='bb');
+  const b1=S.players[1].models.find(m=>m.type==='bb');
+  const a0=b0&&!b0.ko,a1=b1&&!b1.ko;
+  if(a0&&!a1)S.winner=0;
+  else if(a1&&!a0)S.winner=1;
+  else if(a0&&a1){if(b0.cur>b1.cur)S.winner=0;else if(b1.cur>b0.cur)S.winner=1;else S.winner='draw';}
+  else S.winner='draw';
+}
+function nextSetup(){
+  if(S.sp===0){S.sp=1;render();}
+  else{S.screen='game';render();}
+}
+function reset(){
+  mid=0;
+  S={screen:'welcome',sp:0,players:[mkPlayer('Player 1'),mkPlayer('Player 2')],turn:1,prizes:[true,true,true],winner:null,pendingPrize:null};
+  render();
+}
+
+// ── MODALS ──
+let koCallback=null;
+function showKoModal(name,pts,cb){
+  koCallback=cb;
+  document.getElementById('ko-modal-title').textContent="💀 "+name.toUpperCase()+" KO'D!";
+  document.getElementById('ko-modal-sub').textContent="Opponent gains "+pts+" point"+(pts!==1?'s':'')+"!";
+  document.getElementById('ko-modal').style.display='flex';
+}
+function showPrizeModal(idx){
+  if(!S.prizes[idx])return;
+  S.pendingPrize=idx;
+  const btns=document.getElementById('prize-modal-btns');
+  btns.innerHTML='';
+  S.players.forEach((p,pi)=>{
+    const b=document.createElement('button');
+    b.className='btn-main btn-pink';b.style.fontSize='15px';
+    b.textContent=p.name+' claims it! (+5 pts)';
+    b.addEventListener('click',()=>{
+      S.prizes[S.pendingPrize]=false;
+      S.players[pi].score+=5;
+      S.pendingPrize=null;
+      document.getElementById('prize-modal').style.display='none';
+      showToast('🏆 +5 pts for '+p.name+'!');
+      render();
+    });
+    btns.appendChild(b);
+  });
+  const cancel=document.createElement('button');
+  cancel.className='btn-main btn-grey';cancel.style.fontSize='13px';cancel.textContent='Cancel';
+  cancel.addEventListener('click',()=>{S.pendingPrize=null;document.getElementById('prize-modal').style.display='none';});
+  btns.appendChild(cancel);
+  document.getElementById('prize-modal').style.display='flex';
+}
+function showToast(msg){
+  const c=document.getElementById('toast-c');
+  const t=document.createElement('div');t.className='toast';t.textContent=msg;
+  c.appendChild(t);setTimeout(()=>t.remove(),1900);
+}
+
+// ── RENDER ──
+function render(){
+  const a=document.getElementById('app');
+  if(S.screen==='welcome')a.innerHTML=rWelcome();
+  else if(S.screen==='setup')a.innerHTML=rSetup();
+  else if(S.screen==='game')a.innerHTML=rGame();
+  else if(S.screen==='end')a.innerHTML=rEnd();
+  attach();
+}
+
+function rWelcome(){
+  return`<div class="welcome">
+    <div class="welcome-icon">🍺</div>
+    <div class="welcome-title">TAVERN<br>BRAWL</div>
+    <div class="welcome-sub">GAME TRACKER</div>
+    <button class="btn-main" id="btn-go-setup">START GAME</button>
+  </div>`;
+}
+
+function rSetup(){
+  const pi=S.sp,p=S.players[pi],valid=p.bbIdx!==null,last=pi===1;
+  const bbOpts=BB.map((b,i)=>`
+    <div class="bb-opt${p.bbIdx===i?' sel':''}" data-a="selbb" data-pi="${pi}" data-bi="${i}">
+      <div class="bb-opt-icon">${AICON[b.arch]}</div>
+      <div class="bb-opt-name">${b.name}</div>
+      <div class="bb-opt-arch" style="background:${ABG[b.arch]};color:${ATXT[b.arch]}">${b.arch}</div>
+      <div class="bb-opt-grit">❤️ ${b.grit} · RNK ${b.rank}</div>
+    </div>`).join('');
+  const sqItems=p.models.map(m=>{
+    const ic=m.type==='bb'?AICON[m.arch]:m.type==='scrapper'?'💨':'💪';
+    const cost=m.type==='bb'?'Free':m.type==='scrapper'?'1pt':'2pt';
+    return`<div class="squad-item">
+      <span class="squad-item-txt">${ic} ${m.name} <span style="color:#aaa;font-size:10px">${cost}</span></span>
+      <button class="sq-rm" data-a="rmmx" data-pi="${pi}" data-id="${m.id}">✕</button>
+    </div>`;
+  }).join('');
+  return`<div class="setup">
+    <div class="setup-head"><h1 id="h1-setup">TAVERN BRAWL</h1><div class="sub">BUILD YOUR SQUAD</div></div>
+    <div class="setup-body">
+      <div class="pdots">
+        <div class="pdot${S.sp>0?' done':' act'}"></div>
+        <div class="pdot${S.sp===1?' act':''}"></div>
+      </div>
+      <div class="sbox">
+        <div class="sbox-head">👤 PLAYER ${pi+1} NAME</div>
+        <div class="sbox-body"><input class="name-inp" type="text" value="${p.name}" placeholder="Enter name..." data-a="setname" data-pi="${pi}" maxlength="14"></div>
+      </div>
+      <div class="sbox">
+        <div class="sbox-head">⭐ CHOOSE YOUR BIG BOZZA</div>
+        <div class="sbox-body"><div class="bb-grid">${bbOpts}</div></div>
+      </div>
+      <div class="sbox">
+        <div class="sbox-head">👥 ADD CREW — Spend 4 Points</div>
+        <div class="sbox-body">
+          <div class="budget-row"><span class="budget-lbl">Points left: <span class="budget-num">${p.budget}</span></span></div>
+          <div class="add-row">
+            <button class="add-btn sc" data-a="addsc" data-pi="${pi}" ${p.budget<1?'disabled':''}>+ Scrapper<br><small style="font-family:Nunito,sans-serif;font-size:10px;font-weight:700">1pt · RNK 10 · SPD 4"</small></button>
+            <button class="add-btn br" data-a="addbr" data-pi="${pi}" ${p.budget<2?'disabled':''}>+ Brute<br><small style="font-family:Nunito,sans-serif;font-size:10px;font-weight:700">2pt · RNK 14 · SPD 3"</small></button>
+          </div>
+          ${sqItems?`<div class="squad-list">${sqItems}</div>`:`<div style="text-align:center;color:#bbb;font-size:11px;font-weight:700;padding:4px 0">No crew added yet</div>`}
+        </div>
+      </div>
+    </div>
+    <div class="setup-foot">
+      <button class="btn-main" id="btn-nxt" ${!valid?'disabled':''}>${last?'🍺 START BRAWL!':'NEXT PLAYER →'}</button>
+    </div>
+  </div>`;
+}
+
+function rStatRow(m){
+  const dice='●'.repeat(m.ff);
+  return`<div class="stat-row">
+    <div class="stat-chip">
+      <span class="stat-val rank-val">${m.rank}</span>
+      <span class="stat-lbl">RANK</span>
+    </div>
+    <div class="stat-chip">
+      <span class="stat-val spd-val">${m.speed}"</span>
+      <span class="stat-lbl">SPEED</span>
+    </div>
+    <div class="stat-chip">
+      <span class="stat-val ff-val">${dice}</span>
+      <span class="stat-lbl">FF DICE</span>
+    </div>
+    <div class="stat-chip">
+      <span class="stat-val def-val">${m.def}</span>
+      <span class="stat-lbl">DEF</span>
+    </div>
+    <div class="stat-chip">
+      <span class="stat-val cov-val">${m.defC}</span>
+      <span class="stat-lbl">COVER</span>
+    </div>
+  </div>`;
+}
+
+function rModelCard(m,pi,player){
+  const bl=!m.ko&&m.cur<=m.bat;
+  const pct=m.ko?0:Math.round(m.cur/m.max*100);
+  const bc=m.ko?'#ccc':bl?'#FF4F8B':'#8BC34A';
+  const hc=m.type==='bb'?'#FFD700':m.type==='scrapper'?'#00C8B4':'#FF4F8B';
+  const tc=m.type==='bb'?'mb-bb':m.type==='scrapper'?'mb-sc':'mb-br';
+  const tl=m.type==='bb'?'BB':m.type==='scrapper'?'SCRAPPER':'BRUTE';
+  const icon=m.type==='bb'?AICON[m.arch]:m.type==='scrapper'?'💨':'💪';
+  const nc=(bl&&!m.ko?' bl':'')+(m.ko?' ko':'');
+
+  const ordUsed=m.activated||m.ko;
+  const ordTok=`<div class="tok-wrap">
+    <div class="mtok ord-tok${ordUsed?' tok-used':''}" data-a="actv" data-pi="${pi}" data-id="${m.id}" ${m.ko?'style="pointer-events:none"':''}></div>
+    <span class="tok-lbl">ORD</span>
+  </div>`;
+
+  const cmdTok=m.type==='bb'?`<div class="tok-wrap">
+    <div class="mtok cmd-tok${(player.cmdUsed||m.ko)?' tok-used':''}" data-a="cmd" data-pi="${pi}" ${m.ko?'style="pointer-events:none"':''}></div>
+    <span class="tok-lbl cmd">CMD</span>
+  </div>`:'';
+
+  return`<div class="mcard${m.ko?' ko':''}${m.activated&&!m.ko?' activated':''}">
+    <div class="mcard-head" style="background:${hc}">
+      <div class="tok-group">${ordTok}${cmdTok}</div>
+      <span class="mname">${icon} ${m.name}</span>
+      <div class="mbadges">
+        ${bl?`<span class="mbadge mb-bl">🩸BLD</span>`:''}
+        ${m.ko?`<span class="mbadge mb-ko">💀KO</span>`:''}
+        <span class="mbadge ${tc}">${tl}</span>
+      </div>
+    </div>
+    <div class="mcard-body">
+      <button class="bbtn minus" data-a="bm" data-pi="${pi}" data-id="${m.id}" ${m.ko||m.cur<=0?'disabled':''}>−</button>
+      <div class="bdisp">
+        <div class="bnum${nc}">${m.cur}<sub>/${m.max}</sub></div>
+        <div class="bbar-wrap"><div class="bbar" style="width:${pct}%;background:${bc}"></div></div>
+        <div class="bbar-lbl">BLOOD</div>
+      </div>
+      <button class="bbtn plus" data-a="bp" data-pi="${pi}" data-id="${m.id}" ${m.ko||m.cur>=m.max?'disabled':''}>+</button>
+    </div>
+    ${rStatRow(m)}
+  </div>`;
+}
+
+function rPanel(pi,flip){
+  const p=S.players[pi];
+  const bb=p.models.find(m=>m.type==='bb');
+  const arch=bb?bb.arch:null;
+  const bg=arch?ABG[arch]:'#00C8B4';
+  const tx=arch?ATXT[arch]:'#111';
+  const mds=p.models.map(m=>rModelCard(m,pi,p)).join('');
+  return`<div class="pzone${flip?' p1':''}">
+    <div class="phead" style="background:${bg}">
+      <div class="pname-col">
+        <span class="pname" style="color:${tx}">${p.name}</span>
+        <span class="parch" style="color:${tx}">${arch?AICON[arch]+' '+arch:''}</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <span class="score-adj-lbl" style="color:${tx};opacity:.5">ADJUST</span>
+        <div class="score-area">
+          <button class="sbtn" data-a="sm" data-pi="${pi}" style="background:rgba(0,0,0,.18);color:${tx};border-color:rgba(0,0,0,.2);">−</button>
+          <div><div class="snum" style="color:${tx}">${p.score}</div><div class="slbl" style="color:${tx}">PTS</div></div>
+          <button class="sbtn" data-a="sp" data-pi="${pi}" style="background:rgba(0,0,0,.18);color:${tx};border-color:rgba(0,0,0,.2);">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="tok-legend">
+      <div class="leg-item"><div class="leg-dot gold"></div><span class="leg-txt">ORDER — tap to activate</span></div>
+      <div class="leg-item"><div class="leg-dot purple"></div><span class="leg-txt">CMD — BB only</span></div>
+    </div>
+    <div class="models-wrap">
+      ${mds||'<div style="text-align:center;color:#ccc;font-weight:700;font-size:12px;padding:16px">No models</div>'}
+    </div>
+  </div>`;
+}
+
+function rGame(){
+  const prz=S.prizes.map((av,i)=>`<div class="ptok${av?'':' claimed'}" data-a="prize" data-i="${i}">🏆</div>`).join('');
+  const last=S.turn>=4;
+  return`<div class="game">
+    ${rPanel(0,true)}
+    <div class="cstrip">
+      <div class="turn-col">
+        <div class="turn-lbl">TURN</div>
+        <div style="display:flex;align-items:baseline;gap:1px;">
+          <div class="turn-num">${S.turn}</div>
+          <div class="turn-of">/4</div>
+        </div>
+      </div>
+      <div class="prize-row">${prz}</div>
+      <button class="etbtn${last?' last':''}" data-a="et">${last?'END GAME':'END TURN'}</button>
+    </div>
+    ${rPanel(1,false)}
+  </div>`;
+}
+
+function rEnd(){
+  const p0=S.players[0],p1=S.players[1];
+  let wHTML;
+  if(S.winner==='draw'){
+    wHTML=`<div class="end-winner" style="background:#9B50E0;border-color:#6a2aaa;box-shadow:4px 4px 0 #6a2aaa;">
+      <div class="ew-sub">RESULT</div><div class="ew-name">🤝 IT'S A DRAW!</div>
+    </div>`;
+  }else{
+    const w=S.players[S.winner];
+    wHTML=`<div class="end-winner">
+      <div class="ew-sub">WINNER</div><div class="ew-name">${w.name}</div><div class="ew-pts">${w.score} pts 🏆</div>
+    </div>`;
+  }
+  return`<div class="end">
+    <div style="font-size:48px">🍺</div>
+    <div class="end-title">LAST ONE<br>STANDING!</div>
+    ${wHTML}
+    <div class="end-scores">
+      <div class="esc"><div class="esc-name">${p0.name}</div><div class="esc-pts">${p0.score}</div></div>
+      <div class="esc"><div class="esc-name">${p1.name}</div><div class="esc-pts">${p1.score}</div></div>
+    </div>
+    <button class="btn-main" id="btn-reset">🍺 PLAY AGAIN</button>
+  </div>`;
+}
+
+function attach(){
+  const app=document.getElementById('app');
+  app.addEventListener('click',onClick);
+  app.addEventListener('input',onInput);
+  const koBtn=document.getElementById('ko-ok-btn');
+  if(koBtn)koBtn.addEventListener('click',()=>{
+    document.getElementById('ko-modal').style.display='none';
+    if(koCallback){koCallback();koCallback=null;}
+  });
+}
+function onClick(e){
+  const sid=e.target.closest('[id]')?.id;
+  if(sid==='btn-go-setup'){S.screen='setup';render();return;}
+  if(sid==='btn-nxt'){nextSetup();return;}
+  if(sid==='btn-reset'){reset();return;}
+  const el=e.target.closest('[data-a]');
+  if(!el)return;
+  const a=el.dataset.a,pi=parseInt(el.dataset.pi),id=parseInt(el.dataset.id),bi=parseInt(el.dataset.bi),idx=parseInt(el.dataset.i);
+  switch(a){
+    case 'selbb':selBB(pi,bi);break;
+    case 'addsc':addMdl(pi,'scrapper');break;
+    case 'addbr':addMdl(pi,'brute');break;
+    case 'rmmx':rmMdl(pi,id);break;
+    case 'bm':chBlood(pi,id,-1);break;
+    case 'bp':chBlood(pi,id,1);break;
+    case 'actv':activateModel(pi,id);break;
+    case 'cmd':toggleCmd(pi);break;
+    case 'sm':S.players[pi].score=Math.max(0,S.players[pi].score-1);render();break;
+    case 'sp':S.players[pi].score++;render();break;
+    case 'et':endTurn();break;
+    case 'prize':showPrizeModal(idx);break;
+  }
+}
+function onInput(e){
+  if(e.target.dataset.a==='setname')
+    S.players[parseInt(e.target.dataset.pi)].name=e.target.value||'Player '+(parseInt(e.target.dataset.pi)+1);
+}
+render();
+</script>
+
+</body></html>
