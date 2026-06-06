@@ -1,5 +1,5 @@
 
-<html data-type="html" data-identifier="e8d2f4a1-5b3c-4e6f-9a7b-2c1d0e9f8a7b" data-title="Tavern Brawl — Full Quick Reference" data-version="1" width="1200" height="1000"><head></head><body>
+<html data-type="html" data-identifier="e8d2f4a1-5b3c-4e6f-9a7b-2c1d0e9f8a7b" data-title="Tavern Brawl — Full Quick Reference" data-version="2" width="1200" height="1000"><head></head><body>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -10,24 +10,23 @@ body{background:#C4820A;background-image:radial-gradient(ellipse at 15% 25%,rgba
 .print-btn{font-family:'Bangers',cursive;font-size:14px;padding:6px 16px;background:#00C8B4;border:2px solid #111;border-radius:6px;cursor:pointer;box-shadow:2px 2px 0 #111;letter-spacing:.08em;}
 .print-btn:active{transform:scale(.97);}
 .doc{max-width:1140px;margin:0 auto;padding:16px 20px;}
-/* SECTIONS */
 .sec{background:#FFF8E0;border:3px solid #111;border-radius:10px;overflow:hidden;box-shadow:4px 4px 0 #111;margin-bottom:14px;}
 .sec-head{padding:6px 14px;display:flex;align-items:center;gap:8px;border-bottom:3px solid #111;}
 .sec-head h2{font-family:'Bangers',cursive;font-size:17px;letter-spacing:.08em;color:#111;}
 .sec-body{padding:12px 14px;}
-/* GRIDS */
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
 .g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;}
 .g5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
-/* BOXES */
 .box{background:#fff;border:2px solid #111;border-radius:7px;padding:9px 11px;box-shadow:2px 2px 0 #111;}
 .box-head{font-family:'Bangers',cursive;font-size:13px;letter-spacing:.07em;margin-bottom:5px;}
 .box p,.box li{font-size:12px;font-weight:700;color:#333;line-height:1.4;margin-bottom:3px;}
 .box p:last-child,.box li:last-child{margin-bottom:0;}
+.box-dark{background:#1a0a00;border-color:#FFD700;box-shadow:2px 2px 0 #FFD700;}
+.box-dark .box-head{color:#FFD700;}
+.box-dark p{color:#e8d090;}
 ul{padding-left:16px;}
 li::marker{color:#FF4F8B;}
-/* TABLES */
 .tb-wrap{overflow-x:auto;}
 table{width:100%;border-collapse:collapse;font-size:12px;}
 thead tr{background:#111;}
@@ -36,33 +35,34 @@ tbody tr{border-bottom:1px solid #ddd;}
 tbody tr:nth-child(even){background:rgba(255,255,255,.5);}
 tbody tr:hover{background:#FFD70020;}
 td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top;}
-/* PHASE BLOCKS */
 .phase{background:#fff;border:2px solid #111;border-radius:7px;overflow:hidden;box-shadow:2px 2px 0 #111;}
 .phase-h{padding:5px 12px;border-bottom:2px solid #111;font-family:'Bangers',cursive;font-size:14px;letter-spacing:.08em;color:#111;}
 .phase-b{padding:8px 12px;}
 .phase-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:4px;font-size:12px;font-weight:700;color:#333;line-height:1.3;}
 .phase-row:last-child{margin-bottom:0;}
 .p-dot{width:6px;height:6px;border-radius:50%;background:#FF4F8B;border:1.5px solid #111;margin-top:4px;flex-shrink:0;}
-/* ACTIONS */
 .action{background:#fff;border:2px solid #111;border-radius:7px;padding:8px 10px;box-shadow:2px 2px 0 #111;}
 .action-name{font-family:'Bangers',cursive;font-size:13px;letter-spacing:.06em;color:#111;margin-bottom:3px;}
 .action-desc{font-size:11px;font-weight:700;color:#333;line-height:1.35;}
 .action-note{font-size:10px;font-style:italic;color:#888;margin-top:2px;}
-/* TAGS */
 .tag{display:inline-block;font-family:'Bangers',cursive;font-size:9px;letter-spacing:.06em;padding:1px 6px;border-radius:8px;border:1.5px solid #111;margin:0 2px;}
 .to{background:#8BC34A;color:#111;}
 .tr{background:#FF4F8B;color:#fff;}
 .tf{background:#00C8B4;color:#111;}
 .ta{background:#FFD700;color:#111;}
-/* AMEND */
+.ts{background:#9B50E0;color:#fff;}
 .am{display:inline-block;font-family:'Bangers',cursive;font-size:8px;padding:0 5px;border-radius:8px;background:#FF4F8B;color:#fff;border:1px solid #111;margin-left:4px;vertical-align:middle;}
-/* DA */
 .da{background:#fff;border:2px solid #111;border-left:6px solid #FF4F8B;border-radius:7px;padding:7px 10px;box-shadow:2px 2px 0 #111;}
 .da-name{font-family:'Bangers',cursive;font-size:13px;color:#FF4F8B;margin-bottom:4px;}
 .da-row{font-size:11px;font-weight:700;color:#333;line-height:1.35;margin-bottom:2px;}
 .da-row:last-child{margin-bottom:0;}
 .da-b{color:#FF4F8B;}
-/* SCORE CARDS */
+/* SPECIAL CARDS */
+.sp{background:#fff;border:2px solid #111;border-left:6px solid #9B50E0;border-radius:7px;padding:7px 10px;box-shadow:2px 2px 0 #111;}
+.sp-name{font-family:'Bangers',cursive;font-size:13px;color:#9B50E0;margin-bottom:2px;letter-spacing:.04em;}
+.sp-timing{font-size:10px;font-style:italic;color:#888;margin-bottom:3px;font-weight:700;}
+.sp-text{font-size:11px;font-weight:700;color:#333;line-height:1.35;}
+.sp-flavour{font-size:10px;font-style:italic;color:#9B50E0;margin-top:4px;padding-top:3px;border-top:1px dashed #9B50E0;font-weight:400;}
 .sc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
 .sc{background:#fff;border:2px solid #111;border-radius:7px;padding:8px;text-align:center;box-shadow:2px 2px 0 #111;}
 .sc:nth-child(1){background:#FFD700;}
@@ -72,35 +72,34 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
 .sc:nth-child(5){background:#8BC34A;}
 .sc-pts{font-family:'Bangers',cursive;font-size:26px;color:#111;line-height:1;}
 .sc-lbl{font-size:10px;font-weight:900;color:#111;}
-/* PILL */
 .pill{display:inline-flex;align-items:center;gap:3px;font-family:'Bangers',cursive;font-size:10px;padding:2px 8px;border-radius:12px;border:1.5px solid #111;margin:2px;box-shadow:1px 1px 0 #111;}
 .pb{background:#FF4F8B;color:#fff;}
 .pg{background:#8BC34A;color:#111;}
 .py{background:#FFD700;color:#111;}
 .pp{background:#9B50E0;color:#fff;}
-/* RULINGS */
 .ruling-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
 .ruling{background:#fff;border:2px solid #111;border-radius:6px;padding:6px 9px;font-size:11px;font-weight:700;color:#333;box-shadow:2px 2px 0 #111;line-height:1.35;}
 .ruling strong{color:#111;display:block;font-family:'Bangers',cursive;font-size:12px;letter-spacing:.05em;margin-bottom:2px;}
+.ruling-new{border-left:5px solid #9B50E0;}
+.ruling-new strong{color:#9B50E0;}
 @media print{
   body{background:#fff;padding:0;}
   .doc-header{position:static;}
   .print-btn{display:none;}
   .sec{box-shadow:none;border:1px solid #333;break-inside:avoid;}
-  .box,.phase,.action,.da{box-shadow:none;border:1px solid #333;}
+  .box,.phase,.action,.da,.sp{box-shadow:none;border:1px solid #333;}
 }
 </style>
 
 <div class="doc-header">
   <div><div class="doc-title">🍺 TAVERN BRAWL</div><div class="doc-sub">Full Quick Reference — All Rules</div></div>
-  <button class="print-btn" onclick="window.print()">🖨 Print</button>
+  <button class="print-btn" id="printBtn">🖨 Print</button>
 </div>
 
 <div class="doc">
 
   <!-- ROW 1: SQUAD + SETUP + CORE -->
   <div class="g3">
-    <!-- SQUAD -->
     <div class="sec">
       <div class="sec-head" style="background:#FFD700;"><h2>🍻 Build Your Squad</h2></div>
       <div class="sec-body">
@@ -115,7 +114,6 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
         <p style="font-size:12px;font-weight:700;color:#555;">Spend 4 points on crew. Must include exactly 1 BB. Bloodied: Scrapper ≤2 · Brute ≤3 · BB: half or below.</p>
       </div>
     </div>
-    <!-- SETUP -->
     <div class="sec">
       <div class="sec-head" style="background:#00C8B4;"><h2>⚡ Setup</h2></div>
       <div class="sec-body">
@@ -127,7 +125,6 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
         <div style="margin-top:8px;padding:6px 8px;background:#FFD700;border:2px solid #111;border-radius:6px;font-size:11px;font-weight:700;">🍺 <strong>The Table Is the Terrain.</strong> All objects count as Clutter (Scavenge) and Cover (+4 Defense). No terrain pieces needed.</div>
       </div>
     </div>
-    <!-- CORE -->
     <div class="sec">
       <div class="sec-head" style="background:#FF4F8B;"><h2 style="color:#fff;">🧠 Core Concepts</h2></div>
       <div class="sec-body" style="display:flex;flex-direction:column;gap:7px;">
@@ -179,8 +176,6 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
 
   <!-- ACTIONS + COMBAT -->
   <div class="g2" style="gap:14px;">
-
-    <!-- ACTIONS -->
     <div class="sec">
       <div class="sec-head" style="background:#8BC34A;"><h2>⚔️ Actions</h2></div>
       <div class="sec-body" style="display:flex;flex-direction:column;gap:6px;">
@@ -209,8 +204,6 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
         </div>
       </div>
     </div>
-
-    <!-- COMBAT -->
     <div class="sec">
       <div class="sec-head" style="background:#FF4F8B;"><h2 style="color:#fff;">🥊 Combat <span class="am" style="background:#fff;color:#FF4F8B;border-color:#FF4F8B;">Amended</span></h2></div>
       <div class="sec-body">
@@ -256,9 +249,8 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
     </div>
   </div>
 
-  <!-- BLOODIED + DESPERATE ACTS -->
+  <!-- BLOODIED + GEAR CARDS -->
   <div class="g2" style="gap:14px;">
-    <!-- BLOODIED -->
     <div class="sec">
       <div class="sec-head" style="background:#FF4F8B;"><h2 style="color:#fff;">🩸 Blood Tokens &amp; Bloodied State</h2></div>
       <div class="sec-body">
@@ -277,16 +269,48 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
         </div>
       </div>
     </div>
-    <!-- GEAR CARD TYPES -->
     <div class="sec">
       <div class="sec-head" style="background:#00C8B4;"><h2>🎴 Gear Cards</h2></div>
       <div class="sec-body">
+        <!-- Card types row 1: Order, Reaction, Free -->
         <div class="g3" style="margin-bottom:8px;">
           <div class="box"><div class="box-head"><span class="tag to">Order</span></div><p>During your activation. One per activation at no extra cost.</p></div>
           <div class="box"><div class="box-head"><span class="tag tr">Reaction</span></div><p>In response to a declared action. No Order cost. Either player may play.</p></div>
           <div class="box"><div class="box-head"><span class="tag tf">Free Action</span></div><p>Any point during your turn. No Order cost.</p></div>
         </div>
-        <div style="font-size:11px;font-weight:700;color:#333;">Archetype bonuses require your matching BB to be alive. Deck runs out → shuffle discard to reform. Rarity: <span style="color:#8a6020;">Common ×3</span> · <span style="color:#6060a0;">Uncommon ×2</span> · <span style="color:#c07000;">Rare ×2</span>.</div>
+        <!-- Special Action definition -->
+        <div class="box box-dark" style="margin-bottom:8px;">
+          <div class="box-head"><span class="tag ts">⭐ Special Action</span></div>
+          <p>Timing is printed on the card — overrides normal timing rules. No Order cost unless stated. <strong style="color:#FFD700;">No archetype bonuses ever apply.</strong></p>
+        </div>
+        <div style="font-size:11px;font-weight:700;color:#333;margin-bottom:6px;">Archetype bonuses require your matching BB to be alive. Deck runs out → shuffle discard to reform. <span style="color:#8a6020;">Common 33</span> · <span style="color:#6060a0;">Uncommon 15</span> · <span style="color:#c07000;">Rare 8</span> · <span style="color:#9B50E0;">Special 6</span> · <strong>Total 62</strong>.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPECIAL CARDS -->
+  <div class="sec">
+    <div class="sec-head" style="background:#9B50E0;"><h2 style="color:#fff;">⭐ Special Cards — No archetype bonuses. Available to any squad.</h2></div>
+    <div class="sec-body">
+      <div class="g3">
+        <div class="sp">
+          <div class="sp-name">🚪 The Bouncer <span style="font-size:10px;color:#888;font-family:'Nunito',sans-serif;font-style:italic;font-weight:700;">×2</span></div>
+          <div class="sp-timing">Special Action — must be played as the FIRST action of the Action Phase, before any model activates.</div>
+          <div class="sp-text">Target opponent loses <strong>1 Order Token</strong> this turn. If they have none, no effect.</div>
+          <div class="sp-flavour">"He's not paid to argue. He's paid to point at the door."</div>
+        </div>
+        <div class="sp">
+          <div class="sp-name">🍽️ Daily Special <span style="font-size:10px;color:#888;font-family:'Nunito',sans-serif;font-style:italic;font-weight:700;">×2</span></div>
+          <div class="sp-timing">Special Action — may be played at any point during your turn.</div>
+          <div class="sp-text">Gain <strong>1 Order Token</strong> immediately. May be spent to activate <strong>any friendly model</strong> — including one already activated this turn.</div>
+          <div class="sp-flavour">"Today's special: a second wind, served warm."</div>
+        </div>
+        <div class="sp">
+          <div class="sp-name">✂️ Cut Off <span style="font-size:10px;color:#888;font-family:'Nunito',sans-serif;font-style:italic;font-weight:700;">×2</span></div>
+          <div class="sp-timing">Special Action — play when any player plays any Gear card, including another Cut Off.</div>
+          <div class="sp-text">That card is <strong>cancelled and discarded</strong> with no effect. Costs already paid are not refunded. A second Cut Off can cancel the first — chain continues until no further Cut Offs are played.</div>
+          <div class="sp-flavour">"Sorry mate, you've had enough."</div>
+        </div>
       </div>
     </div>
   </div>
@@ -327,7 +351,6 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
 
   <!-- SCORING + KEY RULINGS -->
   <div class="g2" style="gap:14px;">
-    <!-- SCORING -->
     <div class="sec">
       <div class="sec-head" style="background:#FFD700;"><h2>🏆 Scoring &amp; Winning <span class="am">Amended</span></h2></div>
       <div class="sec-body">
@@ -336,7 +359,7 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
           <div class="sc"><div class="sc-pts">3</div><div class="sc-lbl">BB KO'd</div></div>
           <div class="sc"><div class="sc-pts">2</div><div class="sc-lbl">Brute KO'd</div></div>
           <div class="sc"><div class="sc-pts">1</div><div class="sc-lbl">Scrapper KO'd</div></div>
-          <div class="sc"><div class="sc-pts sc-pts" style="font-size:18px;padding-top:4px;">Opp<br>scores</div><div class="sc-lbl">Self-KO</div></div>
+          <div class="sc"><div class="sc-pts" style="font-size:18px;padding-top:4px;">Opp<br>scores</div><div class="sc-lbl">Self-KO</div></div>
         </div>
         <div class="g2">
           <div class="box"><div class="box-head">⚡ Immediate Win</div><p>All enemy models KO'd at any point.</p></div>
@@ -344,7 +367,6 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
         </div>
       </div>
     </div>
-    <!-- KEY RULINGS -->
     <div class="sec">
       <div class="sec-head" style="background:#9B50E0;"><h2 style="color:#fff;">📌 Key Rulings (All Amendments)</h2></div>
       <div class="sec-body">
@@ -362,9 +384,15 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
           <div class="ruling"><strong>Colonel Tactical Genius</strong>Both CTs may target the same model — up to 3 activations possible.</div>
           <div class="ruling"><strong>Table Flip</strong>Enemies only. Does not affect friendly models.</div>
           <div class="ruling"><strong>Ashtray splash</strong>Friend and foe alike within 2" of target. No roll.</div>
-          <div class="ruling"><strong>Bar Stool</strong>Brutes only. 👊 Bruiser BB: any model in your squad may play it.</div>
+          <div class="ruling"><strong>Bar Stool</strong>Brutes only. 👊 Bruiser BB: any model in squad may play it.</div>
           <div class="ruling"><strong>Mad Maggie passive</strong>+1 die per 2 blood below starting Grit (7). Current blood vs starting = bonus.</div>
           <div class="ruling"><strong>Concurrent Triggers</strong>Initiative holder chooses resolution order when two effects happen simultaneously.</div>
+          <div class="ruling ruling-new"><strong>The Bouncer</strong>Must be the very first action of Action Phase — before any model activates. No effect if opponent has no Order Tokens.</div>
+          <div class="ruling ruling-new"><strong>Daily Special</strong>Grants 1 Order Token usable on any friendly model — including one already activated this turn.</div>
+          <div class="ruling ruling-new"><strong>Cut Off</strong>Cancels any Gear card including another Cut Off. Costs already paid are not refunded.</div>
+          <div class="ruling ruling-new"><strong>Cut Off chain</strong>A second Cut Off cancels the first. A third cancels the second. Chain continues until no further Cut Offs are played.</div>
+          <div class="ruling ruling-new"><strong>Special Action cost</strong>No Order Token cost unless the card states otherwise.</div>
+          <div class="ruling ruling-new"><strong>Special Action archetype</strong>No archetype bonuses ever apply to Special Action cards, regardless of BB alive.</div>
         </div>
       </div>
     </div>
@@ -374,7 +402,7 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
 
 <script>
   document.addEventListener('DOMContentLoaded',function(){
-    document.querySelector('.print-btn').addEventListener('click',function(){window.print();});
+    document.getElementById('printBtn').addEventListener('click',function(){window.print();});
   });
 </script>
 
