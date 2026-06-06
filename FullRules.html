@@ -1,5 +1,5 @@
 
-<html data-type="html" data-identifier="36107c6b-14cf-410f-bb45-72e04b904548" data-title="Tavern Brawl — Official Rulebook" data-version="5" width="1200" height="900"><head></head><body>
+<html data-type="html" data-identifier="36107c6b-14cf-410f-bb45-72e04b904548" data-title="Tavern Brawl — Official Rulebook" data-version="8" width="1200" height="900"><head></head><body>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -34,8 +34,10 @@ p:last-child{margin-bottom:0;}
 .box-teal{background:#00C8B4;}
 .box-yellow{background:#FFD700;}
 .box-purple{background:#9B50E0;}.box-purple p,.box-purple li{color:#fff;}
+.box-dark{background:#1a0a00;border-color:#FFD700;box-shadow:4px 4px 0 #FFD700;}.box-dark p,.box-dark li{color:#e8d090;}
 .box-title{font-family:'Bangers',cursive;font-size:16px;letter-spacing:.1em;color:#111;margin-bottom:8px;}
 .box-pink .box-title,.box-purple .box-title{color:#fff;}
+.box-dark .box-title{color:#FFD700;}
 .tb-wrap{overflow-x:auto;margin:12px 0;}
 table{width:100%;border-collapse:collapse;font-size:14px;}
 thead tr{background:#111;}
@@ -72,6 +74,7 @@ td em{color:#555;font-size:13px;font-weight:400;}
 .tag-reaction{background:#FF4F8B;color:#fff;}
 .tag-free{background:#00C8B4;color:#111;}
 .tag-activation{background:#FFD700;color:#111;}
+.tag-special{background:#9B50E0;color:#fff;}
 .arch-pill{display:inline-flex;align-items:center;gap:4px;font-family:'Bangers',cursive;font-size:13px;padding:4px 14px;border-radius:20px;margin:4px;border:2px solid #111;letter-spacing:.06em;box-shadow:2px 2px 0 #111;}
 .arch-barfly{background:#8BC34A;color:#111;}
 .arch-bruiser{background:#FF4F8B;color:#fff;}
@@ -103,16 +106,21 @@ td em{color:#555;font-size:13px;font-weight:400;}
 .gear-order-h{background:#8BC34A;}
 .gear-reaction-h{background:#FF4F8B;}
 .gear-free-h{background:#00C8B4;}
+.gear-special-h{background:#9B50E0;}
+.gear-special-h .gear-card-name{color:#fff;}
 .gear-card-name{font-family:'Bangers',cursive;font-size:15px;color:#111;letter-spacing:.04em;}
 .gear-type-badge{font-family:'Bangers',cursive;font-size:10px;letter-spacing:.08em;padding:2px 7px;border-radius:10px;border:2px solid #111;}
 .badge-order{background:#fff;color:#111;}
 .badge-reaction{background:#fff;color:#111;}
 .badge-free{background:#fff;color:#111;}
+.badge-special{background:#FFD700;color:#111;border-color:#111;}
 .rarity-common{color:#8a6020;font-weight:900;}
 .rarity-uncommon{color:#6060a0;font-weight:900;}
 .rarity-rare{color:#c07000;font-weight:900;}
+.rarity-special{color:#9B50E0;font-weight:900;}
 .gear-card-body{padding:10px 12px;color:#333;line-height:1.45;font-size:13px;font-weight:700;}
 .gear-bonus{margin-top:6px;padding-top:6px;border-top:2px dashed #111;font-style:italic;color:#555;font-size:12px;font-weight:700;}
+.gear-flavour{margin-top:8px;padding-top:6px;border-top:2px dashed #9B50E0;font-style:italic;color:#9B50E0;font-size:12px;font-weight:400;}
 .gear-meta{display:flex;justify-content:space-between;padding:5px 12px;background:#f0f0f0;border-top:2px solid #111;font-size:11px;font-weight:900;}
 .da-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
 .da-card{background:#fff;border:3px solid #111;border-left:8px solid #FF4F8B;border-radius:8px;padding:12px 14px;box-shadow:4px 4px 0 #111;}
@@ -170,7 +178,7 @@ em{color:#555;}
           <tr><td><strong>Blood tokens (red)</strong></td><td>~60 shared</td></tr>
           <tr><td><strong>Order tokens</strong></td><td>~15 per player</td></tr>
           <tr><td><strong>Command tokens (coins)</strong></td><td>1 per player per turn</td></tr>
-          <tr><td><strong>Gear deck</strong></td><td>63 cards</td></tr>
+          <tr><td><strong>Gear deck</strong></td><td>62 cards</td></tr>
           <tr><td><strong>Big Bozza cards (double-sided)</strong></td><td>1 per BB</td></tr>
           <tr><td><strong>Signature cards</strong></td><td>1 per BB</td></tr>
           <tr><td><strong>Model reference cards</strong></td><td>Scrapper &amp; Brute</td></tr>
@@ -363,64 +371,70 @@ em{color:#555;}
   <div class="section" id="gear">
     <div class="section-header"><span class="section-number">10</span><div class="section-rule"></div></div>
     <h2 id="h2-gear">Gear Cards</h2>
-    <div class="three-col" style="margin-bottom:20px;">
+    <div class="three-col" style="margin-bottom:12px;">
       <div class="box box-teal"><div class="box-title"><span class="tag tag-order">Order</span></div><p>During your activation. One per activation at no extra cost.</p></div>
       <div class="box box-pink"><div class="box-title"><span class="tag tag-reaction">Reaction</span></div><p>In response to a declared action. No Order cost. Either player.</p></div>
       <div class="box box-yellow"><div class="box-title"><span class="tag tag-free">Free Action</span></div><p>Any point during your turn. No Order cost.</p></div>
     </div>
+    <div class="box box-dark" style="margin-bottom:20px;">
+      <div class="box-title"><span class="tag tag-special" style="margin-right:8px;">⭐ Special Action</span></div>
+      <p>Each Special Action card defines exactly when it may be played — the timing is printed on the card and overrides normal play rules. Special Actions do not cost an Order Token unless stated. <strong style="color:#FFD700;">No archetype bonuses apply to Special Action cards.</strong></p>
+    </div>
     <div class="box" style="margin-bottom:16px;"><div class="box-title">Archetype Bonuses</div><p>Archetype bonuses require your matching BB to be alive. KO'd BB = bonuses lost for the rest of the game.</p><div style="margin-top:8px;"><span class="arch-pill arch-barfly">🍺 Barfly</span><span class="arch-pill arch-bruiser">👊 Bruiser</span><span class="arch-pill arch-mob">🤜 Mob Boss</span><span class="arch-pill arch-grifter">🃏 Grifter</span></div></div>
 
-    <h3 id="h3-common">Common Cards ×3</h3>
+    <h3 id="h3-common">Common Cards</h3>
     <div class="gear-grid">
-      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Cue Ball</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Range 6" LoS. Roll 1 attack die. On hit, target can't use Get Out of My Way until your next turn.<div class="gear-bonus">🍺 Draw 1 card after resolving.</div></div><div class="gear-meta"><span class="rarity-common">Common</span><span>Tip: 20c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Pickled Egg Jar</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Range 4" LoS. Roll 2 attack dice.<div class="gear-bonus">🍺 If in cover, roll 3 dice instead.</div></div><div class="gear-meta"><span class="rarity-common">Common</span><span>Tip: 20c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Pool Cue</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Range 3" LoS. Roll 1 attack die. On hit, push target 2".<div class="gear-bonus">👊 Push 3" instead.</div></div><div class="gear-meta"><span class="rarity-common">Common</span><span>Tip: 10c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Broken Bottle</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Add 1 attack die to your next Fist Fight this activation.<div class="gear-bonus">👊 Add 2 dice instead.</div></div><div class="gear-meta"><span class="rarity-common">Common</span><span>Tip: 20c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">Pocket Sand</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Attacker removes 1 die from their roll. Minimum 1.<div class="gear-bonus">🃏 Also draw 1 card.</div></div><div class="gear-meta"><span class="rarity-common">Common</span><span>Tip: 20c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">Greasy Floor</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Play when enemy declares Rush, Leg It, or Shove Through. Movement = 0" this action.<div class="gear-bonus">🍺 If in cover, move 2" free after resolving.</div></div><div class="gear-meta"><span class="rarity-common">Common</span><span>Tip: 20c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">Right Back Atcha</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Play when your model takes damage from a Fist Fight. Attacker loses 2 blood.<div class="gear-bonus">👊 Attacker loses 3 instead.</div></div><div class="gear-meta"><span class="rarity-common">Common</span><span>Tip: 10c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Lucky Shoe</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Reroll one die. Must use new result.<div class="gear-bonus">🃏 Reroll up to 2 dice instead.</div></div><div class="gear-meta"><span class="rarity-common">Common</span><span>Tip: 10c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Get Him Lads</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Until end of activation, all your Scrappers roll +1 attack die on Fist Fights.<div class="gear-bonus">🤜 Also +1 defence die.</div></div><div class="gear-meta"><span class="rarity-common">Common</span><span>Tip: 20c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Bar Tray</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">One friendly model rolls +1 defence die against the next attack they suffer this turn.<div class="gear-bonus">🤜 Affect up to 2 models.</div></div><div class="gear-meta"><span class="rarity-common">Common</span><span>Tip: 20c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Left Shoe</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Move 2" in any direction. No Retaliation. <em>Combo with Right Shoe: move 8".</em><div class="gear-bonus">🍺 After this move, draw 1 Gear card.</div></div><div class="gear-meta"><span class="rarity-common">Common</span><span>Tip: 10c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Right Shoe</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Move 2" in any direction. No Retaliation. <em>Combo with Left Shoe: move 8".</em></div><div class="gear-meta"><span class="rarity-common">Common</span><span>Tip: 10c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">Whoops!</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Move 2" before attack resolves. Attack still resolves — you may now be out of range or in cover.<div class="gear-bonus">🍺 Move 3" instead.</div></div><div class="gear-meta"><span class="rarity-common">Common</span><span>Tip: 10c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Cue Ball</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Range 6" LoS. Roll 1 attack die. On hit, target can't use Get Out of My Way until your next turn.<div class="gear-bonus">🍺 Draw 1 card after resolving.</div></div><div class="gear-meta"><span class="rarity-common">Common ×2</span><span>Tip: 20c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Pickled Egg Jar</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Range 4" LoS. Roll 2 attack dice.<div class="gear-bonus">🍺 If in cover, roll 3 dice instead.</div></div><div class="gear-meta"><span class="rarity-common">Common ×3</span><span>Tip: 20c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Pool Cue</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Range 3" LoS. Roll 1 attack die. On hit, push target 2".<div class="gear-bonus">👊 Push 3" instead.</div></div><div class="gear-meta"><span class="rarity-common">Common ×3</span><span>Tip: 10c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Broken Bottle</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Add 1 attack die to your next Fist Fight this activation.<div class="gear-bonus">👊 Add 2 dice instead.</div></div><div class="gear-meta"><span class="rarity-common">Common ×3</span><span>Tip: 20c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">Pocket Sand</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Attacker removes 1 die from their roll. Minimum 1.<div class="gear-bonus">🃏 Also draw 1 card.</div></div><div class="gear-meta"><span class="rarity-common">Common ×3</span><span>Tip: 20c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">Greasy Floor</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Play when enemy declares Rush, Leg It, or Shove Through. Movement = 0" this action.<div class="gear-bonus">🍺 If in cover, move 2" free after resolving.</div></div><div class="gear-meta"><span class="rarity-common">Common ×3</span><span>Tip: 20c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">Right Back Atcha</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Play when your model takes damage from a Fist Fight. Attacker loses 2 blood.<div class="gear-bonus">👊 Attacker loses 3 instead.</div></div><div class="gear-meta"><span class="rarity-common">Common ×3</span><span>Tip: 10c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Lucky Shoe</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Reroll one die. Must use new result.<div class="gear-bonus">🃏 Reroll up to 2 dice instead.</div></div><div class="gear-meta"><span class="rarity-common">Common ×3</span><span>Tip: 10c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Get Him Lads</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Until end of activation, all your Scrappers roll +1 attack die on Fist Fights.<div class="gear-bonus">🤜 Also +1 defence die.</div></div><div class="gear-meta"><span class="rarity-common">Common ×2</span><span>Tip: 20c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Bar Tray</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">One friendly model rolls +1 defence die against the next attack they suffer this turn.<div class="gear-bonus">🤜 Affect up to 2 models.</div></div><div class="gear-meta"><span class="rarity-common">Common ×2</span><span>Tip: 20c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Left Shoe</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Move 2" in any direction. No Retaliation. <em>Combo with Right Shoe: move 8".</em><div class="gear-bonus">🍺 After this move, draw 1 Gear card.</div></div><div class="gear-meta"><span class="rarity-common">Common ×2</span><span>Tip: 10c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Right Shoe</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Move 2" in any direction. No Retaliation. <em>Combo with Left Shoe: move 8".</em></div><div class="gear-meta"><span class="rarity-common">Common ×2</span><span>Tip: 10c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">Whoops!</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Move 2" before attack resolves. Attack still resolves — you may now be out of range or in cover.<div class="gear-bonus">🍺 Move 3" instead.</div></div><div class="gear-meta"><span class="rarity-common">Common ×2</span><span>Tip: 10c</span></div></div>
     </div>
 
-    <h3 id="h3-uncommon">Uncommon Cards ×2</h3>
+    <h3 id="h3-uncommon">Uncommon Cards</h3>
     <div class="gear-grid">
-      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Med Kit</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Friendly model within 1" regains 3 blood. Cannot exceed starting Grit.<div class="gear-bonus">🤜 Range extends to 4".</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon</span><span>Tip: 50c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Last Orders</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body"><em>Turn 4 Only.</em> One model regains 3 blood (up to Grit) and rolls +1 attack die until end of turn.<div class="gear-bonus">🤜 Affect up to 2 models.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon</span><span>Tip: 50c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Rally the Crew</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Friendly model within 2" regains 2 blood. Cannot exceed starting Grit.<div class="gear-bonus">🤜 Range 4". Restore 3 instead.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon</span><span>Tip: 50c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Second Wind</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Draw 2 Gear cards.<div class="gear-bonus">🍺 Draw 3 instead.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon</span><span>Tip: 50c</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Dart</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Range 8" LoS. Roll 1 attack die. Ignores cover. Defender rolls 1 defence die regardless.<div class="gear-bonus">🍺 Range increases to 10".</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon</span><span>Tip: R1</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">Duck!</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Play when a ranged card targets your model. Redirect to any model within 2" — friend or foe.<div class="gear-bonus">🃏 Also draw 1 card.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon</span><span>Tip: R1</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">He Started It!</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Range 6". When enemy attacks one of your models, roll 1 die against attacker first. They can't play Reactions.<div class="gear-bonus">🃏 Roll 2 dice instead.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon</span><span>Tip: R1</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">Trash Can Lid</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Roll +1 defence die against that attack.<div class="gear-bonus">👊 Roll +2 defence dice instead.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon</span><span>Tip: R1</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Med Kit</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Friendly model within 1" regains 3 blood. Cannot exceed starting Grit.<div class="gear-bonus">🤜 Range extends to 4".</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: 50c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Last Orders</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body"><em>Turn 4 Only.</em> One model regains 3 blood (up to Grit) and rolls +1 attack die until end of turn.<div class="gear-bonus">🤜 Affect up to 2 models.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×1</span><span>Tip: 50c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Rally the Crew</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Friendly model within 2" regains 2 blood. Cannot exceed starting Grit.<div class="gear-bonus">🤜 Range 4". Restore 3 instead.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: 50c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Second Wind</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Draw 2 Gear cards.<div class="gear-bonus">🍺 Draw 3 instead.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: 50c</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Dart</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Range 8" LoS. Roll 1 attack die. Ignores cover. Defender rolls 1 defence die regardless.<div class="gear-bonus">🍺 Range increases to 10".</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: R1</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">Duck!</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Play when a ranged card targets your model. Redirect to any model within 2" — friend or foe.<div class="gear-bonus">🃏 Also draw 1 card.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: R1</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">He Started It!</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Range 6". When enemy attacks one of your models, roll 1 die against attacker first. They can't play Reactions.<div class="gear-bonus">🃏 Roll 2 dice instead.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: R1</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">Trash Can Lid</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Roll +1 defence die against that attack.<div class="gear-bonus">👊 Roll +2 defence dice instead.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: R1</span></div></div>
     </div>
 
     <h3 id="h3-rare">Rare Cards ×2</h3>
     <div class="gear-grid">
+      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Ashtray <span class="amend">Amended</span></span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Range 5" LoS. Roll 1 attack die against target. On a hit, every other model within 2" of the target (friend or foe) loses 1 blood token. No roll.<div class="gear-bonus">🤜 Mob Boss: Splash radius 3".</div></div><div class="gear-meta"><span class="rarity-rare">Rare ×2</span><span>Tip: R2</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Bar Stool <span class="amend">Amended</span></span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Range 5" LoS. Roll 3 attack dice. Only playable by a Brute.<div class="gear-bonus">👊 Bruiser: If your BB is a Bruiser, any model in your squad may play this card.</div></div><div class="gear-meta"><span class="rarity-rare">Rare ×2</span><span>Tip: R2</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Bar Tab</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Range 4". Target model loses 3 blood tokens.<div class="gear-bonus">🃏 Play as a Reaction instead of an Order.</div></div><div class="gear-meta"><span class="rarity-rare">Rare ×2</span><span>Tip: R2</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Flying Drunk <span class="amend">Amended</span></span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Move one of your models up to 8" in any direction. Ignores terrain, not models. The model must end in an unoccupied space. Does not provoke Retaliation.<div class="gear-bonus">👊 If model ends engaged, that enemy loses 2 blood.</div></div><div class="gear-meta"><span class="rarity-rare">Rare ×2</span><span>Tip: R2</span></div></div>
+    </div>
+
+    <h3 id="h3-special">Special Cards ×2</h3>
+    <div class="gear-grid">
       <div class="gear-card">
-        <div class="gear-card-header gear-order-h"><span class="gear-card-name">Ashtray <span class="amend">Amended</span></span><span class="gear-type-badge badge-order">Order</span></div>
-        <div class="gear-card-body">Range 5" LoS. Roll 1 attack die against target. On a hit, every other model within 2" of the target (friend or foe) loses 1 blood token. No roll.<div class="gear-bonus">🤜 Mob Boss: Splash radius 3".</div></div>
-        <div class="gear-meta"><span class="rarity-rare">Rare</span><span>Tip: R2</span></div>
-      </div>
-      <!-- BAR STOOL — Updated: Bruiser bonus now opens to any model in the squad -->
-      <div class="gear-card">
-        <div class="gear-card-header gear-order-h"><span class="gear-card-name">Bar Stool <span class="amend">Amended</span></span><span class="gear-type-badge badge-order">Order</span></div>
-        <div class="gear-card-body">Range 5" LoS. Roll 3 attack dice. Only playable by a Brute.<div class="gear-bonus">👊 Bruiser: If your BB is a Bruiser, any model in your squad may play this card.</div></div>
-        <div class="gear-meta"><span class="rarity-rare">Rare</span><span>Tip: R2</span></div>
-      </div>
-      <div class="gear-card">
-        <div class="gear-card-header gear-order-h"><span class="gear-card-name">Bar Tab</span><span class="gear-type-badge badge-order">Order</span></div>
-        <div class="gear-card-body">Range 4". Target model loses 3 blood tokens.<div class="gear-bonus">🃏 Play as a Reaction instead of an Order.</div></div>
-        <div class="gear-meta"><span class="rarity-rare">Rare</span><span>Tip: R2</span></div>
+        <div class="gear-card-header gear-special-h"><span class="gear-card-name">🚪 The Bouncer</span><span class="gear-type-badge badge-special">Special Action</span></div>
+        <div class="gear-card-body">Must be played as the <strong>first action of the Action Phase</strong>, before any model activates.<br><br>Target opponent loses <strong>1 Order Token</strong> this turn. If they have none, this has no effect.<div class="gear-flavour">"He's not paid to argue. He's paid to point at the door."</div></div>
+        <div class="gear-meta"><span class="rarity-special">Special ×2</span><span>Tip: R2</span></div>
       </div>
       <div class="gear-card">
-        <div class="gear-card-header gear-order-h"><span class="gear-card-name">Flying Drunk <span class="amend">Amended</span></span><span class="gear-type-badge badge-order">Order</span></div>
-        <div class="gear-card-body">Move one of your models up to 8" in any direction. Ignores terrain, not models. The model must end in an unoccupied space. Does not provoke Retaliation.<div class="gear-bonus">👊 If model ends engaged, that enemy loses 2 blood.</div></div>
-        <div class="gear-meta"><span class="rarity-rare">Rare</span><span>Tip: R2</span></div>
+        <div class="gear-card-header gear-special-h"><span class="gear-card-name">🍽️ Daily Special</span><span class="gear-type-badge badge-special">Special Action</span></div>
+        <div class="gear-card-body">May be played at <strong>any point during your turn</strong>.<br><br>Gain <strong>1 Order Token</strong> immediately. It may be spent to activate <strong>any friendly model</strong> — including one that has already been activated this turn.<div class="gear-flavour">"Today's special: a second wind, served warm."</div></div>
+        <div class="gear-meta"><span class="rarity-special">Special ×2</span><span>Tip: R2</span></div>
+      </div>
+      <div class="gear-card">
+        <div class="gear-card-header gear-special-h"><span class="gear-card-name">✂️ Cut Off</span><span class="gear-type-badge badge-special">Special Action</span></div>
+        <div class="gear-card-body">Play when <strong>any player plays any Gear card</strong> — including another <em>Cut Off</em>.<br><br>That card is <strong>cancelled and discarded</strong> with no effect. Any costs already paid still apply.<div class="gear-flavour">"Sorry mate, you've had enough."</div></div>
+        <div class="gear-meta"><span class="rarity-special">Special ×2</span><span>Tip: R2</span></div>
       </div>
     </div>
   </div>
@@ -488,7 +502,6 @@ em{color:#555;}
         </div>
         <div class="bb-sig"><strong>✦ Didn't See That Coming | Free Action</strong>Before a ranged attack this turn: ignore cover and opponent cannot play Reaction cards.</div>
       </div>
-      <!-- McGEE — Updated Headbutt wording -->
       <div class="bb-card bb-barfly">
         <div class="bb-card-header"><div><div class="bb-name">One-Eyed McGee <span class="amend">Amended</span></div><div class="bb-archetype">🍺 Barfly</div></div><div class="bb-stats"><span class="stat-chip">Rank <span>13</span></span><span class="stat-chip">Grit <span>5</span></span><span class="stat-chip">Spd <span>4"</span></span><span class="stat-chip">FF <span>1</span></span><span class="stat-chip">Def <span>10/14</span></span></div></div>
         <div class="bb-card-body">
@@ -594,6 +607,14 @@ em{color:#555;}
           <tr><td>Dig Deep</td><td>3 blood · +2atk +1def</td><td>2 blood · same</td></tr>
           <tr><td>Last Stand</td><td>1 blood · 4" range</td><td>1 blood · any model</td></tr>
         </tbody></table></div>
+        <h3 id="h3-qr-deck">Deck</h3>
+        <div class="tb-wrap"><table><thead><tr><th>Rarity</th><th>Breakdown</th><th>Total</th></tr></thead><tbody>
+          <tr><td><span class="rarity-common">Common</span></td><td>7 types ×3, 6 types ×2</td><td>33</td></tr>
+          <tr><td><span class="rarity-uncommon">Uncommon</span></td><td>7 types ×2, 1 type ×1</td><td>15</td></tr>
+          <tr><td><span class="rarity-rare">Rare</span></td><td>4 types ×2</td><td>8</td></tr>
+          <tr><td><span class="rarity-special">Special</span></td><td>3 types ×2</td><td>6</td></tr>
+          <tr><td><strong>Total</strong></td><td>28 types</td><td><strong>62</strong></td></tr>
+        </tbody></table></div>
       </div>
       <div>
         <h3 id="h3-qr-rulings">Key Rulings</h3>
@@ -611,13 +632,9 @@ em{color:#555;}
           <tr><td><strong>Table Flip</strong></td><td>Enemies only</td></tr>
           <tr><td><strong>Ashtray splash</strong></td><td>Friend and foe alike within 2" of target</td></tr>
           <tr><td><strong>Bar Stool</strong></td><td>Brute only. Bruiser BB: any model in squad may play it</td></tr>
-        </tbody></table></div>
-        <h3 id="h3-qr-deck">Deck</h3>
-        <div class="tb-wrap"><table><thead><tr><th>Rarity</th><th>Cards</th><th>Copies</th><th>Total</th></tr></thead><tbody>
-          <tr><td><span class="rarity-common">Common</span></td><td>13</td><td>×3</td><td>39</td></tr>
-          <tr><td><span class="rarity-uncommon">Uncommon</span></td><td>8</td><td>×2</td><td>16</td></tr>
-          <tr><td><span class="rarity-rare">Rare</span></td><td>4</td><td>×2</td><td>8</td></tr>
-          <tr><td><strong>Total</strong></td><td>25</td><td>—</td><td><strong>63</strong></td></tr>
+          <tr><td><strong>The Bouncer</strong></td><td>Must be first action of Action Phase. Removes 1 opponent Order Token</td></tr>
+          <tr><td><strong>Daily Special</strong></td><td>Grants 1 Order Token usable on any model, including already activated</td></tr>
+          <tr><td><strong>Cut Off</strong></td><td>Cancels any Gear card including another Cut Off. No archetype bonus</td></tr>
         </tbody></table></div>
       </div>
     </div>
@@ -638,5 +655,4 @@ em{color:#555;}
     });
   });
 </script>
-
 </body></html>
