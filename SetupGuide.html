@@ -1,168 +1,232 @@
 
-<html data-type="html" data-identifier="f4a2b891-3d77-4c4e-8d11-9e7c3a5f2841" data-title="Tavern Brawl — Setup Card" data-version="2" width="900" height="620"><head></head><body>
+<html data-type="html" data-identifier="b7a4c9e2-1f6d-4a83-9c25-7e8d3f0a1b6c" data-title="Tavern Brawl — Quick Setup Guide v9" data-version="1" width="1200" height="900"><head></head><body>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@700;900&display=swap');
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:#C4820A;background-image:radial-gradient(ellipse at 20% 40%,rgba(180,50,130,.2) 0%,transparent 50%),radial-gradient(ellipse at 80% 60%,rgba(0,180,160,.15) 0%,transparent 50%);display:flex;align-items:center;justify-content:center;gap:32px;min-height:620px;padding:24px;font-family:'Nunito',sans-serif;}
-  .card{width:360px;min-height:560px;background:#FFF8E0;border:4px solid #111;border-radius:16px;box-shadow:6px 6px 0 #111;overflow:hidden;display:flex;flex-direction:column;}
-  .card-header{background:#111;padding:10px 14px 8px;text-align:center;border-bottom:4px solid #FFD700;}
-  .card-header h1{font-family:'Bangers',cursive;font-size:34px;color:#FFD700;letter-spacing:.1em;line-height:1;text-shadow:2px 2px 0 #FF4F8B;}
-  .card-header .subtitle{font-family:'Bangers',cursive;font-size:12px;color:#00C8B4;letter-spacing:.2em;margin-top:1px;}
-  .card-side-label{font-family:'Bangers',cursive;font-size:10px;letter-spacing:.2em;color:#888;text-align:right;padding:4px 12px 0;background:#111;}
-  .card-body{padding:10px 14px;flex:1;display:flex;flex-direction:column;gap:9px;}
-  .block{background:#fff;border:3px solid #111;border-radius:8px;overflow:hidden;box-shadow:3px 3px 0 #111;}
-  .block-head{padding:4px 10px;font-family:'Bangers',cursive;font-size:14px;letter-spacing:.1em;color:#111;border-bottom:2px solid #111;display:flex;align-items:center;gap:6px;}
-  .block-head.pink{background:#FF4F8B;color:#fff;}
-  .block-head.yellow{background:#FFD700;}
-  .block-head.teal{background:#00C8B4;}
-  .block-head.purple{background:#9B50E0;color:#fff;}
-  .block-head.green{background:#8BC34A;}
-  .block-body{padding:7px 10px;}
-  .step{display:flex;gap:7px;align-items:flex-start;margin-bottom:4px;font-size:12px;font-weight:700;color:#111;line-height:1.3;}
-  .step:last-child{margin-bottom:0;}
-  .step-num{font-family:'Bangers',cursive;font-size:13px;background:#111;color:#FFD700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
-  .squad-row{display:flex;align-items:center;justify-content:space-between;padding:3px 0;border-bottom:1px dashed #ddd;font-size:12px;font-weight:700;color:#111;}
-  .squad-row:last-child{border-bottom:none;padding-bottom:0;}
-  .squad-cost{font-family:'Bangers',cursive;font-size:14px;background:#111;color:#FFD700;padding:1px 7px;border-radius:4px;}
-  .squad-cost.free{background:#8BC34A;color:#111;}
-  .blood-row{display:flex;gap:6px;justify-content:space-around;}
-  .blood-chip{text-align:center;font-size:11px;font-weight:900;color:#111;}
-  .blood-val{font-family:'Bangers',cursive;font-size:20px;color:#FF4F8B;line-height:1;text-shadow:1px 1px 0 #000;}
-  .blood-label{font-size:10px;color:#555;font-weight:700;}
-  .turn-row{display:flex;gap:6px;margin-bottom:4px;align-items:flex-start;font-size:11px;font-weight:700;color:#111;line-height:1.3;}
-  .turn-row:last-child{margin-bottom:0;}
-  .turn-badge{font-family:'Bangers',cursive;font-size:10px;padding:2px 6px;border-radius:4px;border:2px solid #111;white-space:nowrap;flex-shrink:0;}
-  .score-row{display:flex;align-items:center;justify-content:space-between;padding:3px 0;border-bottom:1px dashed #ddd;font-size:11px;font-weight:700;color:#111;}
-  .score-row:last-child{border-bottom:none;}
-  .score-pts{font-family:'Bangers',cursive;font-size:16px;color:#FF4F8B;text-shadow:1px 1px 0 #000;}
-  /* Combat row */
-  .combat-row{display:flex;align-items:flex-start;gap:6px;margin-bottom:4px;font-size:11px;font-weight:700;color:#111;line-height:1.3;}
-  .combat-row:last-child{margin-bottom:0;}
-  .combat-lbl{font-family:'Bangers',cursive;font-size:11px;background:#111;color:#FFD700;padding:1px 6px;border-radius:4px;white-space:nowrap;flex-shrink:0;}
-  /* Amendment pill */
-  .amend{display:inline-block;font-family:'Bangers',cursive;font-size:8px;letter-spacing:.08em;padding:0px 5px;border-radius:8px;background:#FF4F8B;color:#fff;border:1px solid #111;margin-left:3px;vertical-align:middle;}
-  .card-footer{background:#111;border-top:3px solid #FFD700;padding:5px 14px;display:flex;justify-content:space-between;align-items:center;}
-  .card-footer span{font-family:'Bangers',cursive;font-size:10px;letter-spacing:.15em;color:#888;}
-  .card-footer .footer-icon{font-size:14px;}
-  .two-col-body{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#C4820A;background-image:radial-gradient(ellipse at 18% 22%,rgba(180,60,140,.22) 0%,transparent 45%),radial-gradient(ellipse at 82% 78%,rgba(0,180,160,.16) 0%,transparent 45%);font-family:'Nunito',sans-serif;font-size:13px;padding-bottom:32px;}
+.doc-header{background:#111;border-bottom:5px solid #FFD700;padding:10px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;box-shadow:0 3px 0 #000;}
+.doc-title{font-family:'Bangers',cursive;font-size:26px;color:#FFD700;letter-spacing:.1em;text-shadow:2px 2px 0 #FF4F8B;}
+.doc-sub{font-family:'Bangers',cursive;font-size:12px;color:#00C8B4;letter-spacing:.15em;}
+.print-btn{font-family:'Bangers',cursive;font-size:14px;padding:6px 16px;background:#00C8B4;border:2px solid #111;border-radius:6px;cursor:pointer;box-shadow:2px 2px 0 #111;letter-spacing:.08em;}
+.print-btn:active{transform:scale(.97);}
+.doc{max-width:1140px;margin:0 auto;padding:16px 20px;}
+.intro{background:#1a0a00;border:3px solid #FFD700;border-radius:10px;padding:14px 20px;box-shadow:4px 4px 0 #FFD700;margin-bottom:16px;text-align:center;}
+.intro p{color:#e8d090;font-weight:700;font-size:14px;line-height:1.5;}
+.intro strong{color:#FFD700;}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+.step{background:#FFF8E0;border:3px solid #111;border-radius:10px;overflow:hidden;box-shadow:4px 4px 0 #111;}
+.step-head{padding:8px 14px;display:flex;align-items:center;gap:10px;border-bottom:3px solid #111;}
+.step-num{font-family:'Bangers',cursive;font-size:24px;color:#111;background:#FFD700;border:2px solid #111;border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:2px 2px 0 #111;}
+.step-title{font-family:'Bangers',cursive;font-size:18px;letter-spacing:.06em;color:#111;}
+.step-body{padding:12px 16px;}
+.step-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:6px;font-size:12px;font-weight:700;color:#333;line-height:1.4;}
+.step-row:last-child{margin-bottom:0;}
+.dot{width:7px;height:7px;border-radius:50%;background:#FF4F8B;border:1.5px solid #111;margin-top:4px;flex-shrink:0;}
+.tb-wrap{overflow-x:auto;margin:6px 0;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead tr{background:#111;}
+thead th{font-family:'Bangers',cursive;font-size:11px;letter-spacing:.08em;color:#FFD700;padding:5px 9px;text-align:left;}
+tbody tr{border-bottom:1px solid #ddd;}
+tbody tr:nth-child(even){background:rgba(255,255,255,.5);}
+td{padding:4px 9px;color:#111;font-weight:700;font-size:12px;}
+.note{margin-top:8px;padding:6px 10px;border:2px solid #111;border-radius:6px;font-size:11px;font-weight:700;line-height:1.4;}
+.note-y{background:#FFD700;color:#111;}
+.note-t{background:#00C8B4;color:#111;}
+.flow{background:#FFF8E0;border:3px solid #111;border-radius:10px;overflow:hidden;box-shadow:4px 4px 0 #111;margin-bottom:16px;}
+.flow-head{padding:8px 16px;background:#9B50E0;border-bottom:3px solid #111;}
+.flow-head h2{font-family:'Bangers',cursive;font-size:18px;letter-spacing:.08em;color:#fff;}
+.flow-body{padding:14px 16px;}
+.phases{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+.phase{background:#fff;border:2px solid #111;border-radius:8px;overflow:hidden;box-shadow:2px 2px 0 #111;}
+.phase-h{padding:6px 12px;border-bottom:2px solid #111;font-family:'Bangers',cursive;font-size:14px;letter-spacing:.06em;}
+.phase-b{padding:9px 12px;}
+.phase-row{display:flex;gap:7px;align-items:flex-start;margin-bottom:5px;font-size:12px;font-weight:700;color:#333;line-height:1.35;}
+.phase-row:last-child{margin-bottom:0;}
+.activation{background:#1a0a00;border:3px solid #FFD700;border-radius:10px;padding:14px 20px;box-shadow:4px 4px 0 #FFD700;margin-bottom:16px;}
+.activation h2{font-family:'Bangers',cursive;font-size:18px;color:#FFD700;letter-spacing:.06em;margin-bottom:8px;}
+.activation p,.activation li{color:#e8d090;font-weight:700;font-size:13px;line-height:1.5;}
+.activation strong{color:#FFD700;}
+.activation ul{padding-left:20px;margin:6px 0;}
+.activation li::marker{color:#FF4F8B;}
+.act-formula{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+.act-chip{background:#FFD700;color:#111;font-family:'Bangers',cursive;font-size:14px;padding:6px 14px;border-radius:8px;border:2px solid #111;letter-spacing:.04em;box-shadow:2px 2px 0 #000;}
+.act-plus{font-family:'Bangers',cursive;font-size:22px;color:#FFD700;}
+.combat-mini{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+.cm-box{background:#FFF8E0;border:3px solid #111;border-radius:10px;overflow:hidden;box-shadow:4px 4px 0 #111;}
+.cm-head{padding:8px 14px;border-bottom:3px solid #111;font-family:'Bangers',cursive;font-size:16px;letter-spacing:.06em;}
+.cm-body{padding:12px 14px;}
+.cm-body p,.cm-body li{font-size:12px;font-weight:700;color:#333;line-height:1.45;margin-bottom:4px;}
+.cm-body li:last-child{margin-bottom:0;}
+.cm-body ul{padding-left:16px;}
+.cm-body li::marker{color:#FF4F8B;}
+.cm-body strong{color:#111;}
+.tag{display:inline-block;font-family:'Bangers',cursive;font-size:9px;letter-spacing:.06em;padding:1px 7px;border-radius:8px;border:1.5px solid #111;}
+.win{background:#FFD700;border:3px solid #111;border-radius:10px;padding:12px 18px;box-shadow:4px 4px 0 #111;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;}
+.win-item{font-size:12px;font-weight:900;color:#111;text-align:center;}
+.win-pts{font-family:'Bangers',cursive;font-size:24px;color:#111;display:block;line-height:1;}
+@media print{
+  body{background:#fff;padding:0;}
+  .doc-header{position:static;}
+  .print-btn{display:none;}
+  .intro,.step,.flow,.activation,.cm-box,.win{box-shadow:none;border:1px solid #333;break-inside:avoid;}
+}
 </style>
 
-<!-- FRONT -->
-<div class="card">
-  <div class="card-header">
-    <h1>TAVERN BRAWL</h1>
-    <div class="subtitle">Setup Guide</div>
+<div class="doc-header">
+  <div><div class="doc-title">🍺 TAVERN BRAWL</div><div class="doc-sub">Quick Setup Guide — v9 · Start Playing in 5 Minutes</div></div>
+  <button class="print-btn" id="printBtn">🖨 Print</button>
+</div>
+
+<div class="doc">
+
+  <div class="intro">
+    <p>A spilled pint. A crowded pub. <strong>4 turns</strong> to come out on top. Grab a crew, grab whatever's on the table, and be the <strong>last lot standing</strong>. This card gets you playing — keep the <strong>Full Quick Reference</strong> nearby for the details.</p>
   </div>
-  <div class="card-side-label">FRONT ◆ SETUP &amp; SQUAD</div>
-  <div class="card-body">
 
-    <div class="block">
-      <div class="block-head yellow">🍻 Build Your Squad — Spend 4 Points</div>
-      <div class="block-body">
-        <div class="squad-row"><span>Big Bozza <em style="color:#888;font-size:11px;">(must include 1)</em></span><span class="squad-cost free">FREE</span></div>
-        <div class="squad-row"><span>Scrapper <em style="color:#888;font-size:11px;">— quick, fragile</em></span><span class="squad-cost">1 pt</span></div>
-        <div class="squad-row"><span>Brute <em style="color:#888;font-size:11px;">— slow, tough</em></span><span class="squad-cost">2 pts</span></div>
-      </div>
-    </div>
-
-    <div class="block">
-      <div class="block-head pink">⚡ Setup Steps</div>
-      <div class="block-body">
-        <div class="step"><div class="step-num">1</div><div>Each player takes a table <strong>edge</strong>. Deploy within <strong>6"</strong> of your edge.</div></div>
-        <div class="step"><div class="step-num">2</div><div>Place <strong>3 Prize Tokens</strong> in the middle — at least <strong>6" apart</strong> and <strong>6" from each deployment zone</strong>.</div></div>
-        <div class="step"><div class="step-num">3</div><div>Shuffle the <strong>Gear deck</strong>. Each player draws cards equal to <strong>squad size</strong> including BB.</div></div>
-        <div class="step"><div class="step-num">4</div><div>Both roll a <strong>d20</strong>. Highest wins <strong>Turn 1 initiative</strong>. Reroll ties.</div></div>
-        <div class="step"><div class="step-num">5</div><div><strong>Alternate placing models</strong> one at a time. Initiative player places first.</div></div>
-      </div>
-    </div>
-
-    <div class="block">
-      <div class="block-head teal">🩸 Starting Blood Tokens</div>
-      <div class="block-body">
-        <div class="blood-row">
-          <div class="blood-chip"><div class="blood-val">4</div><div class="blood-label">SCRAPPER</div></div>
-          <div class="blood-chip"><div class="blood-val">7</div><div class="blood-label">BRUTE</div></div>
-          <div class="blood-chip"><div class="blood-val">See<br>Card</div><div class="blood-label">BIG BOZZA</div></div>
+  <!-- SETUP STEPS -->
+  <div class="steps">
+    <div class="step">
+      <div class="step-head"><div class="step-num">1</div><div class="step-title">Build Your Crew</div></div>
+      <div class="step-body">
+        <div class="step-row"><div class="dot"></div><div>Pick <strong>1 Big Bozza (BB)</strong> — free — then spend <strong>4 points</strong> on the rest.</div></div>
+        <div class="tb-wrap">
+          <table><thead><tr><th>Model</th><th>Cost</th><th>Skill</th><th>Blood</th><th>Spd</th><th>Atk</th><th>Def</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Big Bozza</strong></td><td>Free</td><td colspan="5" style="text-align:center;">See card</td></tr>
+            <tr><td><strong>Scrapper</strong></td><td>1 pt</td><td>10</td><td>4</td><td>4"</td><td>2</td><td>10/14</td></tr>
+            <tr><td><strong>Brute</strong></td><td>2 pts</td><td>14</td><td>7</td><td>3"</td><td>3</td><td>6/10</td></tr>
+          </tbody></table>
         </div>
-        <div style="text-align:center;margin-top:6px;font-size:11px;font-weight:700;color:#555;">Reach 0 tokens = KO'd. Remove from table.</div>
+        <div class="note note-t"><strong>Try:</strong> BB + 4 Scrappers · BB + 2 Brutes · BB + 1 Brute + 2 Scrappers</div>
       </div>
     </div>
 
-    <div class="block">
-      <div class="block-head green">🍺 The Table Is The Terrain</div>
-      <div class="block-body">
-        <div style="font-size:11px;font-weight:700;color:#333;line-height:1.4;">Any object counts as <strong>Clutter</strong> (Scavenge) and <strong>Cover</strong> (+4 Defense). No terrain pieces needed.</div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">2</div><div class="step-title">Set the Scene</div></div>
+      <div class="step-body">
+        <div class="step-row"><div class="dot"></div><div>Use <strong>any table</strong> — mugs, coasters, phones all become terrain.</div></div>
+        <div class="step-row"><div class="dot"></div><div>Each player takes an <strong>edge</strong>. Deploy later, within <strong>6"</strong> of it.</div></div>
+        <div class="step-row"><div class="dot"></div><div>Drop <strong>3 Prize Tokens</strong> in the middle — 6" apart, 6" from each edge.</div></div>
+        <div class="note note-y">🍺 <strong>The table is the terrain.</strong> Every object = <strong>Clutter</strong> (Scavenge) and <strong>Cover</strong> (+4 Defence).</div>
       </div>
     </div>
 
+    <div class="step">
+      <div class="step-head"><div class="step-num">3</div><div class="step-title">Deal &amp; Deploy</div></div>
+      <div class="step-body">
+        <div class="step-row"><div class="dot"></div><div>Shuffle the Gear deck. Each player draws an opening hand of <strong>5 cards</strong>.</div></div>
+        <div class="step-row"><div class="dot"></div><div>Both roll a <strong>d20</strong> — highest wins <strong>Turn 1 initiative</strong> (reroll ties).</div></div>
+        <div class="step-row"><div class="dot"></div><div>Take turns placing models one at a time. <strong>Initiative player places first.</strong></div></div>
+        <div class="note note-t">Set starting <strong>Blood</strong> tokens: Scrapper <strong>4</strong> · Brute <strong>7</strong> · BB <strong>see card</strong>.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><div class="step-num">4</div><div class="step-title">Know Your Goal</div></div>
+      <div class="step-body">
+        <div class="step-row"><div class="dot"></div><div>Game lasts <strong>4 turns</strong> — or ends instantly if a whole squad is KO'd.</div></div>
+        <div class="step-row"><div class="dot"></div><div>Score points by <strong>claiming Prizes</strong> and <strong>knocking out</strong> enemies.</div></div>
+        <div class="step-row"><div class="dot"></div><div>Most points after Turn 4 wins. <strong>Protect your BB</strong> — lose it and you lose your Command Token &amp; archetype bonuses!</div></div>
+      </div>
+    </div>
   </div>
-  <div class="card-footer">
-    <span>🎮 4 TURNS OR LAST SQUAD STANDING</span>
-    <span class="footer-icon">🍺</span>
+
+  <!-- TURN FLOW -->
+  <div class="flow">
+    <div class="flow-head"><h2>🔄 How a Turn Works — repeat 4 times</h2></div>
+    <div class="flow-body">
+      <div class="phases">
+        <div class="phase">
+          <div class="phase-h" style="background:#FF4F8B;color:#fff;">1 · Order Phase</div>
+          <div class="phase-b">
+            <div class="phase-row"><div class="dot"></div><div>Stand all model cards upright.</div></div>
+            <div class="phase-row"><div class="dot"></div><div>Take <strong>1 Order Token per model</strong>.</div></div>
+            <div class="phase-row"><div class="dot"></div><div>Put a <strong>Command Token</strong> by your BB.</div></div>
+            <div class="phase-row"><div class="dot"></div><div>Draw <strong>1 card per model</strong>.</div></div>
+            <div class="phase-row"><div class="dot"></div><div><strong>Turn 2+:</strong> bid a card for initiative.</div></div>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-h" style="background:#00C8B4;">2 · Action Phase</div>
+          <div class="phase-b">
+            <div class="phase-row"><div class="dot"></div><div><strong>Alternate</strong> activating models.</div></div>
+            <div class="phase-row"><div class="dot"></div><div>Spend <strong>1 Order Token</strong> → activate 1 model → it <strong>Moves + Acts</strong> (see below).</div></div>
+            <div class="phase-row"><div class="dot"></div><div>Phase ends when <strong>both players pass</strong>.</div></div>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-h" style="background:#FFD700;">3 · End Phase</div>
+          <div class="phase-b">
+            <div class="phase-row"><div class="dot"></div><div><strong>Claim Prizes:</strong> unengaged model within 1" → <strong>+3 pts</strong>.</div></div>
+            <div class="phase-row"><div class="dot"></div><div>Check for a winner.</div></div>
+            <div class="phase-row"><div class="dot"></div><div><strong>Discard down to 7 cards.</strong></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- THE ACTIVATION -->
+  <div class="activation">
+    <h2>⚡ Your Activation — the heart of the game</h2>
+    <p>When you activate a model, it does <strong>all of this</strong>:</p>
+    <div class="act-formula">
+      <span class="act-chip">MOVE up to Speed</span>
+      <span class="act-plus">+</span>
+      <span class="act-chip">ONE Action</span>
+      <span class="act-plus">+</span>
+      <span class="act-chip">ONE Buff / Free card</span>
+    </div>
+    <p>Your <strong>ONE Action</strong> is a single choice from:</p>
+    <ul>
+      <li><strong>Fist Fight</strong> an engaged enemy (within 1"), <strong>or</strong></li>
+      <li><strong>Play 1 Order card</strong> (ranged attack, heal, etc.), <strong>or</strong></li>
+      <li><strong>Use your BB's Active ability.</strong></li>
+    </ul>
+    <p style="margin-top:6px;">You can't Fist Fight <strong>and</strong> play an Order card — pick one. But you may always layer <strong>one</strong> buff/Free card on top, and play <strong>Reactions</strong> &amp; <strong>Desperate Acts</strong> when their moment comes. <strong>Touching Clutter? Scavenge free once a turn</strong> (draw 2, keep 1).</p>
+  </div>
+
+  <!-- COMBAT MINI -->
+  <div class="combat-mini">
+    <div class="cm-box">
+      <div class="cm-head" style="background:#FF4F8B;color:#fff;">🥊 Fist Fight in 3 Steps</div>
+      <div class="cm-body">
+        <ul>
+          <li><strong>① Attack:</strong> roll your attack dice. Each die <strong>≤ Skill = a Hit</strong> (1 dmg). Roll <strong>exactly Skill = a CRIT</strong> (2 dmg!). A <strong>natural 1</strong> always misses.</li>
+          <li><strong>② Defence:</strong> defender rolls <strong>1 die per Hit/Crit that landed</strong> (+ any bonus dice). Each <strong>≤ Defence = blocks 1</strong>. <strong>Exactly Defence = CRIT BLOCK</strong> (blocks 2 / stops a Crit).</li>
+          <li><strong>③ Damage:</strong> whatever's left through = Blood lost. At <strong>0 Blood → KO'd.</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="cm-box">
+      <div class="cm-head" style="background:#9B50E0;color:#fff;">💥 Good to Know</div>
+      <div class="cm-body">
+        <ul>
+          <li><strong>Bloodied</strong> (half Blood or below): your <strong>Desperate Acts</strong> get nastier and you can use <strong>two</strong> a turn.</li>
+          <li><strong>Gang Up:</strong> Scrappers get +1 attack die per friendly Scrapper within 4" (max +2).</li>
+          <li><strong>Cover</strong> (+4 Def) and <strong>positioning</strong> win fights — use the clutter.</li>
+          <li><strong>Don't shoot</strong> someone you're engaged with — and moving away from a fight lets them swing first (<strong>Retaliation</strong>).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- WIN BAR -->
+  <div class="win">
+    <div style="font-family:'Bangers',cursive;font-size:18px;color:#111;letter-spacing:.06em;">🏆 SCORE</div>
+    <div class="win-item"><span class="win-pts">3</span>Claim a Prize</div>
+    <div class="win-item"><span class="win-pts">3</span>KO enemy BB</div>
+    <div class="win-item"><span class="win-pts">2</span>KO a Brute</div>
+    <div class="win-item"><span class="win-pts">1</span>KO a Scrapper</div>
+    <div style="font-size:12px;font-weight:900;color:#111;max-width:260px;">Most points after <strong>4 turns</strong> wins. Wipe out the enemy squad anytime = <strong>instant win!</strong> Tie? Whose BB still stands.</div>
+  </div>
+
 </div>
 
-<!-- BACK -->
-<div class="card">
-  <div class="card-header">
-    <h1>TAVERN BRAWL</h1>
-    <div class="subtitle">Turn, Combat &amp; Key Rules</div>
-  </div>
-  <div class="card-side-label">BACK ◆ TURNS, COMBAT &amp; RULINGS</div>
-  <div class="card-body">
-
-    <!-- TURN PHASES CONDENSED -->
-    <div class="block">
-      <div class="block-head pink">📋 Each Turn</div>
-      <div class="block-body">
-        <div class="turn-row"><span class="turn-badge" style="background:#FF4F8B;color:#fff;">1 ORDER</span><div>Return cards upright · +1 Order Token per model · Place CMD Token coin · Draw 1 Gear card · Bid for initiative (Turn 2+, highest tip wins, both discarded)</div></div>
-        <div class="turn-row"><span class="turn-badge" style="background:#00C8B4;">2 ACTION</span><div>Alternate activations · 1 Order = activate a model · 1 free Order card per activation · CMD Token activates any model (once per model per turn)</div></div>
-        <div class="turn-row"><span class="turn-badge" style="background:#FFD700;">3 END</span><div>Unengaged model within 1" of Prize Token → claim it → +5 pts</div></div>
-      </div>
-    </div>
-
-    <!-- ACTIONS -->
-    <div class="block">
-      <div class="block-head yellow">⚔️ Actions</div>
-      <div class="block-body">
-        <div class="combat-row"><span class="combat-lbl">RUSH</span><div>Move then Fist Fight. Declare only when enemy can be reached after moving. ⚠️ Retaliation if moving while engaged.</div></div>
-        <div class="combat-row"><span class="combat-lbl">LEG IT</span><div>Move twice. ⚠️ Retaliation on each move while engaged.</div></div>
-        <div class="combat-row"><span class="combat-lbl">STAND</span><div>No move. Fist Fight. Scrappers +1 die.</div></div>
-        <div class="combat-row"><span class="combat-lbl">SHOVE</span><div>Straight move, safe. Path can't cross a model or terrain &gt;1".</div></div>
-        <div class="combat-row"><span class="combat-lbl">SCAVENGE</span><div>Within 1" of Clutter. Draw 3 Gear cards, keep 1.</div></div>
-      </div>
-    </div>
-
-    <!-- COMBAT -->
-    <div class="block">
-      <div class="block-head teal">🥊 Combat <span class="amend">Amended</span></div>
-      <div class="block-body">
-        <div class="combat-row"><span class="combat-lbl">ATTACK</span><div>Roll ≤ Rank = hit. Crit = exact Rank: auto hit, +1 dmg, no defence roll.</div></div>
-        <div class="combat-row"><span class="combat-lbl">DEFENCE</span><div>Each die ≤ Defence value blocks 1 damage independently. Gang Up: +1 die per friendly Scrapper within 4" (max +2).</div></div>
-        <div class="combat-row"><span class="combat-lbl">RETALIATE</span><div>Triggered when engaged model moves away or plays ranged card. Resolves first. If target KO'd, remaining retaliations cancelled.</div></div>
-      </div>
-    </div>
-
-    <!-- SCORING + KEY RULINGS -->
-    <div class="block">
-      <div class="block-head green">🏆 Scoring &amp; Key Rulings <span class="amend">Amended</span></div>
-      <div class="block-body">
-        <div class="score-row"><span>Claim a Prize Token</span><span class="score-pts">5 pts</span></div>
-        <div class="score-row"><span>KO a Scrapper / Brute / BB</span><span class="score-pts">1 / 2 / 3 pts</span></div>
-        <div class="score-row"><span>Self-KO (any cause) — opponent scores</span><span class="score-pts">✓</span></div>
-        <div class="score-row"><span>Last Stand — lost blood only, not spent</span><span class="score-pts">📌</span></div>
-        <div class="score-row"><span>Bar Stool — Bruiser BB: any model may play</span><span class="score-pts">📌</span></div>
-        <div class="score-row"><span>Headbutt — no DAs until end of this turn</span><span class="score-pts">📌</span></div>
-        <div style="margin-top:5px;font-size:10px;font-weight:700;color:#555;">Tiebreakers: BB alive → most BB blood → draw</div>
-      </div>
-    </div>
-
-  </div>
-  <div class="card-footer">
-    <span>⚡ KO ALL ENEMIES = INSTANT WIN</span>
-    <span class="footer-icon">🍺</span>
-  </div>
-</div>
-
+<script>
+  document.addEventListener('DOMContentLoaded',function(){
+    document.getElementById('printBtn').addEventListener('click',function(){window.print();});
+  });
+</script>
 
 </body></html>
