@@ -1,0 +1,245 @@
+
+<html data-type="html" data-identifier="d4e9b2a7-3f1c-4856-9b07-2a6e8c1d5f73" data-title="Tavern Brawl — Scrapper &amp; Brute Cards v9" data-version="2" width="900" height="1100"><head></head><body>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#C4820A;background-image:radial-gradient(ellipse at 20% 25%,rgba(180,60,140,.22) 0%,transparent 50%),radial-gradient(ellipse at 80% 75%,rgba(0,180,160,.16) 0%,transparent 50%);font-family:'Nunito',sans-serif;padding:24px;}
+.toolbar{text-align:center;margin-bottom:18px;}
+.toolbar h1{font-family:'Bangers',cursive;font-size:24px;color:#FFD700;letter-spacing:.1em;text-shadow:2px 2px 0 #111,3px 3px 0 #FF4F8B;}
+.toolbar p{font-family:'Bangers',cursive;font-size:12px;color:#1a0a00;letter-spacing:.12em;margin-top:2px;}
+.print-btn{font-family:'Bangers',cursive;font-size:14px;padding:6px 18px;background:#00C8B4;border:2px solid #111;border-radius:6px;cursor:pointer;box-shadow:2px 2px 0 #111;letter-spacing:.08em;margin-top:8px;}
+.print-btn:active{transform:scale(.97);}
+.model-block{margin-bottom:28px;}
+.model-title{font-family:'Bangers',cursive;font-size:16px;letter-spacing:.1em;color:#1a0a00;text-align:center;margin-bottom:10px;background:#FFD700;border:2px solid #111;border-radius:12px;padding:3px 0;max-width:560px;margin-left:auto;margin-right:auto;box-shadow:2px 2px 0 #111;}
+.card-row{display:flex;gap:40px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
+.card-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;}
+.face-label{font-family:'Bangers',cursive;font-size:12px;letter-spacing:.12em;color:#fff;background:#1a0a00;border:2px solid #111;border-radius:12px;padding:2px 14px;box-shadow:2px 2px 0 #111;}
+/* TRUE POKER SIZE */
+.card{width:2.5in;height:3.5in;border:3px solid #111;border-radius:14px;overflow:hidden;box-shadow:5px 5px 0 #111;position:relative;display:flex;flex-direction:column;background:#FFF8E0;}
+.card-scrapper{background:linear-gradient(165deg,#fffdf0 0%,#fbe8c0 100%);}
+.card-brute{background:linear-gradient(165deg,#fff0f0 0%,#f5d0d8 100%);}
+.c-head{padding:7px 11px 6px;border-bottom:3px solid #111;display:flex;justify-content:space-between;align-items:center;}
+.c-scrapper-head{background:#8BC34A;}
+.c-brute-head{background:#FF4F8B;}
+.c-name{font-family:'Bangers',cursive;font-size:21px;letter-spacing:.04em;color:#111;line-height:1;}
+.c-brute-head .c-name{color:#fff;text-shadow:1px 1px 0 #111;}
+.c-cost{font-family:'Bangers',cursive;font-size:10px;letter-spacing:.05em;color:#111;background:#FFD700;border:1.5px solid #111;border-radius:8px;padding:1px 7px;white-space:nowrap;}
+.c-tagline{font-family:'Nunito',sans-serif;font-style:italic;font-weight:700;font-size:9px;padding:3px 11px;color:#555;border-bottom:2px solid #111;background:rgba(255,255,255,.4);}
+/* STAT STRIP */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:3px solid #111;}
+.stat{padding:5px 2px;text-align:center;border-right:1.5px solid #11111133;}
+.stat:last-child{border-right:none;}
+.stat-lbl{font-family:'Bangers',cursive;font-size:8px;letter-spacing:.05em;color:#666;line-height:1;}
+.stat-val{font-family:'Bangers',cursive;font-size:17px;color:#111;line-height:1.05;}
+/* BODY (front) */
+.c-body{padding:8px 11px;flex:1;display:flex;flex-direction:column;gap:6px;}
+.trait-name{font-family:'Bangers',cursive;font-size:11px;letter-spacing:.04em;color:#111;margin-bottom:1px;display:flex;align-items:center;gap:4px;}
+.trait-txt{font-size:9.5px;font-weight:700;color:#333;line-height:1.3;}
+.trait-txt b{color:#111;}
+.divider{height:2px;background:#11111122;border-radius:2px;}
+/* FOOTER */
+.c-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:5px;border-top:2px dashed #11111155;}
+.foot-item{font-size:8.5px;font-weight:900;color:#1a0a00;text-align:center;line-height:1.2;}
+.foot-item b{font-family:'Bangers',cursive;font-size:13px;color:#FF4F8B;display:block;}
+.c-brute .foot-item b{color:#c0305a;}
+.bloodied-chip{font-family:'Bangers',cursive;font-size:8.5px;letter-spacing:.03em;color:#fff;background:#FF4F8B;border:1.5px solid #111;border-radius:7px;padding:2px 7px;}
+.brand{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);font-family:'Bangers',cursive;font-size:7px;letter-spacing:.2em;color:#11111155;white-space:nowrap;}
+/* ===== BACK (action reference) ===== */
+.back-head{padding:6px 11px;border-bottom:3px solid #111;text-align:center;}
+.back-head .bh-title{font-family:'Bangers',cursive;font-size:15px;letter-spacing:.05em;color:#111;line-height:1;}
+.back-head .bh-sub{font-family:'Bangers',cursive;font-size:8px;letter-spacing:.08em;color:#11111199;}
+.c-brute-head.back-head .bh-title,.c-brute-head.back-head .bh-sub{color:#fff;}
+.formula{display:flex;align-items:center;justify-content:center;gap:3px;padding:5px 6px;background:#1a0a00;border-bottom:3px solid #111;flex-wrap:wrap;}
+.f-chip{font-family:'Bangers',cursive;font-size:8.5px;color:#111;background:#FFD700;border:1.5px solid #111;border-radius:6px;padding:2px 6px;letter-spacing:.02em;}
+.f-plus{font-family:'Bangers',cursive;font-size:13px;color:#FFD700;}
+.back-body{padding:7px 10px;flex:1;display:flex;flex-direction:column;gap:4px;}
+.opt{display:flex;gap:5px;align-items:flex-start;}
+.opt-ic{font-size:11px;line-height:1.3;flex-shrink:0;width:14px;text-align:center;}
+.opt-txt{font-size:9px;font-weight:700;color:#333;line-height:1.28;}
+.opt-txt b{font-family:'Bangers',cursive;font-size:10px;letter-spacing:.02em;color:#111;font-weight:400;}
+.opt-hi{color:#c0305a;}
+.c-scrapper .opt-hi{color:#5a8a1a;}
+.mini-divider{height:1.5px;background:#11111118;margin:1px 0;}
+.section-tag{font-family:'Bangers',cursive;font-size:8px;letter-spacing:.1em;color:#11111188;margin-top:2px;}
+.back-foot{margin-top:auto;padding-top:4px;border-top:2px dashed #11111155;font-size:8px;font-weight:700;color:#1a0a00;line-height:1.3;text-align:center;}
+.back-foot b{color:#c0305a;}
+.c-scrapper .back-foot b{color:#5a8a1a;}
+@media print{
+  body{background:#fff;padding:0;}
+  .toolbar,.face-label,.model-title{display:none;}
+  .print-btn{display:none;}
+  .card-row{gap:12px;}
+  .model-block{margin-bottom:14px;}
+  .card{box-shadow:none;}
+}
+</style>
+
+<div class="toolbar">
+  <h1>🍺 TAVERN BRAWL — Model Cards</h1>
+  <p>Two Double-Sided Cards · Poker Size 2.5" × 3.5" · v9</p>
+  <button class="print-btn" id="printBtn">🖨 Print</button>
+</div>
+
+<!-- ============ SCRAPPER CARD ============ -->
+<div class="model-block">
+  <div class="model-title">🟢 SCRAPPER CARD — print front &amp; back, glue together</div>
+  <div class="card-row">
+
+    <!-- SCRAPPER FRONT -->
+    <div class="card-wrap">
+      <div class="face-label">FRONT</div>
+      <div class="card card-scrapper c-scrapper">
+        <div class="c-head c-scrapper-head">
+          <div class="c-name">SCRAPPER</div>
+          <div class="c-cost">1 PT</div>
+        </div>
+        <div class="c-tagline">Quick but fragile — strength in numbers.</div>
+        <div class="stats">
+          <div class="stat"><div class="stat-lbl">SKILL</div><div class="stat-val">10</div></div>
+          <div class="stat"><div class="stat-lbl">BLOOD</div><div class="stat-val">4</div></div>
+          <div class="stat"><div class="stat-lbl">SPEED</div><div class="stat-val">4"</div></div>
+          <div class="stat"><div class="stat-lbl">ATK</div><div class="stat-val">2</div></div>
+          <div class="stat"><div class="stat-lbl">DEF</div><div class="stat-val">10<span style="font-size:9px;">/14</span></div></div>
+        </div>
+        <div class="c-body">
+          <div>
+            <div class="trait-name"><span>👥</span>Gang Up</div>
+            <div class="trait-txt"><b>+1 attack die</b> per friendly Scrapper within 4" (<b>max +2</b>). Primary Fist Fight only.</div>
+          </div>
+          <div class="divider"></div>
+          <div>
+            <div class="trait-name"><span>⚔️</span>In a Brawl</div>
+            <div class="trait-txt">Attack: each die <b>≤10 hits</b>, <b>=10 crits</b> (2 dmg). Pile in with your mates!</div>
+          </div>
+          <div class="divider"></div>
+          <div>
+            <div class="trait-name"><span>🛡</span>Fragile</div>
+            <div class="trait-txt">Only <b>4 Blood</b> — but Defence 10 dodges well. Use cover (+4) and numbers.</div>
+          </div>
+          <div class="c-foot">
+            <div class="foot-item"><b>4"</b>Move</div>
+            <div class="bloodied-chip">🩸 BLOODIED ≤ 2</div>
+            <div class="foot-item"><b>1</b>KO worth</div>
+          </div>
+        </div>
+        <div class="brand">⭐ TAVERN BRAWL ⭐</div>
+      </div>
+    </div>
+
+    <!-- SCRAPPER BACK -->
+    <div class="card-wrap">
+      <div class="face-label">BACK — ACTIONS</div>
+      <div class="card card-scrapper c-scrapper">
+        <div class="back-head c-scrapper-head">
+          <div class="bh-title">SCRAPPER ACTIONS</div>
+          <div class="bh-sub">WHAT YOU CAN DO THIS ACTIVATION</div>
+        </div>
+        <div class="formula">
+          <span class="f-chip">MOVE</span><span class="f-plus">+</span><span class="f-chip">1 ACTION</span><span class="f-plus">+</span><span class="f-chip">1 BUFF/FREE</span>
+        </div>
+        <div class="back-body">
+          <div class="section-tag">PICK ONE ACTION ▾</div>
+          <div class="opt"><div class="opt-ic">⚔️</div><div class="opt-txt"><b>Move &amp; Hit</b> — move up to 4", then Fist Fight an engaged enemy. <span class="opt-hi">(default)</span></div></div>
+          <div class="opt"><div class="opt-ic">🥊</div><div class="opt-txt"><b>Stand Your Ground</b> — don't move; Fist Fight with <span class="opt-hi">+1 attack die</span>.</div></div>
+          <div class="opt"><div class="opt-ic">🎴</div><div class="opt-txt"><b>Play 1 Order card</b> — ranged attack, heal, etc. (instead of a Fist Fight).</div></div>
+          <div class="mini-divider"></div>
+          <div class="section-tag">MOVE INSTEAD ▾</div>
+          <div class="opt"><div class="opt-ic">💨</div><div class="opt-txt"><b>Leg It</b> — move 4" twice. <span class="opt-hi">No Action.</span></div></div>
+          <div class="opt"><div class="opt-ic">🚶</div><div class="opt-txt"><b>Shove Through</b> — 4" straight line, no Retaliation.</div></div>
+          <div class="mini-divider"></div>
+          <div class="section-tag">ON TOP (FREE) ▾</div>
+          <div class="opt"><div class="opt-ic">🤜</div><div class="opt-txt"><b>1 Buff/Free card</b> · <b>Desperate Acts</b> (pay blood) · <b>Scavenge</b> if touching Clutter (draw 2, keep 1).</div></div>
+          <div class="back-foot">⚠️ Moving away from a fight = enemy swings first (<b>Retaliation</b>). Can't shoot who you're engaged with.</div>
+        </div>
+        <div class="brand">⭐ TAVERN BRAWL ⭐</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ BRUTE CARD ============ -->
+<div class="model-block">
+  <div class="model-title">🔴 BRUTE CARD — print front &amp; back, glue together</div>
+  <div class="card-row">
+
+    <!-- BRUTE FRONT -->
+    <div class="card-wrap">
+      <div class="face-label">FRONT</div>
+      <div class="card card-brute c-brute">
+        <div class="c-head c-brute-head">
+          <div class="c-name">BRUTE</div>
+          <div class="c-cost">2 PTS</div>
+        </div>
+        <div class="c-tagline">Slow but tough — soaks it on the chin.</div>
+        <div class="stats">
+          <div class="stat"><div class="stat-lbl">SKILL</div><div class="stat-val">14</div></div>
+          <div class="stat"><div class="stat-lbl">BLOOD</div><div class="stat-val">7</div></div>
+          <div class="stat"><div class="stat-lbl">SPEED</div><div class="stat-val">3"</div></div>
+          <div class="stat"><div class="stat-lbl">ATK</div><div class="stat-val">3</div></div>
+          <div class="stat"><div class="stat-lbl">DEF</div><div class="stat-val">6<span style="font-size:9px;">/10</span></div></div>
+        </div>
+        <div class="c-body">
+          <div>
+            <div class="trait-name"><span>⚔️</span>In a Brawl</div>
+            <div class="trait-txt"><b>3 attack dice</b>, each <b>≤14 hits</b>, <b>=14 crits</b> (2 dmg). Hits like a truck.</div>
+          </div>
+          <div class="divider"></div>
+          <div>
+            <div class="trait-name"><span>🪑</span>Bar Stool</div>
+            <div class="trait-txt">Only a <b>Brute</b> may play the <b>Bar Stool</b> card (Range 5", 3 dice).</div>
+          </div>
+          <div class="divider"></div>
+          <div>
+            <div class="trait-name"><span>🧱</span>Chin Tank</div>
+            <div class="trait-txt">Low Defence (6) but <b>7 Blood</b> — your health <i>is</i> your armour. Wade in.</div>
+          </div>
+          <div class="c-foot">
+            <div class="foot-item"><b>3"</b>Move</div>
+            <div class="bloodied-chip">🩸 BLOODIED ≤ 3</div>
+            <div class="foot-item"><b>2</b>KO worth</div>
+          </div>
+        </div>
+        <div class="brand">⭐ TAVERN BRAWL ⭐</div>
+      </div>
+    </div>
+
+    <!-- BRUTE BACK -->
+    <div class="card-wrap">
+      <div class="face-label">BACK — ACTIONS</div>
+      <div class="card card-brute c-brute">
+        <div class="back-head c-brute-head">
+          <div class="bh-title">BRUTE ACTIONS</div>
+          <div class="bh-sub">WHAT YOU CAN DO THIS ACTIVATION</div>
+        </div>
+        <div class="formula">
+          <span class="f-chip">MOVE</span><span class="f-plus">+</span><span class="f-chip">1 ACTION</span><span class="f-plus">+</span><span class="f-chip">1 BUFF/FREE</span>
+        </div>
+        <div class="back-body">
+          <div class="section-tag">PICK ONE ACTION ▾</div>
+          <div class="opt"><div class="opt-ic">⚔️</div><div class="opt-txt"><b>Move &amp; Hit</b> — move up to 3", then Fist Fight an engaged enemy. <span class="opt-hi">(default)</span></div></div>
+          <div class="opt"><div class="opt-ic">🥊</div><div class="opt-txt"><b>Stand Your Ground</b> — don't move; Fist Fight with <span class="opt-hi">+1 defence die</span> till next activation.</div></div>
+          <div class="opt"><div class="opt-ic">🎴</div><div class="opt-txt"><b>Play 1 Order card</b> — Bar Stool, ranged, etc. (instead of a Fist Fight).</div></div>
+          <div class="mini-divider"></div>
+          <div class="section-tag">MOVE INSTEAD ▾</div>
+          <div class="opt"><div class="opt-ic">💨</div><div class="opt-txt"><b>Leg It</b> — move 3" twice. <span class="opt-hi">No Action.</span></div></div>
+          <div class="opt"><div class="opt-ic">🚶</div><div class="opt-txt"><b>Shove Through</b> — 3" straight line, no Retaliation.</div></div>
+          <div class="mini-divider"></div>
+          <div class="section-tag">ON TOP (FREE) ▾</div>
+          <div class="opt"><div class="opt-ic">🤜</div><div class="opt-txt"><b>1 Buff/Free card</b> · <b>Desperate Acts</b> (pay blood) · <b>Scavenge</b> if touching Clutter (draw 2, keep 1).</div></div>
+          <div class="back-foot">⚠️ Moving away from a fight = enemy swings first (<b>Retaliation</b>). Can't shoot who you're engaged with.</div>
+        </div>
+        <div class="brand">⭐ TAVERN BRAWL ⭐</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded',function(){
+    document.getElementById('printBtn').addEventListener('click',function(){window.print();});
+  });
+</script>
+
+</body></html>
