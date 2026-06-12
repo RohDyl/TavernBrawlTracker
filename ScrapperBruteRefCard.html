@@ -1,5 +1,5 @@
 
-<html data-type="html" data-identifier="d4e9b2a7-3f1c-4856-9b07-2a6e8c1d5f73" data-title="Tavern Brawl — Scrapper &amp; Brute Cards v9" data-version="3" width="900" height="1150"><head></head><body>
+<html data-type="html" data-identifier="d4e9b2a7-3f1c-4856-9b07-2a6e8c1d5f73" data-title="Tavern Brawl — Scrapper &amp; Brute Cards v9" data-version="5" width="900" height="1150"><head></head><body>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -14,7 +14,6 @@ body{background:#C4820A;background-image:radial-gradient(ellipse at 20% 25%,rgba
 .card-row{display:flex;gap:40px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
 .card-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;}
 .face-label{font-family:'Bangers',cursive;font-size:12px;letter-spacing:.12em;color:#fff;background:#1a0a00;border:2px solid #111;border-radius:12px;padding:2px 14px;box-shadow:2px 2px 0 #111;}
-/* TRUE POKER SIZE */
 .card{width:2.5in;height:3.5in;border:3px solid #111;border-radius:14px;overflow:hidden;box-shadow:5px 5px 0 #111;position:relative;display:flex;flex-direction:column;background:#FFF8E0;}
 .card-scrapper{background:linear-gradient(165deg,#fffdf0 0%,#fbe8c0 100%);}
 .card-brute{background:linear-gradient(165deg,#fff0f0 0%,#f5d0d8 100%);}
@@ -25,26 +24,22 @@ body{background:#C4820A;background-image:radial-gradient(ellipse at 20% 25%,rgba
 .c-brute-head .c-name{color:#fff;text-shadow:1px 1px 0 #111;}
 .c-cost{font-family:'Bangers',cursive;font-size:10px;letter-spacing:.05em;color:#111;background:#FFD700;border:1.5px solid #111;border-radius:8px;padding:1px 7px;white-space:nowrap;}
 .c-tagline{font-family:'Nunito',sans-serif;font-style:italic;font-weight:700;font-size:9px;padding:3px 11px;color:#555;border-bottom:2px solid #111;background:rgba(255,255,255,.4);}
-/* STAT STRIP */
 .stats{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:3px solid #111;}
 .stat{padding:5px 2px;text-align:center;border-right:1.5px solid #11111133;}
 .stat:last-child{border-right:none;}
 .stat-lbl{font-family:'Bangers',cursive;font-size:8px;letter-spacing:.05em;color:#666;line-height:1;}
 .stat-val{font-family:'Bangers',cursive;font-size:17px;color:#111;line-height:1.05;}
-/* BODY (front) */
 .c-body{padding:8px 11px;flex:1;display:flex;flex-direction:column;gap:6px;}
 .trait-name{font-family:'Bangers',cursive;font-size:11px;letter-spacing:.04em;color:#111;margin-bottom:1px;display:flex;align-items:center;gap:4px;}
 .trait-txt{font-size:9.5px;font-weight:700;color:#333;line-height:1.3;}
 .trait-txt b{color:#111;}
 .divider{height:2px;background:#11111122;border-radius:2px;}
-/* FOOTER */
 .c-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:5px;border-top:2px dashed #11111155;}
 .foot-item{font-size:8.5px;font-weight:900;color:#1a0a00;text-align:center;line-height:1.2;}
 .foot-item b{font-family:'Bangers',cursive;font-size:13px;color:#FF4F8B;display:block;}
 .c-brute .foot-item b{color:#c0305a;}
 .bloodied-chip{font-family:'Bangers',cursive;font-size:8.5px;letter-spacing:.03em;color:#fff;background:#FF4F8B;border:1.5px solid #111;border-radius:7px;padding:2px 7px;}
 .brand{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);font-family:'Bangers',cursive;font-size:7px;letter-spacing:.2em;color:#11111155;white-space:nowrap;}
-/* ===== BACK (action reference) ===== */
 .back-head{padding:5px 11px;border-bottom:3px solid #111;text-align:center;}
 .back-head .bh-title{font-family:'Bangers',cursive;font-size:14px;letter-spacing:.05em;color:#111;line-height:1;}
 .back-head .bh-sub{font-family:'Bangers',cursive;font-size:7.5px;letter-spacing:.08em;color:#11111199;}
@@ -55,13 +50,13 @@ body{background:#C4820A;background-image:radial-gradient(ellipse at 20% 25%,rgba
 .back-body{padding:6px 9px;flex:1;display:flex;flex-direction:column;gap:3px;}
 .opt{display:flex;gap:4px;align-items:flex-start;}
 .opt-ic{font-size:10px;line-height:1.25;flex-shrink:0;width:13px;text-align:center;}
-.opt-txt{font-size:8.3px;font-weight:700;color:#333;line-height:1.22;}
+.opt-txt{font-size:8.4px;font-weight:700;color:#333;line-height:1.22;}
 .opt-txt b{font-family:'Bangers',cursive;font-size:9px;letter-spacing:.02em;color:#111;font-weight:400;}
 .opt-hi{color:#c0305a;}
 .c-scrapper .opt-hi{color:#5a8a1a;}
-.section-tag{font-family:'Bangers',cursive;font-size:7.5px;letter-spacing:.1em;color:#11111188;margin-top:2px;}
-/* DA block */
-.da-block{background:#fff;border:2px solid #111;border-left:5px solid #FF4F8B;border-radius:6px;padding:4px 6px;margin-top:2px;box-shadow:1px 1px 0 #111;}
+.section-tag{font-family:'Bangers',cursive;font-size:7.5px;letter-spacing:.08em;color:#11111188;margin-top:1px;margin-bottom:1px;}
+.section-tag.act{color:#111;}
+.da-block{background:#fff;border:2px solid #111;border-left:5px solid #FF4F8B;border-radius:6px;padding:4px 6px;margin-top:3px;box-shadow:1px 1px 0 #111;}
 .da-block-head{font-family:'Bangers',cursive;font-size:8.5px;letter-spacing:.06em;color:#FF4F8B;margin-bottom:2px;display:flex;justify-content:space-between;align-items:center;}
 .da-block-head span{font-family:'Nunito';font-style:italic;font-weight:700;font-size:7px;color:#888;}
 .da-line{display:flex;gap:4px;align-items:flex-start;margin-bottom:1.5px;}
@@ -146,11 +141,11 @@ body{background:#C4820A;background-image:radial-gradient(ellipse at 20% 25%,rgba
           <span class="f-chip">MOVE</span><span class="f-plus">+</span><span class="f-chip">1 ACTION</span><span class="f-plus">+</span><span class="f-chip">1 BUFF/FREE</span>
         </div>
         <div class="back-body">
-          <div class="section-tag">PICK ONE ACTION ▾</div>
-          <div class="opt"><div class="opt-ic">⚔️</div><div class="opt-txt"><b>Move &amp; Hit</b> — move 4", Fist Fight an engaged enemy. <span class="opt-hi">(default)</span></div></div>
-          <div class="opt"><div class="opt-ic">🥊</div><div class="opt-txt"><b>Stand Your Ground</b> — no move; Fist Fight, <span class="opt-hi">+1 attack die</span>.</div></div>
-          <div class="opt"><div class="opt-ic">🎴</div><div class="opt-txt"><b>Play 1 Order card</b> (instead of a Fist Fight).</div></div>
-          <div class="opt"><div class="opt-ic">💨</div><div class="opt-txt"><b>Leg It</b> — move 4" ×2, <span class="opt-hi">no Action</span> · <b>Shove Through</b> — 4" straight, no Retaliation.</div></div>
+          <div class="section-tag act">▾ PICK ONE:</div>
+          <div class="opt"><div class="opt-ic">⚔️</div><div class="opt-txt"><b>Move &amp; Act</b> — move up to 4", then <span class="opt-hi">Fist Fight</span> an engaged enemy <span class="opt-hi">OR play 1 Order card</span>.</div></div>
+          <div class="opt"><div class="opt-ic">🥊</div><div class="opt-txt"><b>Stand Your Ground</b> — no move; Fist Fight with <span class="opt-hi">+1 attack die</span>.</div></div>
+          <div class="opt"><div class="opt-ic">💨</div><div class="opt-txt"><b>Leg It</b> — move 4" twice. <span class="opt-hi">No Action.</span></div></div>
+          <div class="opt"><div class="opt-ic">🚶</div><div class="opt-txt"><b>Shove Through</b> — move 4" in a straight line. No Retaliation.</div></div>
 
           <div class="da-block">
             <div class="da-block-head">💥 DESPERATE ACTS <span>pay blood · never below 1</span></div>
@@ -227,11 +222,11 @@ body{background:#C4820A;background-image:radial-gradient(ellipse at 20% 25%,rgba
           <span class="f-chip">MOVE</span><span class="f-plus">+</span><span class="f-chip">1 ACTION</span><span class="f-plus">+</span><span class="f-chip">1 BUFF/FREE</span>
         </div>
         <div class="back-body">
-          <div class="section-tag">PICK ONE ACTION ▾</div>
-          <div class="opt"><div class="opt-ic">⚔️</div><div class="opt-txt"><b>Move &amp; Hit</b> — move 3", Fist Fight an engaged enemy. <span class="opt-hi">(default)</span></div></div>
-          <div class="opt"><div class="opt-ic">🥊</div><div class="opt-txt"><b>Stand Your Ground</b> — no move; Fist Fight, <span class="opt-hi">+1 defence die</span> till next activation.</div></div>
-          <div class="opt"><div class="opt-ic">🎴</div><div class="opt-txt"><b>Play 1 Order card</b> — Bar Stool, ranged, etc. (instead of a Fist Fight).</div></div>
-          <div class="opt"><div class="opt-ic">💨</div><div class="opt-txt"><b>Leg It</b> — move 3" ×2, <span class="opt-hi">no Action</span> · <b>Shove Through</b> — 3" straight, no Retaliation.</div></div>
+          <div class="section-tag act">▾ PICK ONE:</div>
+          <div class="opt"><div class="opt-ic">⚔️</div><div class="opt-txt"><b>Move &amp; Act</b> — move up to 3", then <span class="opt-hi">Fist Fight</span> an engaged enemy <span class="opt-hi">OR play 1 Order card</span>.</div></div>
+          <div class="opt"><div class="opt-ic">🥊</div><div class="opt-txt"><b>Stand Your Ground</b> — no move; Fist Fight with <span class="opt-hi">+1 defence die</span> till next activation.</div></div>
+          <div class="opt"><div class="opt-ic">💨</div><div class="opt-txt"><b>Leg It</b> — move 3" twice. <span class="opt-hi">No Action.</span></div></div>
+          <div class="opt"><div class="opt-ic">🚶</div><div class="opt-txt"><b>Shove Through</b> — move 3" in a straight line. No Retaliation.</div></div>
 
           <div class="da-block">
             <div class="da-block-head">💥 DESPERATE ACTS <span>pay blood · never below 1</span></div>
