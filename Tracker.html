@@ -11,8 +11,8 @@
   @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@700;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;touch-action:manipulation;}
 html{height:100%;}
-body{width:100%;height:100dvh;overflow:hidden;background:#111;font-family:'Nunito',sans-serif;}
-#root{position:fixed;top:0;left:0;right:0;height:100dvh;overflow:hidden;background:#111;}
+body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-family:'Nunito',sans-serif;}
+#root{position:fixed;top:0;left:0;right:0;height:100vh;height:100dvh;overflow:hidden;background:#111;}
   #app{position:absolute;inset:0;overflow:hidden;}
   .welcome,.setup,.game,.end{position:absolute;inset:0;}
 
@@ -28,11 +28,12 @@ body{width:100%;height:100dvh;overflow:hidden;background:#111;font-family:'Nunit
   .setup-head h1{font-family:'Bangers',cursive;font-size:25px;color:#FFD700;text-shadow:2px 2px 0 #FF4F8B;letter-spacing:.08em;line-height:1;}
   .setup-head .sub{font-family:'Bangers',cursive;font-size:11px;color:#00C8B4;letter-spacing:.2em;}
   .setup-body{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:10px 12px;display:flex;flex-direction:column;gap:8px;}
+  .setup-body > *{flex-shrink:0;}
   .setup-body::-webkit-scrollbar{width:3px;}
   .setup-body::-webkit-scrollbar-thumb{background:#888;border-radius:3px;}
   .setup-foot{flex-shrink:0;padding:10px 14px;padding-bottom:max(env(safe-area-inset-bottom,0px),34px);background:#C4820A;}
   .sbox{background:#FFF8E0;border:3px solid #111;border-radius:10px;overflow:hidden;box-shadow:3px 3px 0 #111;}
-  .sbox-head{background:#111;padding:6px 10px;font-family:'Bangers',cursive;font-size:13px;letter-spacing:.1em;color:#FFD700;}
+  .sbox-head{background:#111;padding:6px 10px;font-family:'Bangers',cursive;font-size:13px;letter-spacing:.1em;color:#FFD700;display:flex;align-items:center;justify-content:space-between;}
   .sbox-body{padding:9px;}
   .name-inp{width:100%;background:#fff;border:2px solid #111;border-radius:8px;padding:9px 10px;font-family:'Nunito',sans-serif;font-size:16px;font-weight:700;color:#111;outline:none;box-shadow:2px 2px 0 #111;-webkit-user-select:text;user-select:text;}
   .name-inp:focus{border-color:#FF4F8B;}
@@ -41,9 +42,18 @@ body{width:100%;height:100dvh;overflow:hidden;background:#111;font-family:'Nunit
   .bb-opt.sel{box-shadow:2px 2px 0 #111,0 0 0 3px #FF4F8B;background:#FFF3C4;}
   .bb-opt-name{font-family:'Bangers',cursive;font-size:13px;color:#111;line-height:1.05;}
   .bb-opt-meta{font-size:10px;font-weight:900;color:#FF4F8B;margin-top:2px;}
+
+  /* collapsed BB chip */
+  .bb-chosen{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .bb-chosen-info{display:flex;align-items:center;gap:8px;font-family:'Bangers',cursive;font-size:18px;color:#111;letter-spacing:.03em;}
+  .bb-chosen-info .hearts{font-family:'Nunito';font-weight:900;font-size:13px;color:#FF4F8B;}
+  .bb-change{background:#FFD700;border:2px solid #111;border-radius:7px;padding:6px 12px;font-family:'Bangers',cursive;font-size:12px;letter-spacing:.06em;color:#111;cursor:pointer;box-shadow:2px 2px 0 #111;flex-shrink:0;}
+  .bb-change:active{transform:translate(1px,1px);box-shadow:1px 1px 0 #111;}
+
   .budget-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
   .budget-lbl{font-family:'Bangers',cursive;font-size:14px;color:#111;}
   .budget-num{font-size:22px;color:#FF4F8B;}
+  .budget-num.zero{color:#8BC34A;}
   .add-row{display:flex;gap:8px;margin-bottom:8px;}
   .add-btn{flex:1;background:#fff;border:2px solid #111;border-radius:9px;padding:10px 4px;font-family:'Bangers',cursive;font-size:14px;letter-spacing:.04em;color:#111;cursor:pointer;text-align:center;box-shadow:2px 2px 0 #111;}
   .add-btn.sc{background:#00C8B4;}
@@ -56,11 +66,12 @@ body{width:100%;height:100dvh;overflow:hidden;background:#111;font-family:'Nunit
   .squad-item-txt{flex:1;font-weight:700;font-size:14px;color:#111;}
   .squad-item-txt small{color:#aaa;font-size:11px;}
   .sq-rm{background:#FF4F8B;color:#fff;border:2px solid #111;border-radius:5px;width:28px;height:28px;font-size:15px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .full-msg{text-align:center;font-family:'Bangers',cursive;font-size:13px;color:#8BC34A;letter-spacing:.06em;margin-bottom:8px;}
   .hint{font-size:11px;font-weight:700;color:#9a6a10;text-align:center;margin-top:6px;}
   .pdots{display:flex;justify-content:center;gap:8px;margin-bottom:4px;}
   .pdot{width:10px;height:10px;border-radius:50%;border:2px solid #111;background:#fff;}
   .pdot.act{background:#FF4F8B;}.pdot.done{background:#8BC34A;}
-.setup-body > *{flex-shrink:0;}
+
   /* GAME */
   .game{display:flex;flex-direction:column;background:#C4820A;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);}
   .pzone{flex:1;min-height:0;display:flex;flex-direction:column;background:#FFF8E0;overflow:hidden;}
@@ -188,21 +199,21 @@ body{width:100%;height:100dvh;overflow:hidden;background:#111;font-family:'Nunit
   function mkPlayer(n){return {name:n,score:0,bbIdx:null,budget:4,models:[],cmdMax:1,cmdUsed:0};}
   function mkModel(type,name,max,num){const ci=gColor%COLORS.length;gColor++;return {id:nm(),type,name,max,cur:max,ci,ko:false,activated:false,num:num||0,bbBld:false};}
   function dispName(models,m){if(m.type==='bb')return m.name;const l=m.type==='scrapper'?'Scrapper':'Brute';return models.filter(x=>x.type===m.type).length>1?l+' '+m.num:l;}
-  // troop bloodied = floor(max/2); BB threshold = ceil(max/2) and LATCHES permanently
   function isBloodied(m){if(m.ko)return false;if(m.type==='bb')return m.bbBld;return m.cur<=Math.floor(m.max/2);}
 
-  let S={screen:'welcome',sp:0,players:[mkPlayer('Player 1'),mkPlayer('Player 2')],turn:1,prizes:[true,true,true],init:0,winner:null,tmpClaims:{}};
+  let S={screen:'welcome',sp:0,players:[mkPlayer('Player 1'),mkPlayer('Player 2')],turn:1,prizes:[true,true,true],init:0,winner:null,tmpClaims:{},editBB:false};
 
-  function selBB(pi,bi){const p=S.players[pi];p.models=p.models.filter(m=>m.type!=='bb');p.bbIdx=bi;const b=BB[bi];p.cmdMax=(b.name==='The Colonel')?2:1;p.models.unshift(mkModel('bb',b.name,b.grit,0));render();}
+  function selBB(pi,bi){const p=S.players[pi];p.models=p.models.filter(m=>m.type!=='bb');p.bbIdx=bi;const b=BB[bi];p.cmdMax=(b.name==='The Colonel')?2:1;p.models.unshift(mkModel('bb',b.name,b.grit,0));S.editBB=false;render();}
+  function editBB(){S.editBB=true;render();}
   function addMdl(pi,type){const p=S.players[pi],c=type==='scrapper'?1:2;if(p.budget<c)return;p.budget-=c;const num=p.models.filter(m=>m.type===type).length+1;p.models.push(mkModel(type,type==='scrapper'?'Scrapper':'Brute',type==='scrapper'?4:7,num));render();}
-  function rmMdl(pi,id){const p=S.players[pi],m=p.models.find(x=>x.id===id);if(!m)return;if(m.type==='bb'){p.bbIdx=null;p.cmdMax=1;}else p.budget+=m.type==='scrapper'?1:2;p.models=p.models.filter(x=>x.id!==id);if(m.type!=='bb'){let n=1;p.models.filter(x=>x.type===m.type).forEach(x=>{x.num=n++;});}render();}
+  function rmMdl(pi,id){const p=S.players[pi],m=p.models.find(x=>x.id===id);if(!m)return;if(m.type==='bb'){p.bbIdx=null;p.cmdMax=1;S.editBB=true;}else p.budget+=m.type==='scrapper'?1:2;p.models=p.models.filter(x=>x.id!==id);if(m.type!=='bb'){let n=1;p.models.filter(x=>x.type===m.type).forEach(x=>{x.num=n++;});}render();}
   function cycColor(pi,id){const m=S.players[pi].models.find(x=>x.id===id);if(m){m.ci=(m.ci+1)%COLORS.length;render();}}
   function toggleOrd(pi,id){const m=S.players[pi].models.find(x=>x.id===id);if(m&&!m.ko){m.activated=!m.activated;render();}}
   function tapCmd(pi){const p=S.players[pi],bb=p.models.find(m=>m.type==='bb');if(!bb||bb.ko)return;p.cmdUsed=(p.cmdUsed+1)>p.cmdMax?0:p.cmdUsed+1;render();}
   function flipInit(){S.init=S.init===0?1:0;render();}
   function chBlood(pi,id,d){
     const p=S.players[pi],m=p.models.find(x=>x.id===id);if(!m)return;
-    if(m.ko&&d>0){ // revive at 1, refund KO points
+    if(m.ko&&d>0){
       const op=pi===0?1:0,pts=m.type==='bb'?3:m.type==='brute'?2:1;
       S.players[op].score=Math.max(0,S.players[op].score-pts);
       m.ko=false;m.cur=1;
@@ -211,7 +222,7 @@ body{width:100%;height:100dvh;overflow:hidden;background:#111;font-family:'Nunit
     }
     if(m.ko)return;
     const nv=Math.max(0,Math.min(m.max,m.cur+d));m.cur=nv;
-    if(m.type==='bb'&&nv>0&&nv<=Math.ceil(m.max/2))m.bbBld=true; // latch — never clears on heal
+    if(m.type==='bb'&&nv>0&&nv<=Math.ceil(m.max/2))m.bbBld=true;
     if(nv===0){
       m.ko=true;
       const op=pi===0?1:0,pts=m.type==='bb'?3:m.type==='brute'?2:1;
@@ -241,8 +252,8 @@ body{width:100%;height:100dvh;overflow:hidden;background:#111;font-family:'Nunit
     else if(a0&&a1){if(b0.cur>b1.cur)S.winner=0;else if(b1.cur>b0.cur)S.winner=1;else S.winner='draw';}
     else S.winner='draw';
   }
-  function nextSetup(){if(S.sp===0){S.sp=1;render();}else{S.screen='game';render();}}
-  function reset(){mid=0;gColor=0;S={screen:'welcome',sp:0,players:[mkPlayer('Player 1'),mkPlayer('Player 2')],turn:1,prizes:[true,true,true],init:0,winner:null,tmpClaims:{}};render();}
+  function nextSetup(){if(S.sp===0){S.sp=1;S.editBB=false;render();}else{S.screen='game';render();}}
+  function reset(){mid=0;gColor=0;S={screen:'welcome',sp:0,players:[mkPlayer('Player 1'),mkPlayer('Player 2')],turn:1,prizes:[true,true,true],init:0,winner:null,tmpClaims:{},editBB:false};render();}
 
   function openPrizeModal(){S.tmpClaims={};document.getElementById('pz-title').textContent='🏆 END OF TURN '+S.turn+' — PRIZES';renderPrizeRows();document.getElementById('prize-modal').style.display='flex';}
   function renderPrizeRows(){
@@ -265,9 +276,29 @@ body{width:100%;height:100dvh;overflow:hidden;background:#111;font-family:'Nunit
 
   function rSetup(){
     const pi=S.sp,p=S.players[pi],valid=p.bbIdx!==null,last=pi===1;
-    const bbOpts=BB.map((b,i)=>`<div class="bb-opt${p.bbIdx===i?' sel':''}" data-a="selbb" data-pi="${pi}" data-bi="${i}"><div class="bb-opt-name">${b.name}</div><div class="bb-opt-meta">❤️ ${b.grit}${b.name==='The Colonel'?' · ⭐⭐':''}</div></div>`).join('');
+    const showGrid=(p.bbIdx===null||S.editBB);
+
+    // BB section — grid OR collapsed chip
+    let bbSection;
+    if(showGrid){
+      const bbOpts=BB.map((b,i)=>`<div class="bb-opt${p.bbIdx===i?' sel':''}" data-a="selbb" data-pi="${pi}" data-bi="${i}"><div class="bb-opt-name">${b.name}</div><div class="bb-opt-meta">❤️ ${b.grit}${b.name==='The Colonel'?' · ⭐⭐':''}</div></div>`).join('');
+      bbSection=`<div class="sbox"><div class="sbox-head">⭐ CHOOSE YOUR BIG BOZZA</div><div class="sbox-body"><div class="bb-grid">${bbOpts}</div></div></div>`;
+    }else{
+      const b=BB[p.bbIdx];
+      bbSection=`<div class="sbox"><div class="sbox-head">⭐ YOUR BIG BOZZA</div><div class="sbox-body"><div class="bb-chosen"><div class="bb-chosen-info">👑 ${b.name} <span class="hearts">❤️${b.grit}${b.name==='The Colonel'?' ⭐⭐':''}</span></div><button class="bb-change" data-a="editbb">CHANGE</button></div></div></div>`;
+    }
+
+    // Crew section — add buttons only while points remain
     const sq=p.models.map(m=>{const col=COLORS[m.ci];const dn=dispName(p.models,m);return `<div class="squad-item"><div class="sw-btn" style="background:${col.bg}" data-a="cyc" data-pi="${pi}" data-id="${m.id}"></div><span class="squad-item-txt">${dn} <small>❤️${m.max}${m.type==='bb'?' · Free':m.type==='scrapper'?' · 1pt':' · 2pt'}</small></span><button class="sq-rm" data-a="rm" data-pi="${pi}" data-id="${m.id}">✕</button></div>`;}).join('');
-    return `<div class="setup"><div class="setup-head"><h1>TAVERN BRAWL</h1><div class="sub">BUILD YOUR SQUAD</div></div><div class="setup-body"><div class="pdots"><div class="pdot${S.sp>0?' done':' act'}"></div><div class="pdot${S.sp===1?' act':''}"></div></div><div class="sbox"><div class="sbox-head">👤 PLAYER ${pi+1} NAME</div><div class="sbox-body"><input class="name-inp" type="text" value="${p.name}" placeholder="Enter name..." data-a="setname" data-pi="${pi}" maxlength="14"></div></div><div class="sbox"><div class="sbox-head">⭐ CHOOSE YOUR BIG BOZZA</div><div class="sbox-body"><div class="bb-grid">${bbOpts}</div></div></div><div class="sbox"><div class="sbox-head">👥 ADD CREW — 4 POINTS</div><div class="sbox-body"><div class="budget-row"><span class="budget-lbl">Points left: <span class="budget-num">${p.budget}</span></span></div><div class="add-row"><button class="add-btn sc" data-a="addsc" data-pi="${pi}" ${p.budget<1?'disabled':''}>+ SCRAPPER<br><small style="font-family:Nunito;font-size:10px">1pt · ❤️4</small></button><button class="add-btn br" data-a="addbr" data-pi="${pi}" ${p.budget<2?'disabled':''}>+ BRUTE<br><small style="font-family:Nunito;font-size:10px">2pt · ❤️7</small></button></div>${sq?`<div class="squad-list">${sq}</div><div class="hint">🎨 Tap a colour dot to change a unit's colour</div>`:`<div style="text-align:center;color:#bbb;font-size:11px;font-weight:700;padding:4px 0">No crew added yet</div>`}</div></div></div><div class="setup-foot"><button class="btn-main" id="btn-nxt" ${!valid?'disabled':''}>${last?'🍺 START BRAWL!':'NEXT PLAYER →'}</button></div></div>`;
+    const addControls = p.budget>0
+      ? `<div class="budget-row"><span class="budget-lbl">Points left: <span class="budget-num">${p.budget}</span></span></div><div class="add-row"><button class="add-btn sc" data-a="addsc" data-pi="${pi}" ${p.budget<1?'disabled':''}>+ SCRAPPER<br><small style="font-family:Nunito;font-size:10px">1pt · ❤️4</small></button><button class="add-btn br" data-a="addbr" data-pi="${pi}" ${p.budget<2?'disabled':''}>+ BRUTE<br><small style="font-family:Nunito;font-size:10px">2pt · ❤️7</small></button></div>`
+      : `<div class="full-msg">✅ ALL 4 POINTS SPENT</div>`;
+    const crewList = (sq||p.budget===0)
+      ? `${sq?`<div class="squad-list">${sq}</div><div class="hint">🎨 Tap a colour dot to change a unit's colour</div>`:''}`
+      : `<div style="text-align:center;color:#bbb;font-size:11px;font-weight:700;padding:4px 0">Add your crew below</div>`;
+    const crewSection=`<div class="sbox"><div class="sbox-head">👥 ADD CREW — 4 POINTS</div><div class="sbox-body">${addControls}${crewList}</div></div>`;
+
+    return `<div class="setup"><div class="setup-head"><h1>TAVERN BRAWL</h1><div class="sub">BUILD YOUR SQUAD</div></div><div class="setup-body"><div class="pdots"><div class="pdot${S.sp>0?' done':' act'}"></div><div class="pdot${S.sp===1?' act':''}"></div></div><div class="sbox"><div class="sbox-head">👤 PLAYER ${pi+1} NAME</div><div class="sbox-body"><input class="name-inp" type="text" value="${p.name}" placeholder="Enter name..." data-a="setname" data-pi="${pi}" maxlength="14"></div></div>${bbSection}${crewSection}</div><div class="setup-foot"><button class="btn-main" id="btn-nxt" ${!valid?'disabled':''}>${last?'🍺 START BRAWL!':'NEXT PLAYER →'}</button></div></div>`;
   }
 
   function rModel(m,pi,all){
@@ -293,7 +324,6 @@ body{width:100%;height:100dvh;overflow:hidden;background:#111;font-family:'Nunit
   function rGame(){
     const prz=S.prizes.map(av=>`<div class="ptok${av?'':' claimed'}">🏆</div>`).join('');
     const last=S.turn>=4;
-    // init arrow: P0 = top (rotated) → point up; P1 = bottom → point down
     const arrow=S.init===0?'▲':'▼';
     return `<div class="game">${rPanel(0,true)}<div class="cstrip"><div class="turn-col"><div class="turn-lbl">TURN</div><div class="turn-num">${S.turn}<span style="font-size:11px;color:#555">/4</span></div></div><div class="init-col"><div class="init-coin" data-a="init"><span class="init-arrow">${arrow}</span></div><span class="init-lbl">INIT</span></div><div class="prize-row">${prz}</div><button class="etbtn${last?' last':''}" data-a="et">${last?'END':'END TURN'}</button></div>${rPanel(1,false)}</div>`;
   }
@@ -320,6 +350,7 @@ body{width:100%;height:100dvh;overflow:hidden;background:#111;font-family:'Nunit
     const a=el.dataset.a,pi=parseInt(el.dataset.pi),id=parseInt(el.dataset.id),bi=parseInt(el.dataset.bi);
     switch(a){
       case 'selbb':selBB(pi,bi);break;
+      case 'editbb':editBB();break;
       case 'addsc':addMdl(pi,'scrapper');break;
       case 'addbr':addMdl(pi,'brute');break;
       case 'rm':rmMdl(pi,id);break;
