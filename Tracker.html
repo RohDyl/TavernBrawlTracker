@@ -105,13 +105,13 @@ body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-
   .t-type{background:#eee;color:#555;}
 
   .ord-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 9px;border-left:2px dashed #e0d8c0;flex-shrink:0;}
-  .ord{width:44px;height:44px;border-radius:50%;border:3px solid #111;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;box-shadow:2px 2px 0 #111;transition:transform .1s;line-height:1;}
+  .ord{width:44px;height:44px;border-radius:50%;border:3px solid #111;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;box-shadow:2px 2px 0 #111;transition:transform .1s;line-height:1;flex-shrink:0;aspect-ratio:1/1;}
   .ord:active{transform:scale(.86);}
   .ord.used{background:#d0d0d0 !important;border-color:#aaa !important;box-shadow:1px 1px 0 #aaa !important;color:#888;}
   .ord-lbl{font-family:'Bangers',cursive;font-size:8px;color:#999;letter-spacing:.06em;margin-top:2px;}
 
   .blood{display:flex;align-items:center;gap:7px;padding:0 9px;border-left:2px dashed #e0d8c0;flex-shrink:0;}
-  .bbtn{width:46px;height:46px;border-radius:10px;border:2px solid #111;font-family:'Bangers',cursive;font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:2px 2px 0 #111;transition:transform .1s;}
+  .bbtn{width:46px;height:46px;border-radius:10px;border:2px solid #111;font-family:'Bangers',cursive;font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:2px 2px 0 #111;transition:transform .1s;aspect-ratio:1/1;}
   .bbtn:active{transform:scale(.9);}
   .bbtn.minus{background:#FF4F8B;color:#fff;}
   .bbtn.plus{background:#8BC34A;color:#111;}
@@ -119,6 +119,18 @@ body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-
   .bnum{font-family:'Bangers',cursive;font-size:32px;color:#111;line-height:1;min-width:56px;text-align:center;}
   .bnum.bl{color:#FF4F8B;}.bnum.ko{color:#aaa;}
   .bnum sub{font-size:14px;color:#bbb;}
+
+  /* Scale controls down as the squad grows so nothing distorts */
+  .models-wrap.count4 .ord{width:38px;height:38px;font-size:17px;border-width:2.5px;}
+  .models-wrap.count5 .ord{width:34px;height:34px;font-size:15px;border-width:2.5px;}
+  .models-wrap.count4 .bbtn{width:40px;height:40px;font-size:24px;}
+  .models-wrap.count5 .bbtn{width:36px;height:36px;font-size:22px;}
+  .models-wrap.count4 .bnum{font-size:28px;min-width:48px;}
+  .models-wrap.count5 .bnum{font-size:25px;min-width:44px;}
+  .models-wrap.count4 .m-name,.models-wrap.count5 .m-name{font-size:14px;}
+  .models-wrap.count5 .ord-lbl{display:none;}
+  .models-wrap.count4 .blood,.models-wrap.count5 .blood{gap:5px;padding:0 7px;}
+  .models-wrap.count4 .ord-wrap,.models-wrap.count5 .ord-wrap{padding:0 7px;}
 
   /* CENTER STRIP */
   .cstrip{height:54px;background:#111;border-top:3px solid #FFD700;border-bottom:3px solid #FFD700;display:flex;align-items:center;justify-content:space-between;padding:0 10px;flex-shrink:0;z-index:10;gap:6px;}
@@ -278,7 +290,6 @@ body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-
     const pi=S.sp,p=S.players[pi],valid=p.bbIdx!==null,last=pi===1;
     const showGrid=(p.bbIdx===null||S.editBB);
 
-    // BB section — grid OR collapsed chip
     let bbSection;
     if(showGrid){
       const bbOpts=BB.map((b,i)=>`<div class="bb-opt${p.bbIdx===i?' sel':''}" data-a="selbb" data-pi="${pi}" data-bi="${i}"><div class="bb-opt-name">${b.name}</div><div class="bb-opt-meta">❤️ ${b.grit}${b.name==='The Colonel'?' · ⭐⭐':''}</div></div>`).join('');
@@ -288,14 +299,11 @@ body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-
       bbSection=`<div class="sbox"><div class="sbox-head">⭐ YOUR BIG BOZZA</div><div class="sbox-body"><div class="bb-chosen"><div class="bb-chosen-info">👑 ${b.name} <span class="hearts">❤️${b.grit}${b.name==='The Colonel'?' ⭐⭐':''}</span></div><button class="bb-change" data-a="editbb">CHANGE</button></div></div></div>`;
     }
 
-    // Crew section — add buttons only while points remain
     const sq=p.models.map(m=>{const col=COLORS[m.ci];const dn=dispName(p.models,m);return `<div class="squad-item"><div class="sw-btn" style="background:${col.bg}" data-a="cyc" data-pi="${pi}" data-id="${m.id}"></div><span class="squad-item-txt">${dn} <small>❤️${m.max}${m.type==='bb'?' · Free':m.type==='scrapper'?' · 1pt':' · 2pt'}</small></span><button class="sq-rm" data-a="rm" data-pi="${pi}" data-id="${m.id}">✕</button></div>`;}).join('');
     const addControls = p.budget>0
       ? `<div class="budget-row"><span class="budget-lbl">Points left: <span class="budget-num">${p.budget}</span></span></div><div class="add-row"><button class="add-btn sc" data-a="addsc" data-pi="${pi}" ${p.budget<1?'disabled':''}>+ SCRAPPER<br><small style="font-family:Nunito;font-size:10px">1pt · ❤️4</small></button><button class="add-btn br" data-a="addbr" data-pi="${pi}" ${p.budget<2?'disabled':''}>+ BRUTE<br><small style="font-family:Nunito;font-size:10px">2pt · ❤️7</small></button></div>`
       : `<div class="full-msg">✅ ALL 4 POINTS SPENT</div>`;
-    const crewList = (sq||p.budget===0)
-      ? `${sq?`<div class="squad-list">${sq}</div><div class="hint">🎨 Tap a colour dot to change a unit's colour</div>`:''}`
-      : `<div style="text-align:center;color:#bbb;font-size:11px;font-weight:700;padding:4px 0">Add your crew below</div>`;
+    const crewList = sq?`<div class="squad-list">${sq}</div><div class="hint">🎨 Tap a colour dot to change a unit's colour</div>`:`<div style="text-align:center;color:#bbb;font-size:11px;font-weight:700;padding:4px 0">Add your crew below</div>`;
     const crewSection=`<div class="sbox"><div class="sbox-head">👥 ADD CREW — 4 POINTS</div><div class="sbox-body">${addControls}${crewList}</div></div>`;
 
     return `<div class="setup"><div class="setup-head"><h1>TAVERN BRAWL</h1><div class="sub">BUILD YOUR SQUAD</div></div><div class="setup-body"><div class="pdots"><div class="pdot${S.sp>0?' done':' act'}"></div><div class="pdot${S.sp===1?' act':''}"></div></div><div class="sbox"><div class="sbox-head">👤 PLAYER ${pi+1} NAME</div><div class="sbox-body"><input class="name-inp" type="text" value="${p.name}" placeholder="Enter name..." data-a="setname" data-pi="${pi}" maxlength="14"></div></div>${bbSection}${crewSection}</div><div class="setup-foot"><button class="btn-main" id="btn-nxt" ${!valid?'disabled':''}>${last?'🍺 START BRAWL!':'NEXT PLAYER →'}</button></div></div>`;
@@ -317,9 +325,10 @@ body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-
   function rPanel(pi,flip){
     const p=S.players[pi];const bb=p.models.find(m=>m.type==='bb'),bbAlive=bb&&!bb.ko;
     const mds=p.models.map(m=>rModel(m,pi,p.models)).join('');
+    const mw='models-wrap count'+p.models.length;
     let cmdHTML='';
     for(let i=0;i<p.cmdMax;i++){const used=i<p.cmdUsed;const cls=!bbAlive?'dead':(used?'used':'');cmdHTML+=`<div class="cmd-tok ${cls}">${!bbAlive?'✕':(used?'✕':'⭐')}</div>`;}
-    return `<div class="pzone${flip?' p1':''}"><div class="phead"><span class="pname">${p.name}</span><div class="cmd-wrap"><div class="cmd-toks" data-a="cmd" data-pi="${pi}">${cmdHTML}</div><span class="cmd-lbl">CMD</span></div><div class="score-area"><button class="sbtn" data-a="sm" data-pi="${pi}">−</button><div style="display:flex;flex-direction:column;align-items:center;"><div class="snum">${p.score}</div><div class="slbl">PTS</div></div><button class="sbtn" data-a="sp" data-pi="${pi}">+</button></div></div><div class="models-wrap">${mds||'<div style="text-align:center;color:#ccc;font-weight:700;padding:16px">No models</div>'}</div></div>`;
+    return `<div class="pzone${flip?' p1':''}"><div class="phead"><span class="pname">${p.name}</span><div class="cmd-wrap"><div class="cmd-toks" data-a="cmd" data-pi="${pi}">${cmdHTML}</div><span class="cmd-lbl">CMD</span></div><div class="score-area"><button class="sbtn" data-a="sm" data-pi="${pi}">−</button><div style="display:flex;flex-direction:column;align-items:center;"><div class="snum">${p.score}</div><div class="slbl">PTS</div></div><button class="sbtn" data-a="sp" data-pi="${pi}">+</button></div></div><div class="${mw}">${mds||'<div style="text-align:center;color:#ccc;font-weight:700;padding:16px">No models</div>'}</div></div>`;
   }
   function rGame(){
     const prz=S.prizes.map(av=>`<div class="ptok${av?'':' claimed'}">🏆</div>`).join('');
