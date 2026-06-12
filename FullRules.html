@@ -1,5 +1,5 @@
 
-<html data-type="html" data-identifier="f51e43ee-55fa-4e85-a831-ecc2171d32ac" data-title="Tavern Brawl — Official Rulebook v9" data-version="9" width="1200" height="900"><head></head><body>
+<html data-type="html" data-identifier="f51e43ee-55fa-4e85-a831-ecc2171d32ac" data-title="Tavern Brawl — Official Rulebook v9" data-version="11" width="1200" height="900"><head></head><body>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -38,7 +38,12 @@ p:last-child{margin-bottom:0;}
 .box-title{font-family:'Bangers',cursive;font-size:16px;letter-spacing:.1em;color:#111;margin-bottom:8px;}
 .box-pink .box-title,.box-purple .box-title{color:#fff;}
 .box-dark .box-title{color:#FFD700;}
-  .box-dark strong{color:#FFD700;}
+.box-dark strong{color:#FFD700;}
+ul{padding-left:20px;margin-bottom:10px;}
+li{color:#1a0a00;margin-bottom:4px;font-weight:700;}
+li::marker{color:#FF4F8B;}
+strong{color:#111;}
+em{color:#555;}
 .tb-wrap{overflow-x:auto;margin:12px 0;}
 table{width:100%;border-collapse:collapse;font-size:14px;}
 thead tr{background:#111;}
@@ -73,7 +78,6 @@ td em{color:#555;font-size:13px;font-weight:400;}
 .tag-order{background:#8BC34A;color:#111;}
 .tag-reaction{background:#FF4F8B;color:#fff;}
 .tag-free{background:#00C8B4;color:#111;}
-.tag-activation{background:#FFD700;color:#111;}
 .tag-special{background:#9B50E0;color:#fff;}
 .arch-pill{display:inline-flex;align-items:center;gap:4px;font-family:'Bangers',cursive;font-size:13px;padding:4px 14px;border-radius:20px;margin:4px;border:2px solid #111;letter-spacing:.06em;box-shadow:2px 2px 0 #111;}
 .arch-barfly{background:#8BC34A;color:#111;}
@@ -142,11 +146,6 @@ td em{color:#555;font-size:13px;font-weight:400;}
 .score-pts sup{font-size:18px;}
 .score-event{font-size:13px;color:#111;font-weight:900;}
 .amend{display:inline-block;font-family:'Bangers',cursive;font-size:9px;letter-spacing:.1em;padding:1px 7px;border-radius:10px;background:#00C8B4;color:#111;border:1.5px solid #111;margin-left:6px;vertical-align:middle;}
-ul{padding-left:20px;margin-bottom:10px;}
-li{color:#1a0a00;margin-bottom:4px;font-weight:700;}
-li::marker{color:#FF4F8B;}
-strong{color:#111;}
-em{color:#555;}
 .ornament-divider{text-align:center;color:rgba(0,0,0,.3);font-size:24px;margin:8px 0;letter-spacing:10px;}
 .crit-flow{background:#1a0a00;border:3px solid #FFD700;border-radius:10px;padding:16px 20px;margin:14px 0;box-shadow:5px 5px 0 #FFD700;}
 .crit-flow p,.crit-flow li{color:#e8d090;}
@@ -307,17 +306,17 @@ em{color:#555;}
       <div class="box-title">⚡ Your Activation <span class="amend" style="background:#FFD700;">v9 — the big change</span></div>
       <p style="color:#FFD700;font-size:17px;">Spend 1 Order Token to activate a model. It may <strong>Move up to its Speed</strong> AND take <strong>ONE Action</strong>, and may play <strong>ONE buff / Free Action card</strong> on top.</p>
       <p style="margin-top:8px;">Your <strong>Action</strong> is ONE of:</p>
-      <ul style="margin-top:4px;"><li><strong>Fist Fight</strong> an engaged enemy, or</li><li><strong>play one Order card</strong>, or</li><li><strong>use your BB's Active ability</strong>.</li></ul>
-      <p style="margin-top:8px;">You <strong>cannot</strong> Fist Fight <em>and</em> play an Order card — they share the one Action slot. <strong>Reactions</strong> and <strong>Desperate Acts</strong> are separate and may still be played at their proper timing (a Desperate Act may stack on top of your one buff card — that's your Hail-Mary lane).</p>
+      <ul style="margin-top:4px;"><li><strong>Fist Fight</strong> an engaged enemy, or</li><li><strong>play one Order card</strong> (e.g. a ranged attack or heal), or</li><li><strong>use your BB's Active ability</strong>.</li></ul>
+      <p style="margin-top:8px;">The Move and the Action are <strong>separate</strong> — you always get to move <em>and</em> take an Action. You simply <strong>cannot</strong> Fist Fight <em>and</em> play an Order card in the same activation; they share the one Action slot. <strong>Reactions</strong> and <strong>Desperate Acts</strong> are separate and may still be played at their proper timing (a Desperate Act may stack on top of your one buff card — that's your Hail-Mary lane).</p>
     </div>
-    <h3>Movement Options</h3>
+    <h3>Your Options — Pick One</h3>
     <div class="action-grid">
-      <div class="action-card"><div class="action-icon">⚔️</div><div class="action-name">Move &amp; Hit</div><div class="action-desc">The default. Move up to Speed, then Fist Fight an engaged enemy.</div><div class="action-note">⚠️ Provokes Retaliation when moving while engaged.</div></div>
+      <div class="action-card"><div class="action-icon">⚔️</div><div class="action-name">Move &amp; Act</div><div class="action-desc">The default. Move up to Speed, then <strong>Fist Fight</strong> an engaged enemy <strong>OR play 1 Order card</strong> (or use a BB ability).</div><div class="action-note">⚠️ Provokes Retaliation when moving while engaged.</div></div>
       <div class="action-card"><div class="action-icon">🥊</div><div class="action-name">Stand Your Ground <span class="amend" style="font-size:8px;background:#FFD700;">v9</span></div><div class="action-desc">No movement → Fist Fight. <strong>Scrapper:</strong> +1 attack die. <strong>Brute:</strong> +1 defence die until your next activation.</div></div>
       <div class="action-card"><div class="action-icon">💨</div><div class="action-name">Leg It</div><div class="action-desc">Move up to Speed twice. Each move may go a different direction. <strong>No Action this activation.</strong></div><div class="action-note">⚠️ Provokes Retaliation on each move while engaged.</div></div>
       <div class="action-card"><div class="action-icon">🚶</div><div class="action-name">Shove Through</div><div class="action-desc">Move Speed in a straight line. Path can't cross a model or terrain taller than 1".</div><div class="action-note">✦ No Retaliation.</div></div>
     </div>
-    <div class="box box-teal" style="margin-top:16px;"><div class="box-title">🎴 Scavenge — now a Free Action <span class="amend">v9</span></div><p>Once per turn, a model touching <strong>Clutter</strong> may Scavenge for free: <strong>draw 2 Gear cards, keep 1</strong>, discard the rest. It no longer costs your Action — fighting in the junk pays off.</p></div>
+    <div class="box box-teal" style="margin-top:16px;"><div class="box-title">🎴 Scavenge — a Free Action <span class="amend">v9</span></div><p>Once per turn, a model touching <strong>Clutter</strong> may Scavenge for free: <strong>draw 2 Gear cards, keep 1</strong>, discard the rest. It does not use your Action — fighting in the junk pays off.</p></div>
   </div>
 
   <!-- 07 COMBAT -->
@@ -411,7 +410,7 @@ em{color:#555;}
     </div>
     <div class="box box-dark" style="margin-bottom:20px;">
       <div class="box-title"><span class="tag tag-special" style="margin-right:8px;">⭐ Special Action</span></div>
-      <p>Each Special Action card defines exactly when it may be played — the timing printed on the card overrides normal play rules. Special Actions do not cost an Order Token unless stated. <strong style="color:#FFD700;">No archetype bonuses apply to Special Action cards.</strong></p>
+      <p>Each Special Action card defines exactly when it may be played — the timing printed on the card overrides normal play rules. Special Actions do not cost an Order Token unless stated. <strong>No archetype bonuses apply to Special Action cards.</strong></p>
     </div>
     <div class="box" style="margin-bottom:16px;"><div class="box-title">Archetype Bonuses</div><p>Archetype bonuses require your matching BB to be alive. KO'd BB = bonuses lost for the rest of the game.</p><div style="margin-top:8px;"><span class="arch-pill arch-barfly">🍺 Barfly</span><span class="arch-pill arch-bruiser">👊 Bruiser</span><span class="arch-pill arch-mob">🤜 Mob Boss</span><span class="arch-pill arch-grifter">🃏 Grifter</span></div></div>
     <div class="box box-pink" style="margin-bottom:16px;"><div class="box-title">⚠️ Buff Cap</div><p>Only <strong>one buff / Free Action card per activation</strong> — no stacking Broken Bottle + Knuckle Down on one punch. A <strong>Desperate Act may still stack</strong> on top of that one card.</p></div>
@@ -443,7 +442,7 @@ em{color:#555;}
       <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Second Wind</span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Draw 2 Gear cards.<div class="gear-bonus">🍺 Draw 3 instead.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: 50c</span></div></div>
       <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Last Stand <span class="gear-new">MOVED</span></span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Choose any friendly model on the table. The next time it would be KO'd by an attack or card effect, it keeps <strong>1 blood</strong> instead. Once per game per model.</div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: 50c</span></div></div>
       <div class="gear-card"><div class="gear-card-header gear-order-h"><span class="gear-card-name">Dart</span><span class="gear-type-badge badge-order">Order</span></div><div class="gear-card-body">Range 8" LoS. Roll 1 attack die. Ignores cover. No bonus defence dice may be added against this attack.<div class="gear-bonus">🍺 Range increases to 10".</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: R1</span></div></div>
-      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Cheap Shot <span class="gear-new">NEW</span></span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Your next Fist Fight this activation <strong>crits on your Skill or one number below</strong>.<div class="gear-bonus">🃏 Grifter: also ignores cover.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: R1</span></div></div>
+      <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Cheap Shot <span class="gear-new">NEW</span></span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Your next Fist Fight this activation: a die rolling your <strong>Skill, one below, or one above</strong> is a Crit.<div class="gear-bonus">🃏 Grifter: also ignores cover.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: R1</span></div></div>
       <div class="gear-card"><div class="gear-card-header gear-free-h"><span class="gear-card-name">Closing Time <span class="gear-new">NEW</span></span><span class="gear-type-badge badge-free">Free</span></div><div class="gear-card-body">Until end of activation, one friendly model rolls +1 attack die AND +1 defence die.<div class="gear-bonus">🤜 Mob Boss: affect up to 2 friendly models.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: R1</span></div></div>
       <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">Duck!</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Play when a ranged card targets your model. Redirect to any model within 2" — friend or foe.<div class="gear-bonus">🃏 Also draw 1 card.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: R1</span></div></div>
       <div class="gear-card"><div class="gear-card-header gear-reaction-h"><span class="gear-card-name">He Started It!</span><span class="gear-type-badge badge-reaction">Reaction</span></div><div class="gear-card-body">Range 6". When an enemy attacks one of your models, roll 1 die against the attacker first. They can't play Reactions.<div class="gear-bonus">🃏 Roll 2 dice instead.</div></div><div class="gear-meta"><span class="rarity-uncommon">Uncommon ×2</span><span>Tip: R1</span></div></div>
@@ -619,7 +618,7 @@ em{color:#555;}
       <div>
         <h3>Activation</h3>
         <div class="tb-wrap"><table><thead><tr><th>You get</th><th>Details</th></tr></thead><tbody>
-          <tr><td><strong>Move</strong></td><td>Up to your Speed</td></tr>
+          <tr><td><strong>Move</strong></td><td>Up to your Speed (always)</td></tr>
           <tr><td><strong>+ 1 Action</strong></td><td>Fist Fight OR Order card OR BB ability</td></tr>
           <tr><td><strong>+ 1 Buff/Free</strong></td><td>One Free Action card, layered on top</td></tr>
           <tr><td><strong>Leg It</strong></td><td>Move twice, no Action</td></tr>
@@ -633,7 +632,7 @@ em{color:#555;}
           <tr><td><strong>Defence die</strong></td><td>≤ Def = Block (1). Exactly Def = Crit Block (2). Nat 1 = fail</td></tr>
           <tr><td><strong>Crit Block</strong></td><td>Cancels a Crit, or two Hits</td></tr>
           <tr><td><strong>Damage</strong></td><td>Total unblocked</td></tr>
-          <tr><td><strong>Gang Up</strong></td><td>+1 die per Scrapper w/in 4", max +2. Primary FF only</td></tr>
+          <tr><td><strong>Gang Up</strong></td><td>+1 die per Scrapper within 4", max +2. Primary FF only</td></tr>
         </tbody></table></div>
         <h3>Desperate Acts</h3>
         <div class="tb-wrap"><table><thead><tr><th>Act</th><th>Normal</th><th>🩸 Bloodied</th></tr></thead><tbody>
@@ -663,6 +662,7 @@ em{color:#555;}
           <tr><td><strong>Crit vs Crit</strong></td><td>A Crit Block cancels a Crit attack</td></tr>
           <tr><td><strong>Nat 1</strong></td><td>Auto-fail on attack AND defence dice</td></tr>
           <tr><td><strong>Defence scaling</strong></td><td>Roll 1 die per landed attack die</td></tr>
+          <tr><td><strong>Move &amp; Action</strong></td><td>You always move AND take one Action</td></tr>
           <tr><td><strong>Ranged + engaged</strong></td><td>Can't shoot who you're engaged with</td></tr>
           <tr><td><strong>Shoot elsewhere</strong></td><td>Provokes Retaliation from engagers</td></tr>
           <tr><td><strong>+1 base die</strong></td><td>Fist Fights only, never ranged cards</td></tr>
@@ -689,6 +689,10 @@ em{color:#555;}
         <div class="box box-teal"><div class="box-title">🥊 Stand Your Ground + DA stacking</div><p>By default these <strong>stack</strong> (a Scrapper can plant for +1 die <em>and</em> Come On Then!). <strong>Dial:</strong> if that combo feels oppressive, rule that Stand Your Ground's bonus does not stack with a Desperate Act on the same swing.</p></div>
         <div class="box box-purple"><div class="box-title">🃏 Card hoarding (Barfly/Grifter)?</div><p>The 7-card End-Phase discard should handle it. <strong>Dial:</strong> if a player still turtles into a giant hand, lower the cap to 6, or cap Order-Phase draw at 4/turn.</p></div>
       </div>
+    </div>
+    <div class="box box-dark" style="margin-top:8px;">
+      <div class="box-title">🛡 Un-killable cover-turtle BB? <span class="amend" style="background:#FFD700;">parked</span></div>
+      <p>We deliberately left bonus defence dice <strong>uncapped</strong> in the live rules — over-investing in defence is its own tax (cards &amp; reactions not spent scoring or attacking). <strong>Dial:</strong> if a Def-14 (in-cover) BB stacking Dig In + Hold the Line + healing becomes genuinely un-killable across 4 turns, cap bonus defence dice at <strong>+2 per attack</strong> (per-hit dice stay uncapped). <em>If you adopt this, change Dig In Bloodied to a different unlock so it isn't dead — e.g. defence dice crit on Def or one below.</em></p>
     </div>
     <div class="box box-dark" style="margin-top:8px;">
       <div class="box-title">🔭 The 3 Things To Watch This Playtest</div>
