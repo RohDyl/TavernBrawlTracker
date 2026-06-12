@@ -1,5 +1,5 @@
 
-<html data-type="html" data-identifier="e8d2f4a1-5b3c-4e6f-9a7b-2c1d0e9f8a7b" data-title="Tavern Brawl — Full Quick Reference v9" data-version="3" width="1200" height="1000"><head></head><body>
+<html data-type="html" data-identifier="e8d2f4a1-5b3c-4e6f-9a7b-2c1d0e9f8a7b" data-title="Tavern Brawl — Full Quick Reference v9" data-version="4" width="1200" height="1000"><head></head><body>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -25,6 +25,9 @@ body{background:#C4820A;background-image:radial-gradient(ellipse at 15% 25%,rgba
 .box-dark{background:#1a0a00;border-color:#FFD700;box-shadow:2px 2px 0 #FFD700;}
 .box-dark .box-head{color:#FFD700;}
 .box-dark p{color:#e8d090;}
+.box-dark strong{color:#FFD700;}
+.box-gold{background:#FFD700;border-color:#111;}
+.box-gold .box-head{color:#111;}
 ul{padding-left:16px;}
 li::marker{color:#FF4F8B;}
 .tb-wrap{overflow-x:auto;}
@@ -45,7 +48,7 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
 .action-name{font-family:'Bangers',cursive;font-size:13px;letter-spacing:.06em;color:#111;margin-bottom:3px;}
 .action-desc{font-size:11px;font-weight:700;color:#333;line-height:1.35;}
 .action-note{font-size:10px;font-style:italic;color:#888;margin-top:2px;}
-.tag{display:inline-block;font-family:'Bangers',cursive;font-size:9px;letter-spacing:.06em;padding:1px 6px;border-radius:8px;border:1.5px solid #111;margin:0 2px;}
+.tag{display:inline-block;font-family:'Bangers',cursive;font-size:9px;letter-spacing:.06em;padding:1px 6px;border-radius:8px;border:1.5px solid #111;}
 .to{background:#8BC34A;color:#111;}
 .tr{background:#FF4F8B;color:#fff;}
 .tf{background:#00C8B4;color:#111;}
@@ -62,7 +65,6 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
 .sp-name{font-family:'Bangers',cursive;font-size:13px;color:#9B50E0;margin-bottom:2px;letter-spacing:.04em;}
 .sp-timing{font-size:10px;font-style:italic;color:#888;margin-bottom:3px;font-weight:700;}
 .sp-text{font-size:11px;font-weight:700;color:#333;line-height:1.35;}
-.sp-flavour{font-size:10px;font-style:italic;color:#9B50E0;margin-top:4px;padding-top:3px;border-top:1px dashed #9B50E0;font-weight:400;}
 .sc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
 .sc{background:#fff;border:2px solid #111;border-radius:7px;padding:8px;text-align:center;box-shadow:2px 2px 0 #111;}
 .sc:nth-child(1){background:#FFD700;}
@@ -94,7 +96,6 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
 
 <div class="doc">
 
-  <!-- ROW 1: SQUAD + SETUP + CORE -->
   <div class="g3">
     <div class="sec">
       <div class="sec-head" style="background:#FFD700;"><h2>🍻 Build Your Squad</h2></div>
@@ -114,11 +115,11 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
       <div class="sec-head" style="background:#00C8B4;"><h2>⚡ Setup</h2></div>
       <div class="sec-body">
         <div class="phase-row"><div class="p-dot"></div><div>Each player takes an edge. Deploy within <strong>6"</strong> of your edge.</div></div>
-        <div class="phase-row"><div class="p-dot"></div><div>Place <strong>3 Prize Tokens</strong> in the middle — at least 6" apart and 6" from each deployment zone.</div></div>
-        <div class="phase-row"><div class="p-dot"></div><div>Shuffle Gear deck. Each player draws an opening hand of <strong>5 cards</strong> (flat). <span class="new">v9</span></div></div>
+        <div class="phase-row"><div class="p-dot"></div><div>Place <strong>3 Prize Tokens</strong> in the middle — 6" apart, 6" from each edge.</div></div>
+        <div class="phase-row"><div class="p-dot"></div><div>Shuffle Gear deck. Each player draws an opening hand of <strong>5 cards</strong>.</div></div>
         <div class="phase-row"><div class="p-dot"></div><div>Both roll d20. Highest wins Turn 1 initiative. Reroll ties.</div></div>
         <div class="phase-row"><div class="p-dot"></div><div>Alternate placing models. Initiative player places first.</div></div>
-        <div class="callout" style="margin-top:8px;background:#FFD700;">🍺 <strong>The Table Is the Terrain.</strong> All objects count as Clutter (Scavenge) and Cover (+4 Def). No terrain pieces needed.</div>
+        <div class="callout" style="margin-top:8px;background:#FFD700;">🍺 <strong>The table is the terrain.</strong> All objects = <strong>Clutter</strong> (Scavenge) and <strong>Cover</strong> (+4 Def).</div>
       </div>
     </div>
     <div class="sec">
@@ -131,7 +132,6 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
     </div>
   </div>
 
-  <!-- TURN STRUCTURE -->
   <div class="sec">
     <div class="sec-head" style="background:#9B50E0;"><h2 style="color:#fff;">🔄 Turn Structure — 4 turns or until one squad is fully KO'd</h2></div>
     <div class="sec-body">
@@ -142,7 +142,7 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
             <div class="phase-row"><div class="p-dot"></div><div>Return all model cards to upright.</div></div>
             <div class="phase-row"><div class="p-dot"></div><div>Gain <strong>1 Order Token</strong> per model on the table.</div></div>
             <div class="phase-row"><div class="p-dot"></div><div>Place a <strong>Command Token</strong> beside your BB (if alive).</div></div>
-            <div class="phase-row"><div class="p-dot"></div><div>Draw <strong>1 Gear card per model on the table</strong>. <span class="new">v9</span></div></div>
+            <div class="phase-row"><div class="p-dot"></div><div>Draw <strong>1 Gear card per model</strong> on the table.</div></div>
             <div class="phase-row"><div class="p-dot"></div><div><strong>Bid initiative (T2+):</strong> both bid 1 card face-down, reveal, highest tip wins, both discarded. No bids = holder keeps. Tied = whoever didn't have it last turn.</div></div>
           </div>
         </div>
@@ -151,39 +151,37 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
           <div class="phase-b">
             <div class="phase-row"><div class="p-dot"></div><div>Initiative player chooses who activates first, then <strong>alternate</strong>.</div></div>
             <div class="phase-row"><div class="p-dot"></div><div><strong>1 Order Token = activate 1 model.</strong> Rotate card sideways.</div></div>
-            <div class="phase-row"><div class="p-dot"></div><div>Each activation: <strong>Move + 1 Action + 1 buff/Free card</strong> (see Actions). <span class="new">v9</span></div></div>
-            <div class="phase-row"><div class="p-dot"></div><div><strong>Command Token:</strong> activates any model, even one already activated (once/model/turn unless Colonel). Lost if BB KO'd.</div></div>
+            <div class="phase-row"><div class="p-dot"></div><div>Each activation: <strong>Move + 1 Action + 1 buff/Free card</strong>.</div></div>
+            <div class="phase-row"><div class="p-dot"></div><div><strong>Command Token:</strong> activates any model, even one already activated (1/model/turn unless Colonel). Lost if BB KO'd.</div></div>
             <div class="phase-row"><div class="p-dot"></div><div><strong>Pass</strong> when out of tokens or by choice. Phase ends when both pass.</div></div>
           </div>
         </div>
         <div class="phase">
           <div class="phase-h" style="background:#FFD700;">3 — End Phase</div>
           <div class="phase-b">
-            <div class="phase-row"><div class="p-dot"></div><div><strong>1.</strong> Any <strong>unengaged</strong> model within 1" of a Prize claims it: <strong>+3 pts</strong>, remove token. <span class="new">v9</span></div></div>
+            <div class="phase-row"><div class="p-dot"></div><div><strong>1.</strong> Any <strong>unengaged</strong> model within 1" of a Prize claims it: <strong>+3 pts</strong>, remove token.</div></div>
             <div class="phase-row"><div class="p-dot"></div><div><strong>2.</strong> Check for victory.</div></div>
-            <div class="phase-row"><div class="p-dot"></div><div><strong>3.</strong> Discard down to <strong>7 cards</strong>. <span class="new">v9</span></div></div>
-            <div class="callout" style="margin-top:6px;background:#FFD700;">Multiple friendly models on one prize — controlling player chooses who claims.</div>
+            <div class="phase-row"><div class="p-dot"></div><div><strong>3.</strong> Discard down to <strong>7 cards</strong>.</div></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ACTIONS + COMBAT -->
   <div class="g2" style="gap:14px;">
     <div class="sec">
       <div class="sec-head" style="background:#8BC34A;"><h2>⚔️ Actions <span class="new">v9</span></h2></div>
       <div class="sec-body">
-        <div class="callout" style="background:#1a0a00;color:#FFD700;margin-bottom:8px;border-color:#FFD700;">⚡ <strong>Each activation: Move up to Speed + ONE Action + ONE buff/Free card.</strong> Action = Fist Fight OR play 1 Order card OR use BB ability. (Can't Fist Fight <em>and</em> play an Order card — they share the slot.)</div>
+        <div class="callout" style="background:#1a0a00;color:#e8d090;margin-bottom:8px;border-color:#FFD700;">⚡ <strong style="color:#FFD700;">You always MOVE (up to Speed) + take ONE Action + may play ONE buff/Free.</strong> The move and the action are separate — you can move AND act.</div>
         <div style="display:flex;flex-direction:column;gap:6px;">
           <div class="action">
-            <div class="action-name">⚔️ Move &amp; Hit <span style="font-size:10px;color:#888;font-style:italic;font-family:Nunito;">(default)</span></div>
-            <div class="action-desc">Move up to Speed, then Fist Fight an engaged enemy.</div>
+            <div class="action-name">⚔️ Move &amp; Act <span style="font-size:9px;color:#888;font-style:italic;font-family:Nunito;">(default)</span></div>
+            <div class="action-desc">Move up to Speed, then <strong>Fist Fight</strong> an engaged enemy <strong>OR play 1 Order card</strong> (ranged, heal, etc.).</div>
             <div class="action-note">⚠️ Provokes Retaliation when moving while engaged.</div>
           </div>
           <div class="action">
             <div class="action-name">🥊 Stand Your Ground</div>
-            <div class="action-desc">No movement → Fist Fight. <strong>Scrapper: +1 attack die. Brute: +1 defence die</strong> until next activation.</div>
+            <div class="action-desc">No movement → Fist Fight. <strong>Scrapper: +1 attack die. Brute: +1 defence die</strong> till next activation.</div>
           </div>
           <div class="action">
             <div class="action-name">💨 Leg It</div>
@@ -244,12 +242,11 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
           <div class="box"><div class="box-head">👥 Gang Up <span class="am">v9</span></div><p>Scrappers +1 atk die per friendly Scrapper within 4" (max +2). <strong>Primary Fist Fight only</strong> — not free/reaction FFs.</p></div>
           <div class="box"><div class="box-head">⚔️ Retaliation</div><p>Move away / ranged card while engaged → each engaged enemy free FFs first (before action). Provoker KO'd = action cancelled. No Gang Up. No chaining.</p></div>
         </div>
-        <div class="callout" style="margin-top:8px;background:#FFD700;"><strong>Ranged (Gear cards):</strong> Need LoS. <strong>Can't</strong> shoot an enemy you're engaged with. Shooting elsewhere <strong>provokes Retaliation</strong>. +1 base die never applies to ranged. <span class="new" style="margin-left:0;">v9</span></div>
+        <div class="callout" style="margin-top:8px;background:#FFD700;"><strong>Ranged (Gear cards):</strong> Need LoS. <strong>Can't</strong> shoot an enemy you're engaged with. Shooting elsewhere <strong>provokes Retaliation</strong>. +1 base die never applies to ranged.</div>
       </div>
     </div>
   </div>
 
-  <!-- BLOODIED + GEAR/ECONOMY -->
   <div class="g2" style="gap:14px;">
     <div class="sec">
       <div class="sec-head" style="background:#FF4F8B;"><h2 style="color:#fff;">🩸 Blood &amp; Bloodied</h2></div>
@@ -259,7 +256,7 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
             <div class="box-head">Losing vs Spending</div>
             <p><strong>Losing</strong> — from attacks/cards.</p>
             <p><strong>Spending</strong> — using a Desperate Act.</p>
-            <p>Both reduce blood. At 0 → KO'd, removed.</p>
+            <p>Both reduce count. At 0 → KO'd, removed.</p>
           </div>
           <div class="box">
             <div class="box-head">🔥 Bloodied = Unlock <span class="am">v9</span></div>
@@ -277,7 +274,7 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
           <div class="box"><div class="box-head"><span class="tag tr">Reaction</span></div><p>Response to a declared action. Either player, anytime.</p></div>
           <div class="box"><div class="box-head"><span class="tag tf">Free/Buff</span></div><p>One per activation, layered on top of your Action.</p></div>
         </div>
-        <div class="callout" style="background:#FF4F8B;color:#fff;margin-bottom:8px;">⚠️ <strong>Buff cap:</strong> only 1 buff/Free card per activation. A <strong>Desperate Act may stack</strong> on top (Hail-Mary lane). <span class="new" style="margin-left:0;">v9</span></div>
+        <div class="callout" style="background:#FF4F8B;color:#fff;margin-bottom:8px;">⚠️ <strong>Buff cap:</strong> only 1 buff/Free card per activation. A <strong>Desperate Act may stack</strong> on top (Hail-Mary lane).</div>
         <div class="tb-wrap" style="margin-bottom:6px;">
           <table><thead><tr><th>Card income</th><th>Amount</th></tr></thead>
           <tbody>
@@ -292,14 +289,13 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
     </div>
   </div>
 
-  <!-- BUFF / FREE CARDS -->
   <div class="sec">
     <div class="sec-head" style="background:#00C8B4;"><h2>💪 Buff &amp; Free Cards — one per activation, layered on your Action</h2></div>
     <div class="sec-body">
       <div class="g4">
         <div class="action"><div class="action-name">Broken Bottle <span class="am">→Free</span></div><div class="action-desc">+1 attack die to a FF. 👊 Bruiser: +2.</div></div>
         <div class="action"><div class="action-name">Knuckle Down <span class="new">NEW</span></div><div class="action-desc">+1 attack die next FF. <strong>Brute: +2.</strong></div></div>
-        <div class="action"><div class="action-name">Cheap Shot <span class="new">NEW</span></div><div class="action-desc">Next FF crits on Skill or 1 below. 🃏 also ignore cover.</div></div>
+        <div class="action"><div class="action-name">Cheap Shot <span class="new">NEW</span></div><div class="action-desc">Next FF crits on Skill, one below, OR one above. 🃏 also ignore cover.</div></div>
         <div class="action"><div class="action-name">Closing Time <span class="new">NEW</span></div><div class="action-desc">One model +1 atk &amp; +1 def die. 🤜 up to 2 models.</div></div>
         <div class="action"><div class="action-name">Hold the Line <span class="new">NEW</span></div><div class="action-desc">One model +2 def dice next attack. 👊 ignore crit bonus.</div></div>
         <div class="action"><div class="action-name">Get Him Lads</div><div class="action-desc">All your Scrappers +1 atk die (FFs). 🤜 also +1 def die.</div></div>
@@ -313,7 +309,6 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
     </div>
   </div>
 
-  <!-- SPECIAL CARDS -->
   <div class="sec">
     <div class="sec-head" style="background:#9B50E0;"><h2 style="color:#fff;">⭐ Special Cards — timing on card overrides normal rules. No archetype bonuses.</h2></div>
     <div class="sec-body">
@@ -330,14 +325,13 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
         </div>
         <div class="sp">
           <div class="sp-name">✂️ Cut Off <span style="font-size:10px;color:#888;font-family:Nunito;font-style:italic;font-weight:700;">×2</span></div>
-          <div class="sp-timing">When any player plays any Gear card (incl. another Cut Off).</div>
-          <div class="sp-text">That card is <strong>cancelled &amp; discarded</strong>. Costs already paid are not refunded. Chains until no further Cut Offs.</div>
+          <div class="sp-timing">When any player plays any Gear card, incl. another Cut Off.</div>
+          <div class="sp-text">That card is <strong>cancelled &amp; discarded</strong>. Costs already paid still apply. Chains until no further Cut Offs.</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- DESPERATE ACTS -->
   <div class="sec">
     <div class="sec-head" style="background:#FF4F8B;"><h2 style="color:#fff;">💥 Desperate Acts <span class="new" style="background:#fff;">v9 — rebuilt</span> — Move · Hit · Block</h2></div>
     <div class="sec-body">
@@ -362,7 +356,6 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
     </div>
   </div>
 
-  <!-- SCORING + KEY RULINGS -->
   <div class="g2" style="gap:14px;">
     <div class="sec">
       <div class="sec-head" style="background:#FFD700;"><h2>🏆 Scoring &amp; Winning <span class="am">v9</span></h2></div>
@@ -384,17 +377,20 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
       <div class="sec-head" style="background:#9B50E0;"><h2 style="color:#fff;">📌 Key Rulings</h2></div>
       <div class="sec-body">
         <div class="ruling-grid">
+          <div class="ruling ruling-new"><strong>Move &amp; Action</strong>You always move AND take one Action. FF and Order card share the slot.</div>
           <div class="ruling ruling-new"><strong>Crit vs Crit</strong>A Crit Block cancels a Crit attack (or two Hits).</div>
-          <div class="ruling ruling-new"><strong>Nat 1</strong>Auto-fail on attack AND defence dice.</div>
-          <div class="ruling ruling-new"><strong>Defence scaling</strong>Roll 1 defence die per landed attack die, + bonuses.</div>
+          <div class="ruling ruling-new"><strong>Natural 1</strong>Auto-fail on attack AND defence dice.</div>
+          <div class="ruling ruling-new"><strong>Defence scaling</strong>Roll 1 defence die per landed attack die, plus bonuses.</div>
           <div class="ruling ruling-new"><strong>+1 base die</strong>Fist Fights only — never ranged cards.</div>
-          <div class="ruling ruling-new"><strong>Buff cap</strong>1 buff/Free card per activation; a DA may stack on top.</div>
+          <div class="ruling ruling-new"><strong>Buff cap</strong>1 buff/Free per activation. A DA may stack on top.</div>
           <div class="ruling ruling-new"><strong>Desperate Acts</strong>Never below 1 blood. 1/activation (2 if Bloodied).</div>
           <div class="ruling ruling-new"><strong>Ranged + engaged</strong>Can't shoot who you're engaged with; shooting elsewhere provokes Retaliation.</div>
-          <div class="ruling ruling-new"><strong>BB ability</strong>Is your Action for that activation.</div>
+          <div class="ruling ruling-new"><strong>Scavenge</strong>Free Action, once/turn, touching Clutter. Not your Action.</div>
+          <div class="ruling ruling-new"><strong>Card economy</strong>Open 5 · draw 1/model · hand cap 7.</div>
+          <div class="ruling ruling-new"><strong>BB ability</strong>An Active ability IS your Action that activation.</div>
           <div class="ruling"><strong>Gang Up</strong>Primary Fist Fight only — not free/reaction FFs.</div>
-          <div class="ruling"><strong>Retaliation KO</strong>Provoker KO'd → remaining retaliations cancelled. No chaining.</div>
-          <div class="ruling"><strong>Self-KO</strong>Opponent scores regardless of cause (incl. BB area effects).</div>
+          <div class="ruling"><strong>Retaliation KO</strong>Provoker KO'd mid-chain → remaining retaliations cancel.</div>
+          <div class="ruling"><strong>Self-KO</strong>Opponent scores regardless of cause — but a DA can't self-KO.</div>
           <div class="ruling"><strong>Last Stand (card)</strong>Triggers on losing last blood, not on spending. Once/game/model.</div>
           <div class="ruling"><strong>Flying Drunk</strong>Must end in an unoccupied space. No Retaliation.</div>
           <div class="ruling"><strong>Bessie passive</strong>Immune to all movement-reducing effects incl. Greasy Floor.</div>
@@ -402,7 +398,7 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
           <div class="ruling"><strong>Ankle Biter</strong>No effect if target has 0 Order Tokens.</div>
           <div class="ruling"><strong>Colonel Tactical Genius</strong>Both CTs may target one model — up to 3 activations.</div>
           <div class="ruling"><strong>Table Flip</strong>Enemies only.</div>
-          <div class="ruling"><strong>Ashtray splash</strong>Friend &amp; foe within 2" of target. No roll.</div>
+          <div class="ruling"><strong>Ashtray splash</strong>Friend &amp; foe within 2" of target (3" Mob Boss). No roll.</div>
           <div class="ruling"><strong>Bar Stool</strong>Brutes only. 👊 Bruiser BB: any squad model may play.</div>
           <div class="ruling"><strong>Maggie passive</strong>+1 die per 2 blood below max (7), max +3.</div>
           <div class="ruling"><strong>Dart</strong>Ignores cover; no bonus defence dice may be added.</div>
@@ -420,5 +416,4 @@ td{padding:5px 10px;color:#111;font-weight:700;font-size:12px;vertical-align:top
     document.getElementById('printBtn').addEventListener('click',function(){window.print();});
   });
 </script>
-
 </body></html>
