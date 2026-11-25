@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Tavern Brawl">
 <meta name="theme-color" content="#111111">
-<title>Tavern Brawl Tracker</title>
+<title>Tavern Brawl Tracker — v9.2</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@700;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;touch-action:manipulation;}
@@ -108,6 +108,8 @@ body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-
   .ord{width:44px;height:44px;border-radius:50%;border:3px solid #111;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;box-shadow:2px 2px 0 #111;transition:transform .1s;line-height:1;flex-shrink:0;aspect-ratio:1/1;}
   .ord:active{transform:scale(.86);}
   .ord.used{background:#d0d0d0 !important;border-color:#aaa !important;box-shadow:1px 1px 0 #aaa !important;color:#888;}
+  .ord-row{display:flex;gap:3px;align-items:center;justify-content:center;}
+  .ord.pair{width:30px;height:30px;font-size:14px;border-width:2.5px;}
   .ord-lbl{font-family:'Bangers',cursive;font-size:8px;color:#999;letter-spacing:.06em;margin-top:2px;}
 
   .blood{display:flex;align-items:center;gap:7px;padding:0 9px;border-left:2px dashed #e0d8c0;flex-shrink:0;}
@@ -123,6 +125,8 @@ body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-
   /* Scale controls down as the squad grows so nothing distorts */
   .models-wrap.count4 .ord{width:38px;height:38px;font-size:17px;border-width:2.5px;}
   .models-wrap.count5 .ord{width:34px;height:34px;font-size:15px;border-width:2.5px;}
+  .models-wrap.count4 .ord.pair{width:26px;height:26px;font-size:12px;}
+  .models-wrap.count5 .ord.pair{width:22px;height:22px;font-size:11px;}
   .models-wrap.count4 .bbtn{width:40px;height:40px;font-size:24px;}
   .models-wrap.count5 .bbtn{width:36px;height:36px;font-size:22px;}
   .models-wrap.count4 .bnum{font-size:28px;min-width:48px;}
@@ -192,7 +196,7 @@ body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-
   <div class="modal-bg" id="prize-modal">
     <div class="modal-box">
       <div class="modal-title" id="pz-title">🏆 CLAIM PRIZES</div>
-      <div class="modal-note">Any unengaged model within 1" of a prize claims it (+3 pts).</div>
+      <div class="modal-note">Unengaged model within 1" claims it (+3). Both sides on it? Contested — pick No one.</div>
       <div id="pz-rows"></div>
       <button class="btn-main" id="pz-confirm" style="margin-top:6px;">CONFIRM &amp; CONTINUE</button>
     </div>
@@ -202,14 +206,14 @@ body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-
 <script>
   const COLORS=[{bg:'#FFD700'},{bg:'#00C8B4'},{bg:'#FF4F8B'},{bg:'#8BC34A'},{bg:'#3B82F6'},{bg:'#F97316'},{bg:'#A855F7'},{bg:'#34D399'},{bg:'#FB923C'},{bg:'#EF4444'}];
   const BB=[
-    {name:'Big Sal',grit:9},{name:'Mad Maggie',grit:7},{name:'Brickhouse Barry',grit:8},
-    {name:'Barmaid Bessie',grit:5},{name:'Lucky Lenny',grit:4},{name:'One-Eyed McGee',grit:5},
-    {name:'The Colonel',grit:6},{name:'Mother Malone',grit:7},{name:'Tiny',grit:5},{name:'Slick Vince',grit:5}
+    {name:'Big Sal',grit:7},{name:'Mad Maggie',grit:5},{name:'Brickhouse Barry',grit:8},
+    {name:'Barmaid Bessie',grit:8},{name:'Lucky Lenny',grit:5},{name:'One-Eyed McGee',grit:6},
+    {name:'The Colonel',grit:6},{name:'Mother Malone',grit:7},{name:'Tiny',grit:7},{name:'Slick Vince',grit:5}
   ];
   let mid=0; const nm=()=>++mid;
   let gColor=0;
   function mkPlayer(n){return {name:n,score:0,bbIdx:null,budget:4,models:[],cmdMax:1,cmdUsed:0};}
-  function mkModel(type,name,max,num){const ci=gColor%COLORS.length;gColor++;return {id:nm(),type,name,max,cur:max,ci,ko:false,activated:false,num:num||0,bbBld:false};}
+  function mkModel(type,name,max,num){const ci=gColor%COLORS.length;gColor++;return {id:nm(),type,name,max,cur:max,ci,ko:false,ordersMax:type==='brute'?2:1,ordersUsed:0,num:num||0,bbBld:false};}
   function dispName(models,m){if(m.type==='bb')return m.name;const l=m.type==='scrapper'?'Scrapper':'Brute';return models.filter(x=>x.type===m.type).length>1?l+' '+m.num:l;}
   function isBloodied(m){if(m.ko)return false;if(m.type==='bb')return m.bbBld;return m.cur<=Math.floor(m.max/2);}
 
@@ -220,7 +224,7 @@ body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-
   function addMdl(pi,type){const p=S.players[pi],c=type==='scrapper'?1:2;if(p.budget<c)return;p.budget-=c;const num=p.models.filter(m=>m.type===type).length+1;p.models.push(mkModel(type,type==='scrapper'?'Scrapper':'Brute',type==='scrapper'?4:7,num));render();}
   function rmMdl(pi,id){const p=S.players[pi],m=p.models.find(x=>x.id===id);if(!m)return;if(m.type==='bb'){p.bbIdx=null;p.cmdMax=1;S.editBB=true;}else p.budget+=m.type==='scrapper'?1:2;p.models=p.models.filter(x=>x.id!==id);if(m.type!=='bb'){let n=1;p.models.filter(x=>x.type===m.type).forEach(x=>{x.num=n++;});}render();}
   function cycColor(pi,id){const m=S.players[pi].models.find(x=>x.id===id);if(m){m.ci=(m.ci+1)%COLORS.length;render();}}
-  function toggleOrd(pi,id){const m=S.players[pi].models.find(x=>x.id===id);if(m&&!m.ko){m.activated=!m.activated;render();}}
+  function toggleOrd(pi,id,idx){const m=S.players[pi].models.find(x=>x.id===id);if(!m||m.ko)return;const i=isNaN(idx)?0:idx;if(i<m.ordersUsed)m.ordersUsed=i;else if(m.ordersUsed<m.ordersMax)m.ordersUsed++;render();}
   function tapCmd(pi){const p=S.players[pi],bb=p.models.find(m=>m.type==='bb');if(!bb||bb.ko)return;p.cmdUsed=(p.cmdUsed+1)>p.cmdMax?0:p.cmdUsed+1;render();}
   function flipInit(){S.init=S.init===0?1:0;render();}
   function chBlood(pi,id,d){
@@ -251,7 +255,7 @@ body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-
   function proceedTurn(){
     if(S.turn>=4){S.screen='end';setWinner();render();return;}
     S.turn++;
-    S.players.forEach(p=>{p.cmdUsed=0;p.models.forEach(m=>{m.activated=false;});});
+    S.players.forEach(p=>{p.cmdUsed=0;p.models.forEach(m=>{m.ordersUsed=0;});});
     showToast('⚡ TURN '+S.turn+' — ORDERS RESET');
     render();
   }
@@ -284,7 +288,7 @@ body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-
   function showToast(msg){const c=document.getElementById('toast-c'),t=document.createElement('div');t.className='toast';t.textContent=msg;c.appendChild(t);setTimeout(()=>t.remove(),1900);}
 
   function render(){const a=document.getElementById('app');if(S.screen==='welcome')a.innerHTML=rWelcome();else if(S.screen==='setup')a.innerHTML=rSetup();else if(S.screen==='game')a.innerHTML=rGame();else if(S.screen==='end')a.innerHTML=rEnd();attach();}
-  function rWelcome(){return `<div class="welcome"><div class="welcome-icon">🍺</div><div class="welcome-title">TAVERN<br>BRAWL</div><div class="welcome-sub">BLOOD · ORDERS · SCORE</div><button class="btn-main" id="btn-go-setup">START GAME</button></div>`;}
+  function rWelcome(){return `<div class="welcome"><div class="welcome-icon">🍺</div><div class="welcome-title">TAVERN<br>BRAWL</div><div class="welcome-sub">v9.2 · BLOOD · ORDERS · SCORE</div><button class="btn-main" id="btn-go-setup">START GAME</button></div>`;}
 
   function rSetup(){
     const pi=S.sp,p=S.players[pi],valid=p.bbIdx!==null,last=pi===1;
@@ -301,24 +305,29 @@ body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-
 
     const sq=p.models.map(m=>{const col=COLORS[m.ci];const dn=dispName(p.models,m);return `<div class="squad-item"><div class="sw-btn" style="background:${col.bg}" data-a="cyc" data-pi="${pi}" data-id="${m.id}"></div><span class="squad-item-txt">${dn} <small>❤️${m.max}${m.type==='bb'?' · Free':m.type==='scrapper'?' · 1pt':' · 2pt'}</small></span><button class="sq-rm" data-a="rm" data-pi="${pi}" data-id="${m.id}">✕</button></div>`;}).join('');
     const addControls = p.budget>0
-      ? `<div class="budget-row"><span class="budget-lbl">Points left: <span class="budget-num">${p.budget}</span></span></div><div class="add-row"><button class="add-btn sc" data-a="addsc" data-pi="${pi}" ${p.budget<1?'disabled':''}>+ SCRAPPER<br><small style="font-family:Nunito;font-size:10px">1pt · ❤️4</small></button><button class="add-btn br" data-a="addbr" data-pi="${pi}" ${p.budget<2?'disabled':''}>+ BRUTE<br><small style="font-family:Nunito;font-size:10px">2pt · ❤️7</small></button></div>`
+      ? `<div class="budget-row"><span class="budget-lbl">Points left: <span class="budget-num">${p.budget}</span></span></div><div class="add-row"><button class="add-btn sc" data-a="addsc" data-pi="${pi}" ${p.budget<1?'disabled':''}>+ SCRAPPER<br><small style="font-family:Nunito;font-size:10px">1pt · ❤️4 · 1 order</small></button><button class="add-btn br" data-a="addbr" data-pi="${pi}" ${p.budget<2?'disabled':''}>+ BRUTE<br><small style="font-family:Nunito;font-size:10px">2pt · ❤️7 · 2 orders</small></button></div>`
       : `<div class="full-msg">✅ ALL 4 POINTS SPENT</div>`;
     const crewList = sq?`<div class="squad-list">${sq}</div><div class="hint">🎨 Tap a colour dot to change a unit's colour</div>`:`<div style="text-align:center;color:#bbb;font-size:11px;font-weight:700;padding:4px 0">Add your crew below</div>`;
     const crewSection=`<div class="sbox"><div class="sbox-head">👥 ADD CREW — 4 POINTS</div><div class="sbox-body">${addControls}${crewList}</div></div>`;
 
-    return `<div class="setup"><div class="setup-head"><h1>TAVERN BRAWL</h1><div class="sub">BUILD YOUR SQUAD</div></div><div class="setup-body"><div class="pdots"><div class="pdot${S.sp>0?' done':' act'}"></div><div class="pdot${S.sp===1?' act':''}"></div></div><div class="sbox"><div class="sbox-head">👤 PLAYER ${pi+1} NAME</div><div class="sbox-body"><input class="name-inp" type="text" value="${p.name}" placeholder="Enter name..." data-a="setname" data-pi="${pi}" maxlength="14"></div></div>${bbSection}${crewSection}</div><div class="setup-foot"><button class="btn-main" id="btn-nxt" ${!valid?'disabled':''}>${last?'🍺 START BRAWL!':'NEXT PLAYER →'}</button></div></div>`;
+    return `<div class="setup"><div class="setup-head"><h1>TAVERN BRAWL</h1><div class="sub">v9.2 · BUILD YOUR SQUAD</div></div><div class="setup-body"><div class="pdots"><div class="pdot${S.sp>0?' done':' act'}"></div><div class="pdot${S.sp===1?' act':''}"></div></div><div class="sbox"><div class="sbox-head">👤 PLAYER ${pi+1} NAME</div><div class="sbox-body"><input class="name-inp" type="text" value="${p.name}" placeholder="Enter name..." data-a="setname" data-pi="${pi}" maxlength="14"></div></div>${bbSection}${crewSection}</div><div class="setup-foot"><button class="btn-main" id="btn-nxt" ${!valid?'disabled':''}>${last?'🍺 START BRAWL!':'NEXT PLAYER →'}</button></div></div>`;
   }
 
   function rModel(m,pi,all){
     const col=COLORS[m.ci];const bl=isBloodied(m);const dn=dispName(all,m);
     const tl=m.type==='bb'?'BB':m.type==='scrapper'?'SCRAP':'BRUTE';
-    const ordUsed=m.activated||m.ko;
-    const ordStyle=ordUsed?'':`background:${col.bg};border-color:#111;`;
+    let ords='';
+    for(let i=0;i<(m.ordersMax||1);i++){
+      const used=m.ko||i<m.ordersUsed;
+      const cls=(m.ordersMax>1?' pair':'')+(used?' used':'');
+      const ordStyle=used?'':`background:${col.bg};border-color:#111;`;
+      ords+=`<div class="ord${cls}" style="${ordStyle}" data-a="ord" data-pi="${pi}" data-id="${m.id}" data-idx="${i}">${used?'✕':'★'}</div>`;
+    }
     const bnumCls=(bl?' bl':'')+(m.ko?' ko':'');
     return `<div class="m${m.ko?' ko':''}">
       <div class="m-stripe" style="background:${col.bg}"></div>
       <div class="m-mid"><div class="m-name">${dn}</div><div class="m-tags"><span class="m-tag t-type">${tl}</span>${bl?'<span class="m-tag t-bld">🩸 BLD</span>':''}${m.ko?'<span class="m-tag t-ko">💀 KO</span>':''}</div></div>
-      <div class="ord-wrap"><div class="ord${ordUsed?' used':''}" style="${ordStyle}" data-a="ord" data-pi="${pi}" data-id="${m.id}">${ordUsed?'✕':'★'}</div><span class="ord-lbl">ORD</span></div>
+      <div class="ord-wrap"><div class="ord-row">${ords}</div><span class="ord-lbl">${m.ordersMax>1?'2 ORD':'ORD'}</span></div>
       <div class="blood"><button class="bbtn minus" data-a="bm" data-pi="${pi}" data-id="${m.id}" ${m.ko?'disabled':''}>−</button><div class="bnum${bnumCls}">${m.ko?'💀':m.cur}<sub>/${m.max}</sub></div><button class="bbtn plus" data-a="bp" data-pi="${pi}" data-id="${m.id}" ${(!m.ko&&m.cur>=m.max)?'disabled':''}>+</button></div>
     </div>`;
   }
@@ -364,7 +373,7 @@ body{width:100%;height:100vh;height:100dvh;overflow:hidden;background:#111;font-
       case 'addbr':addMdl(pi,'brute');break;
       case 'rm':rmMdl(pi,id);break;
       case 'cyc':cycColor(pi,id);break;
-      case 'ord':toggleOrd(pi,id);break;
+      case 'ord':toggleOrd(pi,id,parseInt(el.dataset.idx));break;
       case 'cmd':tapCmd(pi);break;
       case 'init':flipInit();break;
       case 'bm':chBlood(pi,id,-1);break;
